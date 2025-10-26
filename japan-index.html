@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Japan Whisky Index — 日本のウイスキー蒸溜所（英語名＋検索＋県タグ）</title>
+<meta name="description" content="日本全国のウイスキー蒸溜所を地域別に一覧化。検索は日本語・英語・会社名・都道府県に対応。">
+<style>
+  :root{
+    --bg:#1b1917; --panel:#201f1d; --ink:#f6f1e9; --muted:#b9b2a6; --accent:#e5c47b; --chip:#2a2724; --border:#2e2a26;
+  }
+  html,body{
+    background:radial-gradient(1200px 800px at 45% 12%, #23211f 0%, #1b1917 60%, #141311 100%);
+    color:var(--ink); margin:0; font-family:"Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",system-ui,sans-serif;
+  }
+  .wrap{max-width:1100px; margin:28px auto; padding:0 16px;}
+  header{margin-bottom:16px}
+  h1{font-size:30px; font-weight:800; letter-spacing:.02em; margin:0 0 8px;color:var(--accent);}
+  .subtitle{color:var(--muted); margin:0 0 14px; line-height:1.6}
+  .controls{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin:6px 0 18px}
+  .search{flex:1; min-width:260px; position:relative}
+  input[type="search"]{
+    width:100%; padding:12px 14px; background:#12100f; color:var(--ink);
+    border:1px solid var(--border); border-radius:12px; font-size:16px; outline:none;
+  }
+  .suggest{position:absolute; left:0; right:0; background:#201f1d; border:1px solid rgba(229,196,123,.3); border-radius:10px;
+    margin-top:6px; max-height:280px; overflow:auto; width:100%; z-index:50; display:none;}
+  .suggest a{display:flex; justify-content:space-between; gap:10px; padding:10px 12px; text-decoration:none; color:inherit}
+  .suggest a:hover{background:#262422}
+  .district>h2{
+    font-size:20px; font-weight:800; color:var(--accent);
+    margin:18px 0 10px; letter-spacing:.02em;
+    border-bottom:1px solid rgba(229,196,123,.25); padding-bottom:4px;
+  }
+  .grid{display:grid; grid-template-columns:repeat(1,minmax(0,1fr)); gap:14px}
+  @media (min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (min-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+  .card{
+    background:radial-gradient(circle at 30% 20%, #22201e 0%, #1a1917 90%);
+    border:1px solid rgba(229,196,123,.28);
+    border-radius:16px; padding:16px;
+    box-shadow:inset 0 0 10px rgba(0,0,0,.45), 0 2px 5px rgba(0,0,0,.4);
+    transition:transform .15s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(255,220,160,.45);
+    box-shadow:inset 0 0 12px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.45), 0 0 8px rgba(229,196,123,.18);
+  }
+  .names .jp{font-weight:800; font-size:18px;}
+  .names .en{font-size:13px; color:var(--muted);}
+  .desc{font-size:14px; color:var(--muted); line-height:1.7; margin-top:6px}
+  .meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+  .chip{font-size:11px; color:var(--ink); background:var(--chip);
+    border:1px solid var(--border); padding:4px 8px; border-radius:999px}
+  footer{color:var(--muted); font-size:12px; margin:28px 0 40px;
+    line-height:1.6; border-top:1px solid rgba(255,255,255,.05); padding-top:10px; text-align:center}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <h1>Japan Whisky Index</h1>
+    <p class="subtitle">日本のウイスキー蒸溜所を地域別に一覧化。検索は <strong>日本語</strong>・<strong>英語</strong>・<strong>会社名</strong>・<strong>都道府県</strong> に対応。</p>
+    <div class="controls">
+      <div class="search">
+        <input id="q" type="search" placeholder="検索：例）山崎／Yamazaki／ニッカウヰスキー／大阪…">
+        <div id="sg" class="suggest"></div>
+      </div>
+    </div>
+  </header>
+  
+<section class="district">
+  <h2>北海道地方</h2>
+  <div class="grid">
+    
+  <article class="card" id="余市蒸溜所" data-jp="余市蒸溜所" data-en="Yoichi Distillery" data-company="ニッカウヰスキー" data-pref="北海道">
+    <div class="names">
+      <div class="jp">余市蒸溜所</div>
+      <div class="en">Yoichi Distillery</div>
+    </div>
+    <div class="desc">ニッカウヰスキー</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  <article class="card" id="厚岸蒸溜所" data-jp="厚岸蒸溜所" data-en="Akkeshi Distillery" data-company="堅展実業" data-pref="北海道">
+    <div class="names">
+      <div class="jp">厚岸蒸溜所</div>
+      <div class="en">Akkeshi Distillery</div>
+    </div>
+    <div class="desc">堅展実業</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  <article class="card" id="紅櫻蒸溜所" data-jp="紅櫻蒸溜所" data-en="Benizakura Distillery" data-company="株式会社エイジ／北海道自由ウイスキー株式会社" data-pref="北海道">
+    <div class="names">
+      <div class="jp">紅櫻蒸溜所</div>
+      <div class="en">Benizakura Distillery</div>
+    </div>
+    <div class="desc">株式会社エイジ／北海道自由ウイスキー株式会社</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  <article class="card" id="ニセコ蒸溜所" data-jp="ニセコ蒸溜所" data-en="Niseko Distillery" data-company="八海醸造" data-pref="北海道">
+    <div class="names">
+      <div class="jp">ニセコ蒸溜所</div>
+      <div class="en">Niseko Distillery</div>
+    </div>
+    <div class="desc">八海醸造</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  <article class="card" id="利尻蒸留所" data-jp="利尻蒸留所" data-en="Rishiri Distillery" data-company="カムイウイスキー株式会社" data-pref="北海道">
+    <div class="names">
+      <div class="jp">利尻蒸留所</div>
+      <div class="en">Rishiri Distillery</div>
+    </div>
+    <div class="desc">カムイウイスキー株式会社</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  <article class="card" id="馬追蒸溜所" data-jp="馬追蒸溜所" data-en="Maoi Distillery" data-company="株式会社エイジ／MAOI株式会社" data-pref="北海道">
+    <div class="names">
+      <div class="jp">馬追蒸溜所</div>
+      <div class="en">Maoi Distillery</div>
+    </div>
+    <div class="desc">株式会社エイジ／MAOI株式会社</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  <article class="card" id="ディトリッパー蒸留所" data-jp="ディ・トリッパー蒸留所" data-en="De Tripper Distillery" data-company="BEHIND THE CASK" data-pref="北海道">
+    <div class="names">
+      <div class="jp">ディ・トリッパー蒸留所</div>
+      <div class="en">De Tripper Distillery</div>
+    </div>
+    <div class="desc">BEHIND THE CASK</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  <article class="card" id="苫小牧蒸留所" data-jp="苫小牧蒸留所" data-en="Tomakomai Distillery" data-company="株式会社ベンチャーグレイン" data-pref="北海道">
+    <div class="names">
+      <div class="jp">苫小牧蒸留所</div>
+      <div class="en">Tomakomai Distillery</div>
+    </div>
+    <div class="desc">株式会社ベンチャーグレイン</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  <article class="card" id="千歳蒸溜所" data-jp="千歳蒸溜所" data-en="Chitose Distillery" data-company="米国IJW傘下シダーフィールド" data-pref="北海道">
+    <div class="names">
+      <div class="jp">千歳蒸溜所</div>
+      <div class="en">Chitose Distillery</div>
+    </div>
+    <div class="desc">米国IJW傘下シダーフィールド</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  <article class="card" id="十勝蒸留所" data-jp="十勝蒸留所" data-en="Tokachi Distillery" data-company="長谷川産業" data-pref="北海道">
+    <div class="names">
+      <div class="jp">十勝蒸留所</div>
+      <div class="en">Tokachi Distillery</div>
+    </div>
+    <div class="desc">長谷川産業</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  <article class="card" id="上富良野蒸留所" data-jp="上富良野蒸留所" data-en="Kamifurano Distillery" data-company="WHISTECH株式会社" data-pref="北海道">
+    <div class="names">
+      <div class="jp">上富良野蒸留所</div>
+      <div class="en">Kamifurano Distillery</div>
+    </div>
+    <div class="desc">WHISTECH株式会社</div>
+    <div class="meta"><span class="chip">北海道地方</span><span class="chip">北海道</span></div>
+  </article>
+
+  </div>
+</section>
+
+<section class="district">
+  <h2>東北地方</h2>
+  <div class="grid">
+    
+  <article class="card" id="宮城峡蒸溜所" data-jp="宮城峡蒸溜所" data-en="Miyagikyo Distillery" data-company="ニッカウヰスキー" data-pref="宮城県">
+    <div class="names">
+      <div class="jp">宮城峡蒸溜所</div>
+      <div class="en">Miyagikyo Distillery</div>
+    </div>
+    <div class="desc">ニッカウヰスキー</div>
+    <div class="meta"><span class="chip">東北地方</span><span class="chip">宮城県</span></div>
+  </article>
+
+  <article class="card" id="遊佐蒸溜所" data-jp="遊佐蒸溜所" data-en="Yuza Distillery" data-company="金龍" data-pref="山形県">
+    <div class="names">
+      <div class="jp">遊佐蒸溜所</div>
+      <div class="en">Yuza Distillery</div>
+    </div>
+    <div class="desc">金龍</div>
+    <div class="meta"><span class="chip">東北地方</span><span class="chip">山形県</span></div>
+  </article>
+
+  <article class="card" id="安積蒸溜所" data-jp="安積蒸溜所" data-en="Asaka Distillery" data-company="笹の川酒造" data-pref="福島県">
+    <div class="names">
+      <div class="jp">安積蒸溜所</div>
+      <div class="en">Asaka Distillery</div>
+    </div>
+    <div class="desc">笹の川酒造</div>
+    <div class="meta"><span class="chip">東北地方</span><span class="chip">福島県</span></div>
+  </article>
+
+  <article class="card" id="秋田蒸溜所" data-jp="秋田蒸溜所" data-en="Akita Distillery" data-company="ドリームリンク" data-pref="秋田県">
+    <div class="names">
+      <div class="jp">秋田蒸溜所</div>
+      <div class="en">Akita Distillery</div>
+    </div>
+    <div class="desc">ドリームリンク</div>
+    <div class="meta"><span class="chip">東北地方</span><span class="chip">秋田県</span></div>
+  </article>
+
+  <article class="card" id="月光川蒸留所" data-jp="月光川蒸留所" data-en="Gakkogawa Distillery" data-company="楯の川酒造" data-pref="山形県">
+    <div class="names">
+      <div class="jp">月光川蒸留所</div>
+      <div class="en">Gakkogawa Distillery</div>
+    </div>
+    <div class="desc">楯の川酒造</div>
+    <div class="meta"><span class="chip">東北地方</span><span class="chip">山形県</span></div>
+  </article>
+
+  </div>
+</section>
+
+<section class="district">
+  <h2>関東地方</h2>
+  <div class="grid">
+    
+  <article class="card" id="秩父蒸溜所" data-jp="秩父蒸溜所" data-en="Chichibu Distillery" data-company="ベンチャーウイスキー" data-pref="埼玉県">
+    <div class="names">
+      <div class="jp">秩父蒸溜所</div>
+      <div class="en">Chichibu Distillery</div>
+    </div>
+    <div class="desc">ベンチャーウイスキー</div>
+    <div class="meta"><span class="chip">関東地方</span><span class="chip">埼玉県</span></div>
+  </article>
+
+  <article class="card" id="秩父第2蒸溜所" data-jp="秩父第2蒸溜所" data-en="Chichibu #2 Distillery" data-company="ベンチャーウイスキー" data-pref="埼玉県">
+    <div class="names">
+      <div class="jp">秩父第2蒸溜所</div>
+      <div class="en">Chichibu #2 Distillery</div>
+    </div>
+    <div class="desc">ベンチャーウイスキー</div>
+    <div class="meta"><span class="chip">関東地方</span><span class="chip">埼玉県</span></div>
+  </article>
+
+  <article class="card" id="額田醸造所八郷蒸溜所" data-jp="額田醸造所／八郷蒸溜所" data-en="Nukada Brewery / Yasato Distillery" data-company="木内酒造" data-pref="茨城県">
+    <div class="names">
+      <div class="jp">額田醸造所／八郷蒸溜所</div>
+      <div class="en">Nukada Brewery / Yasato Distillery</div>
+    </div>
+    <div class="desc">木内酒造</div>
+    <div class="meta"><span class="chip">関東地方</span><span class="chip">茨城県</span></div>
+  </article>
+
+  <article class="card" id="羽生蒸溜所" data-jp="羽生蒸溜所" data-en="Hanyu Distillery" data-company="東亜酒造" data-pref="埼玉県">
+    <div class="names">
+      <div class="jp">羽生蒸溜所</div>
+      <div class="en">Hanyu Distillery</div>
+    </div>
+    <div class="desc">東亜酒造</div>
+    <div class="meta"><span class="chip">関東地方</span><span class="chip">埼玉県</span></div>
+  </article>
+
+  <article class="card" id="鴻巣蒸溜所" data-jp="鴻巣蒸溜所" data-en="Kounosu Distillery" data-company="光酒造" data-pref="埼玉県">
+    <div class="names">
+      <div class="jp">鴻巣蒸溜所</div>
+      <div class="en">Kounosu Distillery</div>
+    </div>
+    <div class="desc">光酒造</div>
+    <div class="meta"><span class="chip">関東地方</span><span class="chip">埼玉県</span></div>
+  </article>
+
+  <article class="card" id="高藏蒸留所TAKAZODistillery" data-jp="高藏蒸留所｜TAKAZO Distillery" data-en="Takazo Distillery" data-company="明利酒類" data-pref="茨城県">
+    <div class="names">
+      <div class="jp">高藏蒸留所｜TAKAZO Distillery</div>
+      <div class="en">Takazo Distillery</div>
+    </div>
+    <div class="desc">明利酒類</div>
+    <div class="meta"><span class="chip">関東地方</span><span class="chip">茨城県</span></div>
+  </article>
+
+  <article class="card" id="日光街道小山蒸溜所" data-jp="日光街道 小山蒸溜所" data-en="Oyama Distillery (Nikkokaido)" data-company="西堀酒造" data-pref="栃木県">
+    <div class="names">
+      <div class="jp">日光街道 小山蒸溜所</div>
+      <div class="en">Oyama Distillery (Nikkokaido)</div>
+    </div>
+    <div class="desc">西堀酒造</div>
+    <div class="meta"><span class="chip">関東地方</span><span class="chip">栃木県</span></div>
+  </article>
+
+  <article class="card" id="湘南蒸留所" data-jp="湘南蒸留所" data-en="Shonan Distillery" data-company="熊澤酒造" data-pref="神奈川県">
+    <div class="names">
+      <div class="jp">湘南蒸留所</div>
+      <div class="en">Shonan Distillery</div>
+    </div>
+    <div class="desc">熊澤酒造</div>
+    <div class="meta"><span class="chip">関東地方</span><span class="chip">神奈川県</span></div>
+  </article>
+
+  <article class="card" id="北軽井沢蒸留所" data-jp="北軽井沢蒸留所" data-en="Kita-Karuizawa Distillery" data-company="株式会社LINK" data-pref="群馬県">
+    <div class="names">
+      <div class="jp">北軽井沢蒸留所</div>
+      <div class="en">Kita-Karuizawa Distillery</div>
+    </div>
+    <div class="desc">株式会社LINK</div>
+    <div class="meta"><span class="chip">関東地方</span><span class="chip">群馬県</span></div>
+  </article>
+
+  <article class="card" id="倉渕蒸留所" data-jp="倉渕蒸留所" data-en="Kurabuchi Distillery" data-company="株式会社牧野酒造" data-pref="群馬県">
+    <div class="names">
+      <div class="jp">倉渕蒸留所</div>
+      <div class="en">Kurabuchi Distillery</div>
+    </div>
+    <div class="desc">株式会社牧野酒造</div>
+    <div class="meta"><span class="chip">関東地方</span><span class="chip">群馬県</span></div>
+  </article>
+
+  </div>
+</section>
+
+<section class="district">
+  <h2>中部地方</h2>
+  <div class="grid">
+    
+  <article class="card" id="白州蒸溜所" data-jp="白州蒸溜所" data-en="Hakushu Distillery" data-company="サントリースピリッツ" data-pref="山梨県">
+    <div class="names">
+      <div class="jp">白州蒸溜所</div>
+      <div class="en">Hakushu Distillery</div>
+    </div>
+    <div class="desc">サントリースピリッツ</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">山梨県</span></div>
+  </article>
+
+  <article class="card" id="マルス駒ヶ岳蒸溜所" data-jp="マルス駒ヶ岳蒸溜所" data-en="Mars Komagatake Distillery" data-company="本坊酒造" data-pref="長野県">
+    <div class="names">
+      <div class="jp">マルス駒ヶ岳蒸溜所</div>
+      <div class="en">Mars Komagatake Distillery</div>
+    </div>
+    <div class="desc">本坊酒造</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">長野県</span></div>
+  </article>
+
+  <article class="card" id="忍蒸留所" data-jp="忍蒸留所" data-en="Shinobi Distillery" data-company="新潟麦酒" data-pref="新潟県">
+    <div class="names">
+      <div class="jp">忍蒸留所</div>
+      <div class="en">Shinobi Distillery</div>
+    </div>
+    <div class="desc">新潟麦酒</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">新潟県</span></div>
+  </article>
+
+  <article class="card" id="小諸蒸溜所" data-jp="小諸蒸溜所" data-en="Komoro Distillery" data-company="軽井沢蒸留酒製造" data-pref="長野県">
+    <div class="names">
+      <div class="jp">小諸蒸溜所</div>
+      <div class="en">Komoro Distillery</div>
+    </div>
+    <div class="desc">軽井沢蒸留酒製造</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">長野県</span></div>
+  </article>
+
+  <article class="card" id="富士御殿場蒸溜所" data-jp="富士御殿場蒸溜所" data-en="Fuji Gotemba Distillery" data-company="キリンディスティラリー" data-pref="静岡県">
+    <div class="names">
+      <div class="jp">富士御殿場蒸溜所</div>
+      <div class="en">Fuji Gotemba Distillery</div>
+    </div>
+    <div class="desc">キリンディスティラリー</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">静岡県</span></div>
+  </article>
+
+  <article class="card" id="静岡蒸溜所" data-jp="静岡蒸溜所" data-en="Shizuoka Distillery" data-company="ガイアフロー" data-pref="静岡県">
+    <div class="names">
+      <div class="jp">静岡蒸溜所</div>
+      <div class="en">Shizuoka Distillery</div>
+    </div>
+    <div class="desc">ガイアフロー</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">静岡県</span></div>
+  </article>
+
+  <article class="card" id="三郎丸蒸留所" data-jp="三郎丸蒸留所" data-en="Saburomaru Distillery" data-company="若鶴酒造" data-pref="富山県">
+    <div class="names">
+      <div class="jp">三郎丸蒸留所</div>
+      <div class="en">Saburomaru Distillery</div>
+    </div>
+    <div class="desc">若鶴酒造</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">富山県</span></div>
+  </article>
+
+  <article class="card" id="知多蒸溜所" data-jp="知多蒸溜所" data-en="Chita Distillery" data-company="サントリー" data-pref="愛知県">
+    <div class="names">
+      <div class="jp">知多蒸溜所</div>
+      <div class="en">Chita Distillery</div>
+    </div>
+    <div class="desc">サントリー</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">愛知県</span></div>
+  </article>
+
+  <article class="card" id="新潟亀田蒸溜所" data-jp="新潟亀田蒸溜所" data-en="Niigata Kameda Distillery" data-company="新潟小規模蒸溜所" data-pref="新潟県">
+    <div class="names">
+      <div class="jp">新潟亀田蒸溜所</div>
+      <div class="en">Niigata Kameda Distillery</div>
+    </div>
+    <div class="desc">新潟小規模蒸溜所</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">新潟県</span></div>
+  </article>
+
+  <article class="card" id="軽井沢ウイスキー蒸溜所" data-jp="軽井沢ウイスキー蒸溜所" data-en="Karuizawa Whisky Distillery" data-company="戸塚酒造" data-pref="長野県">
+    <div class="names">
+      <div class="jp">軽井沢ウイスキー蒸溜所</div>
+      <div class="en">Karuizawa Whisky Distillery</div>
+    </div>
+    <div class="desc">戸塚酒造</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">長野県</span></div>
+  </article>
+
+  <article class="card" id="井川蒸留所" data-jp="井川蒸留所" data-en="Ikawa Distillery" data-company="十山株式会社" data-pref="静岡県">
+    <div class="names">
+      <div class="jp">井川蒸留所</div>
+      <div class="en">Ikawa Distillery</div>
+    </div>
+    <div class="desc">十山株式会社</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">静岡県</span></div>
+  </article>
+
+  <article class="card" id="養老蒸留所" data-jp="養老蒸留所" data-en="Yoro Distillery" data-company="玉泉堂酒造" data-pref="岐阜県">
+    <div class="names">
+      <div class="jp">養老蒸留所</div>
+      <div class="en">Yoro Distillery</div>
+    </div>
+    <div class="desc">玉泉堂酒造</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">岐阜県</span></div>
+  </article>
+
+  <article class="card" id="野沢温泉蒸留所" data-jp="野沢温泉蒸留所" data-en="Nozawa Onsen Distillery" data-company="Nozawa Onsen Distillery株式会社" data-pref="長野県">
+    <div class="names">
+      <div class="jp">野沢温泉蒸留所</div>
+      <div class="en">Nozawa Onsen Distillery</div>
+    </div>
+    <div class="desc">Nozawa Onsen Distillery株式会社</div>
+    <div class="meta"><span class="chip">中部地方</span><span class="chip">長野県</span></div>
+  </article>
+
+  </div>
+</section>
+
+<section class="district">
+  <h2>関西地方</h2>
+  <div class="grid">
+    
+  <article class="card" id="山崎蒸溜所" data-jp="山崎蒸溜所" data-en="Yamazaki Distillery" data-company="サントリースピリッツ" data-pref="大阪府">
+    <div class="names">
+      <div class="jp">山崎蒸溜所</div>
+      <div class="en">Yamazaki Distillery</div>
+    </div>
+    <div class="desc">サントリースピリッツ</div>
+    <div class="meta"><span class="chip">関西地方</span><span class="chip">大阪府</span></div>
+  </article>
+
+  <article class="card" id="長濱蒸溜所" data-jp="長濱蒸溜所" data-en="Nagahama Distillery" data-company="長濱浪漫ビール" data-pref="滋賀県">
+    <div class="names">
+      <div class="jp">長濱蒸溜所</div>
+      <div class="en">Nagahama Distillery</div>
+    </div>
+    <div class="desc">長濱浪漫ビール</div>
+    <div class="meta"><span class="chip">関西地方</span><span class="chip">滋賀県</span></div>
+  </article>
+
+  <article class="card" id="京都みやこ蒸溜所" data-jp="京都みやこ蒸溜所" data-en="Kyoto Miyako Distillery" data-company="京都酒造" data-pref="京都府">
+    <div class="names">
+      <div class="jp">京都みやこ蒸溜所</div>
+      <div class="en">Kyoto Miyako Distillery</div>
+    </div>
+    <div class="desc">京都酒造</div>
+    <div class="meta"><span class="chip">関西地方</span><span class="chip">京都府</span></div>
+  </article>
+
+  <article class="card" id="海峡蒸溜所" data-jp="海峡蒸溜所" data-en="Kaikyo Distillery" data-company="明石酒類醸造株式会社" data-pref="兵庫県">
+    <div class="names">
+      <div class="jp">海峡蒸溜所</div>
+      <div class="en">Kaikyo Distillery</div>
+    </div>
+    <div class="desc">明石酒類醸造株式会社</div>
+    <div class="meta"><span class="chip">関西地方</span><span class="chip">兵庫県</span></div>
+  </article>
+
+  <article class="card" id="六甲山蒸溜所" data-jp="六甲山蒸溜所" data-en="Rokkosan Distillery" data-company="アクサスホールディングス株式会社" data-pref="兵庫県">
+    <div class="names">
+      <div class="jp">六甲山蒸溜所</div>
+      <div class="en">Rokkosan Distillery</div>
+    </div>
+    <div class="desc">アクサスホールディングス株式会社</div>
+    <div class="meta"><span class="chip">関西地方</span><span class="chip">兵庫県</span></div>
+  </article>
+
+  <article class="card" id="丹波蒸溜所" data-jp="丹波蒸溜所" data-en="Tamba Distillery" data-company="黄桜株式会社" data-pref="京都府">
+    <div class="names">
+      <div class="jp">丹波蒸溜所</div>
+      <div class="en">Tamba Distillery</div>
+    </div>
+    <div class="desc">黄桜株式会社</div>
+    <div class="meta"><span class="chip">関西地方</span><span class="chip">京都府</span></div>
+  </article>
+
+  <article class="card" id="神戸蒸溜所" data-jp="神戸蒸溜所" data-en="Kobe Distillery" data-company="株式会社グロースターズ" data-pref="兵庫県">
+    <div class="names">
+      <div class="jp">神戸蒸溜所</div>
+      <div class="en">Kobe Distillery</div>
+    </div>
+    <div class="desc">株式会社グロースターズ</div>
+    <div class="meta"><span class="chip">関西地方</span><span class="chip">兵庫県</span></div>
+  </article>
+
+  <article class="card" id="紀州熊野蒸溜所" data-jp="紀州熊野蒸溜所" data-en="Kishu Kumano Distillery" data-company="プラム食品株式会社" data-pref="和歌山県">
+    <div class="names">
+      <div class="jp">紀州熊野蒸溜所</div>
+      <div class="en">Kishu Kumano Distillery</div>
+    </div>
+    <div class="desc">プラム食品株式会社</div>
+    <div class="meta"><span class="chip">関西地方</span><span class="chip">和歌山県</span></div>
+  </article>
+
+  </div>
+</section>
+
+<section class="district">
+  <h2>中国地方</h2>
+  <div class="grid">
+    
+  <article class="card" id="倉吉蒸溜所" data-jp="倉吉蒸溜所" data-en="Kurayoshi Distillery" data-company="松井酒造" data-pref="鳥取県">
+    <div class="names">
+      <div class="jp">倉吉蒸溜所</div>
+      <div class="en">Kurayoshi Distillery</div>
+    </div>
+    <div class="desc">松井酒造</div>
+    <div class="meta"><span class="chip">中国地方</span><span class="chip">鳥取県</span></div>
+  </article>
+
+  <article class="card" id="岡山蒸溜所" data-jp="岡山蒸溜所" data-en="Okayama Distillery" data-company="宮下酒造" data-pref="岡山県">
+    <div class="names">
+      <div class="jp">岡山蒸溜所</div>
+      <div class="en">Okayama Distillery</div>
+    </div>
+    <div class="desc">宮下酒造</div>
+    <div class="meta"><span class="chip">中国地方</span><span class="chip">岡山県</span></div>
+  </article>
+
+  <article class="card" id="桜尾蒸留所" data-jp="桜尾蒸留所" data-en="Sakurao Distillery" data-company="サクラオB&amp;D" data-pref="広島県">
+    <div class="names">
+      <div class="jp">桜尾蒸留所</div>
+      <div class="en">Sakurao Distillery</div>
+    </div>
+    <div class="desc">サクラオB&amp;D</div>
+    <div class="meta"><span class="chip">中国地方</span><span class="chip">広島県</span></div>
+  </article>
+
+  <article class="card" id="SETOUCHIDISTILLERY" data-jp="SETOUCHI DISTILLERY" data-en="Setouchi Distillery" data-company="三宅本店" data-pref="広島県">
+    <div class="names">
+      <div class="jp">SETOUCHI DISTILLERY</div>
+      <div class="en">Setouchi Distillery</div>
+    </div>
+    <div class="desc">三宅本店</div>
+    <div class="meta"><span class="chip">中国地方</span><span class="chip">広島県</span></div>
+  </article>
+
+  <article class="card" id="境港蒸留所" data-jp="境港蒸留所" data-en="Sakaiminato Distillery" data-company="千代むすび酒造" data-pref="鳥取県">
+    <div class="names">
+      <div class="jp">境港蒸留所</div>
+      <div class="en">Sakaiminato Distillery</div>
+    </div>
+    <div class="desc">千代むすび酒造</div>
+    <div class="meta"><span class="chip">中国地方</span><span class="chip">鳥取県</span></div>
+  </article>
+
+  </div>
+</section>
+
+<section class="district">
+  <h2>九州・沖縄地方</h2>
+  <div class="grid">
+    
+  <article class="card" id="嘉之助蒸溜所" data-jp="嘉之助蒸溜所" data-en="Kanosuke Distillery" data-company="小正醸造" data-pref="鹿児島県">
+    <div class="names">
+      <div class="jp">嘉之助蒸溜所</div>
+      <div class="en">Kanosuke Distillery</div>
+    </div>
+    <div class="desc">小正醸造</div>
+    <div class="meta"><span class="chip">九州・沖縄地方</span><span class="chip">鹿児島県</span></div>
+  </article>
+
+  <article class="card" id="マルス津貫蒸溜所" data-jp="マルス津貫蒸溜所" data-en="Mars Tsunuki Distillery" data-company="本坊酒造" data-pref="鹿児島県">
+    <div class="names">
+      <div class="jp">マルス津貫蒸溜所</div>
+      <div class="en">Mars Tsunuki Distillery</div>
+    </div>
+    <div class="desc">本坊酒造</div>
+    <div class="meta"><span class="chip">九州・沖縄地方</span><span class="chip">鹿児島県</span></div>
+  </article>
+
+  <article class="card" id="許田蒸留所" data-jp="許田蒸留所" data-en="Kyoda Distillery" data-company="ヘリオス酒造" data-pref="沖縄県">
+    <div class="names">
+      <div class="jp">許田蒸留所</div>
+      <div class="en">Kyoda Distillery</div>
+    </div>
+    <div class="desc">ヘリオス酒造</div>
+    <div class="meta"><span class="chip">九州・沖縄地方</span><span class="chip">沖縄県</span></div>
+  </article>
+
+  <article class="card" id="久住蒸留所" data-jp="久住蒸留所" data-en="Kusu Distillery" data-company="津崎酒店" data-pref="大分県">
+    <div class="names">
+      <div class="jp">久住蒸留所</div>
+      <div class="en">Kusu Distillery</div>
+    </div>
+    <div class="desc">津崎酒店</div>
+    <div class="meta"><span class="chip">九州・沖縄地方</span><span class="chip">大分県</span></div>
+  </article>
+
+  <article class="card" id="尾鈴山蒸溜所" data-jp="尾鈴山蒸溜所" data-en="Osuzuyama Distillery" data-company="黒木本店" data-pref="宮崎県">
+    <div class="names">
+      <div class="jp">尾鈴山蒸溜所</div>
+      <div class="en">Osuzuyama Distillery</div>
+    </div>
+    <div class="desc">黒木本店</div>
+    <div class="meta"><span class="chip">九州・沖縄地方</span><span class="chip">宮崎県</span></div>
+  </article>
+
+  <article class="card" id="御岳蒸留所" data-jp="御岳蒸留所" data-en="Ontake Distillery" data-company="西酒造" data-pref="鹿児島県">
+    <div class="names">
+      <div class="jp">御岳蒸留所</div>
+      <div class="en">Ontake Distillery</div>
+    </div>
+    <div class="desc">西酒造</div>
+    <div class="meta"><span class="chip">九州・沖縄地方</span><span class="chip">鹿児島県</span></div>
+  </article>
+
+  <article class="card" id="州崎蒸留所" data-jp="州崎蒸留所" data-en="Suzaki Distillery" data-company="新里酒造" data-pref="沖縄県">
+    <div class="names">
+      <div class="jp">州崎蒸留所</div>
+      <div class="en">Suzaki Distillery</div>
+    </div>
+    <div class="desc">新里酒造</div>
+    <div class="meta"><span class="chip">九州・沖縄地方</span><span class="chip">沖縄県</span></div>
+  </article>
+
+  <article class="card" id="新道ウイスキー蒸溜所" data-jp="新道ウイスキー蒸溜所" data-en="Shindo Whisky Distillery" data-company="篠崎" data-pref="福岡県">
+    <div class="names">
+      <div class="jp">新道ウイスキー蒸溜所</div>
+      <div class="en">Shindo Whisky Distillery</div>
+    </div>
+    <div class="desc">篠崎</div>
+    <div class="meta"><span class="chip">九州・沖縄地方</span><span class="chip">福岡県</span></div>
+  </article>
+
+  <article class="card" id="山鹿蒸溜所" data-jp="山鹿蒸溜所" data-en="Yamaga Distillery" data-company="山鹿蒸溜所" data-pref="熊本県">
+    <div class="names">
+      <div class="jp">山鹿蒸溜所</div>
+      <div class="en">Yamaga Distillery</div>
+    </div>
+    <div class="desc">山鹿蒸溜所</div>
+    <div class="meta"><span class="chip">九州・沖縄地方</span><span class="chip">熊本県</span></div>
+  </article>
+
+  <article class="card" id="八女蒸溜所" data-jp="八女蒸溜所" data-en="Yame Distillery" data-company="喜多屋" data-pref="福岡県">
+    <div class="names">
+      <div class="jp">八女蒸溜所</div>
+      <div class="en">Yame Distillery</div>
+    </div>
+    <div class="desc">喜多屋</div>
+    <div class="meta"><span class="chip">九州・沖縄地方</span><span class="chip">福岡県</span></div>
+  </article>
+
+  </div>
+</section>
+
+
+   <!-- 🔙 共通戻りボタン -->
+  <div include-html="common/back-buttons.html"></div>
+</div>
+
+<script>
+/* --- 検索関連スクリプト --- */
+const cards = Array.from(document.querySelectorAll('article.card'));
+const DATA = cards.map(c => ({ 
+  id: c.id, 
+  jp: c.getAttribute('data-jp')||'', 
+  en: c.getAttribute('data-en')||'',
+  company: c.getAttribute('data-company')||'',
+  pref: c.getAttribute('data-pref')||''
+}));
+
+const q = document.getElementById('q');
+const sg = document.getElementById('sg');
+function norm(s){return (s||'').toLowerCase();}
+function renderSuggest(items){
+  if(!items.length){ sg.style.display='none'; sg.innerHTML=''; return; }
+  var html = "";
+  for (var i=0;i<Math.min(items.length,60);i++) {
+    var r = items[i];
+    html += '<a href="#'+r.id+'"><span>'+ r.jp +' / '+ r.en +'</span><span class="meta">'+ r.company +' — '+ r.pref +'</span></a>';
+  }
+  sg.innerHTML = html;
+  sg.style.display='block';
+}
+q.addEventListener('input', function(){
+  var v = norm(q.value);
+  if(!v) return renderSuggest([]);
+  var hits = DATA.filter(function(r){
+    return norm(r.jp).indexOf(v)!==-1 || norm(r.en).indexOf(v)!==-1 || norm(r.company).indexOf(v)!==-1 || norm(r.pref).indexOf(v)!==-1;
+  });
+  renderSuggest(hits);
+});
+q.addEventListener('keydown', function(e){
+  if(e.key === 'Enter') {
+    var v = norm(q.value);
+    var hits = DATA.filter(function(r){
+      return norm(r.jp).indexOf(v)!==-1 || norm(r.en).indexOf(v)!==-1 || norm(r.company).indexOf(v)!==-1 || norm(r.pref).indexOf(v)!==-1;
+    });
+    if(hits.length) window.location.hash = hits[0].id;
+  }
+});
+document.addEventListener('click', function(e){
+  if(!sg.contains(e.target) && e.target !== q) sg.style.display='none';
+});
+
+/* --- 共通 include 読み込み --- */
+document.querySelectorAll("[include-html]").forEach(el=>{
+  fetch(el.getAttribute("include-html"))
+    .then(res=>res.text())
+    .then(html=>el.innerHTML = html);
+});
+</script>
+</body>
+</html>

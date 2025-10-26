@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Campbeltown Distilleries </title>
+<style>
+:root{
+  --bg:#0d0c0b;
+  --panel:#181614;
+  --ink:#f6f1e9;
+  --muted:#b9b2a6;
+  --accent:#c7a97a;
+  --chip:#262320;
+  --border:#332e2a;
+}
+html,body{
+  background:radial-gradient(circle at 40% 15%, #1a1715 0%, #0d0c0b 85%);
+  color:var(--ink);
+  margin:0;
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",system-ui,sans-serif;
+}
+.wrap{max-width:1100px; margin:24px auto; padding:0 16px;}
+header{margin-bottom:18px}
+h1{font-size:28px; font-weight:800; letter-spacing:.02em; margin:0 0 8px}
+.subtitle{color:var(--muted); margin:0 0 18px; line-height:1.6}
+.controls{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin:0 0 20px}
+.search{flex:1; min-width:240px}
+input[type="search"]{
+  width:100%; padding:12px 14px; background:#12100f; color:var(--ink);
+  border:1px solid var(--border); border-radius:10px; font-size:15px; outline:none;
+}
+.district{margin:30px 0}
+.district>h2{
+  font-size:20px; font-weight:800; color:var(--accent);
+  margin:0 0 10px; letter-spacing:.02em;
+  border-bottom:1px solid rgba(199,169,122,.25); padding-bottom:4px;
+}
+.grid{display:grid; grid-template-columns:repeat(1,minmax(0,1fr)); gap:14px}
+@media (min-width:580px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (min-width:940px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+.card{
+  background:radial-gradient(circle at 30% 20%, #1d1b19 0%, #141210 90%);
+  border:1px solid rgba(90,80,65,.35);
+  border-radius:16px; padding:16px;
+  box-shadow:inset 0 0 10px rgba(0,0,0,.45), 0 2px 5px rgba(0,0,0,.4);
+  transition:transform .15s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(200,180,120,.4);
+  box-shadow:inset 0 0 12px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.45), 0 0 8px rgba(210,180,120,.15);
+}
+.names{display:flex; flex-wrap:wrap; gap:8px 10px; align-items:baseline; margin-bottom:8px}
+.jp{font-weight:700; font-size:16px}
+.en{font-size:13px; color:var(--muted)}
+.meaning{margin:8px 0 6px; line-height:1.6}
+.meaning-jp{font-size:14.5px; color:#f5f2ec}
+.meaning-en{font-size:13px; color:#c3b693; font-style:italic; margin-top:2px}
+.desc{font-size:13.5px; color:var(--muted); line-height:1.7; margin-top:6px}
+.meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:6px}
+.chip{font-size:11px; color:var(--muted); background:var(--chip);
+  border:1px solid var(--border); padding:4px 8px; border-radius:999px}
+footer{color:var(--muted); font-size:12px; margin:28px 0 40px;
+  line-height:1.6; border-top:1px solid rgba(255,255,255,.05); padding-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>キャンベルタウン［Campbeltown］</h1>
+  <p class="subtitle">各カードに <strong>日本語名／英語名／意味（日本語＋英語）／解説</strong> を併記。検索は日本語・英語・意味語のいずれでもヒットします。</p>
+  <div class="controls"><div class="search"><input id="q" type="search" placeholder="検索：例）港, Glengyle, Scotia, Springbank…"></div></div>
+</header>
+
+<section class="district"><h2>キャンベルタウン（Campbeltown）</h2><div class="grid">
+
+  <article class="card" data-jp="グレンガイル" data-en="Glengyle" data-meaning="峡谷の谷 Glen of the Narrow Pass">
+    <div class="names"><span class="jp">グレンガイル</span><span class="en">Glengyle</span></div>
+    <div class="meaning"><div class="meaning-jp">「峡谷の谷」</div><div class="meaning-en"><em>Glen of the Narrow Pass</em></div></div>
+    <div class="desc">スプリングバンク蒸溜所の系列で再興した蒸溜所。Kilkerran（キルケラン）ブランドで知られ、潮気と麦芽の調和が美しいバランス型モルト。</div>
+    <div class="meta"><span class="chip">Campbeltown</span><span class="chip">再興・兄弟蒸溜所</span></div>
+  </article>
+
+  <article class="card" data-jp="グレンスコシア" data-en="Glen Scotia" data-meaning="スコシアの谷 Valley of Scotia">
+    <div class="names"><span class="jp">グレンスコシア</span><span class="en">Glen Scotia</span></div>
+    <div class="meaning"><div class="meaning-jp">「スコシアの谷」</div><div class="meaning-en"><em>Valley of Scotia</em></div></div>
+    <div class="desc">キャンベルタウンの伝統を継ぐ老舗蒸溜所。フルボディで塩気とオイリーな質感が特徴。バーボン樽熟成による香ばしさが際立つ。</div>
+    <div class="meta"><span class="chip">Campbeltown</span><span class="chip">伝統・塩気</span></div>
+  </article>
+
+  <article class="card" data-jp="スプリングバンク" data-en="Springbank" data-meaning="泉の丘 Spring Hill / Bank of the Spring">
+    <div class="names"><span class="jp">スプリングバンク</span><span class="en">Springbank</span></div>
+    <div class="meaning"><div class="meaning-jp">「泉の丘」または「泉の岸」</div><div class="meaning-en"><em>Spring Hill / Bank of the Spring</em></div></div>
+    <div class="desc">キャンベルタウンを象徴する名門蒸溜所。フロアモルティング・蒸溜・熟成・瓶詰までを一貫して行う。潮風、ピート、油分の三位一体が生む力強さが特徴。</div>
+    <div class="meta"><span class="chip">Campbeltown</span><span class="chip">伝統・フルレンジ生産</span></div>
+  </article>
+
+</div></section>
+
+<footer>
+※ 語源は主にスコットランド・ゲール語由来で諸説あり。検索は日本語名・英語名・意味（英語/日本語）に対応。<br/>
+※ Highland／Lowland版と完全統一デザイン。スマホ1列・PC最大3列表示。
+</footer>
+</div>
+
+<script>
+const q=document.getElementById('q');
+const cards=[...document.querySelectorAll('.card')];
+function norm(s){return (s||'').toLowerCase();}
+q.addEventListener('input',()=>{
+  const term=norm(q.value.trim());
+  cards.forEach(c=>{
+    const hit=!term||
+      norm(c.dataset.jp).includes(term)||
+      norm(c.dataset.en).includes(term)||
+      norm(c.dataset.meaning).includes(term);
+    c.style.display=hit?'':'none';
+  });
+});
+<script>
+const q = document.getElementById('q');
+const cards = [...document.querySelectorAll('.card')];
+function norm(s){return (s||'').toLowerCase();}
+q.addEventListener('input',()=>{
+  const term = norm(q.value.trim());
+  cards.forEach(c=>{
+    const hit = !term ||
+      norm(c.dataset.jp).includes(term) ||
+      norm(c.dataset.en).includes(term) ||
+      norm(c.dataset.meaning).includes(term);
+    c.style.display = hit ? '' : 'none';
+  });
+});
+</script>
+
+<!-- 🔽 戻るボタン呼び出し -->
+<script src="./back-to-index.js"></script>
+</body><br>
+<div class="wrap">
+</html>
+

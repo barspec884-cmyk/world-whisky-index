@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SoCatch American v3 — バーボン＆テネシーの世界</title>
+<style>
+:root{
+  --bg1:#0e1016;
+  --bg2:#1b1c25;
+  --accent:#d67b3f;
+  --ink:#f6f1e9;
+  --muted:#b9b2a6;
+  --border:rgba(214,123,63,0.4);
+  --fade:#101015d0;
+}
+
+/* 🪶全体背景 */
+body{
+  margin:0;
+  background:linear-gradient(160deg,var(--bg1),var(--bg2));
+  color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",sans-serif;
+  animation:fadeIn .8s ease both;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+/* 🧭 ヘッダー帯 */
+.hero{
+  background:url('https://upload.wikimedia.org/wikipedia/commons/6/6a/US_flag_33_stars.svg') center/cover no-repeat;
+  background-blend-mode:overlay;
+  background-color:#14151c;
+  text-align:center;
+  padding:50px 20px 40px;
+  color:#fff;
+}
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:34px;
+  letter-spacing:0.03em;
+  margin:0;
+}
+.hero p{
+  color:var(--muted);
+  font-size:15px;
+  margin-top:8px;
+}
+
+/* 🔖 カテゴリータグ */
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  margin:20px auto 0;
+}
+.tag{
+  border:1px solid var(--border);
+  padding:8px 14px;
+  border-radius:999px;
+  color:var(--accent);
+  background:#141016;
+  font-weight:600;
+  text-decoration:none;
+  transition:all .25s ease;
+}
+.tag:hover{
+  background:#1e1410;
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+/* 🧱 カード */
+.wrap{max-width:980px;margin:0 auto;padding:22px;}
+h2{
+  font-size:22px;
+  color:var(--accent);
+  margin-top:28px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:6px;
+}
+.cards{display:grid;gap:10px;margin-top:10px;}
+@media(min-width:640px){.cards{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.card{
+  background:radial-gradient(circle at 30% 20%,#1c1610 0%,#0e0b09 90%);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  transition:all .25s ease;
+  text-decoration:none;
+  color:inherit;
+}
+.card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(214,123,63,.8);
+  background:radial-gradient(circle at 30% 20%,#241b12 0%,#15100c 90%);
+}
+.en{font-weight:700;letter-spacing:.01em;font-size:17px;}
+.jp{color:var(--muted);font-size:14px;}
+.desc{font-size:13px;color:#d2c8b9;line-height:1.5;}
+
+/* 🔙 戻りボタン */
+.back-to-socatch{
+  display:inline-block;
+  margin:20px auto 18px;
+  padding:10px 18px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#141016;
+  color:var(--accent);
+  font-weight:700;
+  text-decoration:none;
+  letter-spacing:.02em;
+  transition:all .25s ease;
+}
+.back-to-socatch:hover{
+  background:#1e1410;
+  color:#fff;
+  border-color:rgba(214,123,63,.8);
+}
+
+/* 📱 スマホ固定ナビ */
+@media(max-width:560px){
+  .hero h1{font-size:28px;}
+  .tags{position:sticky;top:0;background:var(--fade);backdrop-filter:blur(4px);padding:10px 0;z-index:50;}
+}
+
+/* 🧾 フッター */
+footer{
+  margin-top:40px;
+  color:var(--muted);
+  font-size:12px;
+  border-top:1px solid rgba(255,255,255,.05);
+  padding-top:12px;
+  text-align:center;
+  line-height:1.6;
+}
+</style>
+</head>
+<body>
+<section class="hero">
+  <h1>American Whiskies</h1>
+  <p>テネシー、ケンタッキー、クラフト蒸留所まで。<br>銅と炎の物語。</p>
+  <div class="tags">
+    <a class="tag" href="#Tennessee">Tennessee</a>
+    <a class="tag" href="#Kentucky">Kentucky</a>
+    <a class="tag" href="#Bourbon">Bourbon</a>
+    <a class="tag" href="#Craft">Craft</a>
+  </div>
+</section>
+
+<div style="text-align:center;margin-bottom:20px;">
+  <a href="five-major-whiskies.html" class="back-btn">← 五大ウイスキーに戻る</a>
+  <a href="world-whisky-index.html" class="back-btn">← World Whisky Index に戻る</a>
+</div>
+
+  <h2 id="Tennessee">テネシー州</h2>
+  <div class="cards">
+    <div class="card"><span class="en">Jack Daniel’s</span><span class="jp">ジャックダニエル</span><span class="desc">チャーコール・メローイングで滑らか。世界を代表するテネシーウイスキー。</span></div>
+    <div class="card"><span class="en">George Dickel</span><span class="jp">ジョージ・ディッケル</span><span class="desc">湧水と炭ろ過のクリーンな味。上品なバニラ香が広がる。</span></div>
+    <div class="card"><span class="en">Corsair</span><span class="jp">コルセア</span><span class="desc">実験的原料を駆使するクラフト界の異端児。スモーク香が魅力。</span></div>
+  </div>
+
+  <h2 id="Kentucky">ケンタッキー州</h2>
+  <div class="cards">
+    <div class="card"><span class="en">Heaven Hill</span><span class="jp">ヘブン・ヒル</span><span class="desc">多彩なブランドを展開する独立系大手。穏やかでバランスの良い味。</span></div>
+    <div class="card"><span class="en">Michter’s</span><span class="jp">ミクターズ</span><span class="desc">伝統と革新を融合したクラフト・ラグジュアリーバーボン。</span></div>
+    <div class="card"><span class="en">Angel’s Envy</span><span class="jp">エンジェルズ・エンヴィ</span><span class="desc">ポートワイン樽仕上げで芳醇。滑らかな余韻が続く。</span></div>
+    <div class="card"><span class="en">Jim Beam</span><span class="jp">ジム・ビーム</span><span class="desc">世界最大級の王道バーボン。甘いバニラと焦げたオーク香。</span></div>
+    <div class="card"><span class="en">Four Roses</span><span class="jp">フォア・ローゼズ</span><span class="desc">10種の原酒をブレンド。華やかな果実香と優雅なフィニッシュ。</span></div>
+    <div class="card"><span class="en">Wild Turkey</span><span class="jp">ワイルド・ターキー</span><span class="desc">高ライ麦比率。力強い焦げ香とスパイス感で人気。</span></div>
+    <div class="card"><span class="en">Woodford Reserve</span><span class="jp">ウッドフォード・リザーブ</span><span class="desc">銅製ポットスチルを使用。エレガントで芳醇な香り。</span></div>
+    <div class="card"><span class="en">Buffalo Trace</span><span class="jp">バッファロー・トレース</span><span class="desc">伝統と革新の象徴。多くのプレミアムブランドを生む。</span></div>
+    <div class="card"><span class="en">Willett</span><span class="jp">ウィレット</span><span class="desc">家族経営の小規模蒸留所。焦がし樽の香ばしさが印象的。</span></div>
+  </div>
+
+  <footer>
+    © Bar SPEC — SoCatch American v3<br>
+    バーボン、ライ、テネシー、クラフトの主要蒸留所を収録。
+  </footer>
+</div>
+</body>
+</html>

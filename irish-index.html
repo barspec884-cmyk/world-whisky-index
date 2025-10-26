@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Irish Whisky Index — アイルランド蒸溜所一覧</title>
+<style>
+  :root{
+    --bg:#0e1a0f;
+    --panel:#1b2a20;
+    --ink:#f6f1e9;
+    --muted:#b9b2a6;
+    --accent:#b6d79c;
+    --chip:#243b28;
+    --border:#2e2a26;
+  }
+  html,body{background:linear-gradient(160deg,#0e1a0f 0%,#1b2a20 100%);color:var(--ink);margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",system-ui,sans-serif;}
+  .wrap{max-width:1100px;margin:28px auto;padding:0 16px;}
+  header h1{font-size:30px;color:var(--accent);margin-bottom:8px;}
+  .subtitle{color:var(--muted);margin-bottom:16px;}
+  .cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+  .card{background:var(--panel);border:1px solid rgba(182,215,156,.25);border-radius:16px;padding:14px 16px;
+    box-shadow:0 0 10px rgba(182,215,156,.1);transition:all .3s ease;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 0 20px rgba(182,215,156,.25);}
+  .names{font-weight:700;font-size:18px;margin-bottom:6px;display:flex;justify-content:space-between;}
+  .meaning{font-size:13px;color:var(--muted);margin-bottom:8px;}
+  .desc{font-size:14px;line-height:1.6;margin-bottom:8px;}
+  .meta .chip{display:inline-block;background:var(--chip);padding:2px 8px;border-radius:999px;
+    font-size:12px;color:var(--accent);margin-right:6px;}
+  footer{color:var(--muted);font-size:12px;margin:28px 0;text-align:center;border-top:1px solid rgba(255,255,255,.05);padding-top:10px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Irish Whisky Index</h1>
+    <p class="subtitle">アイルランドの主要蒸溜所を地域別に紹介。伝統と革新が交わるエメラルドの島。</p>
+  </header>
+  <main class="cards">
+    
+<article class="card" data-jp="ジェムソン（ボウ・ストリート）" data-en="Jameson Bow St.">
+  <div class="names"><span class="jp">ジェムソン（ボウ・ストリート）</span><span class="en">Jameson Bow St.</span></div>
+  <div class="meaning"><div class="meaning-jp">「ジェームズの息子」</div><div class="meaning-en"><em>Son of James</em></div></div>
+  <div class="desc">世界的代表ブランド。三回蒸溜による滑らかで優しい口当たりが特徴。</div>
+  <div class="meta"><span class="chip">Dublin</span></div>
+</article>
+
+<article class="card" data-jp="ティーリング" data-en="Teeling">
+  <div class="names"><span class="jp">ティーリング</span><span class="en">Teeling</span></div>
+  <div class="meaning"><div class="meaning-jp">創業者一族の姓</div><div class="meaning-en"><em>Family name of founders</em></div></div>
+  <div class="desc">近代アイリッシュ復興を牽引。フルーティでモダンな香味。</div>
+  <div class="meta"><span class="chip">Dublin</span></div>
+</article>
+
+<article class="card" data-jp="パース・ライオンズ" data-en="Pearse Lyons">
+  <div class="names"><span class="jp">パース・ライオンズ</span><span class="en">Pearse Lyons</span></div>
+  <div class="meaning"><div class="meaning-jp">創業者Dr. Pearse Lyonsの名</div><div class="meaning-en"><em>Named after Dr. Pearse Lyons</em></div></div>
+  <div class="desc">教会を改装した蒸溜所。華やかでスパイシーな香り。</div>
+  <div class="meta"><span class="chip">Dublin</span></div>
+</article>
+
+<article class="card" data-jp="ミドルトン蒸溜所" data-en="Midleton Distillery">
+  <div class="names"><span class="jp">ミドルトン蒸溜所</span><span class="en">Midleton Distillery</span></div>
+  <div class="meaning"><div class="meaning-jp">地名に由来</div><div class="meaning-en"><em>Named after the town of Midleton</em></div></div>
+  <div class="desc">アイリッシュ最大規模。JamesonやRedbreastを生産する中心拠点。</div>
+  <div class="meta"><span class="chip">Midleton</span></div>
+</article>
+
+<article class="card" data-jp="レッドブレスト" data-en="Redbreast">
+  <div class="names"><span class="jp">レッドブレスト</span><span class="en">Redbreast</span></div>
+  <div class="meaning"><div class="meaning-jp">「赤い胸（ロビン）」</div><div class="meaning-en"><em>Red-breasted robin</em></div></div>
+  <div class="desc">ポットスチル原酒主体の芳醇な香りと厚みある味わい。</div>
+  <div class="meta"><span class="chip">Midleton</span></div>
+</article>
+
+<article class="card" data-jp="グリーンスポット" data-en="Green Spot">
+  <div class="names"><span class="jp">グリーンスポット</span><span class="en">Green Spot</span></div>
+  <div class="meaning"><div class="meaning-jp">熟成年数マーキング由来</div><div class="meaning-en"><em>Marking color for age statement</em></div></div>
+  <div class="desc">フルーティで柔らかな口当たり。アイリッシュの伝統を継承。</div>
+  <div class="meta"><span class="chip">Midleton</span></div>
+</article>
+
+<article class="card" data-jp="ブッシュミルズ" data-en="Bushmills">
+  <div class="names"><span class="jp">ブッシュミルズ</span><span class="en">Bushmills</span></div>
+  <div class="meaning"><div class="meaning-jp">「川辺の水車」</div><div class="meaning-en"><em>Mill by the river</em></div></div>
+  <div class="desc">世界最古級の蒸溜所。蜂蜜と麦の香味が広がる。</div>
+  <div class="meta"><span class="chip">Northern Ireland</span></div>
+</article>
+
+<article class="card" data-jp="コナット" data-en="Connacht">
+  <div class="names"><span class="jp">コナット</span><span class="en">Connacht</span></div>
+  <div class="meaning"><div class="meaning-jp">古代王国の名</div><div class="meaning-en"><em>Name of ancient Irish kingdom</em></div></div>
+  <div class="desc">クラフト蒸溜。穀物の甘さとバニラ香が特徴。</div>
+  <div class="meta"><span class="chip">Western Ireland</span></div>
+</article>
+
+<article class="card" data-jp="ディングル" data-en="Dingle">
+  <div class="names"><span class="jp">ディングル</span><span class="en">Dingle</span></div>
+  <div class="meaning"><div class="meaning-jp">町名に由来</div><div class="meaning-en"><em>Named after the town of Dingle</em></div></div>
+  <div class="desc">独立系クラフト。蜂蜜とフルーツ香の調和が見事。</div>
+  <div class="meta"><span class="chip">Western Ireland</span></div>
+</article>
+
+<article class="card" data-jp="グレンダロッホ" data-en="Glendalough">
+  <div class="names"><span class="jp">グレンダロッホ</span><span class="en">Glendalough</span></div>
+  <div class="meaning"><div class="meaning-jp">「二つの湖の谷」</div><div class="meaning-en"><em>Valley of two lakes</em></div></div>
+  <div class="desc">修道院跡に建つ新興蒸溜所。自然と信仰が交わる味わい。</div>
+  <div class="meta"><span class="chip">Leinster</span></div>
+</article>
+
+ </main>
+  <!-- 🔙 共通戻りボタン -->
+  <div include-html="common/back-buttons.html"></div>
+
+  <!-- 🔧 include 読み込みスクリプト -->
+  <script>
+    document.querySelectorAll("[include-html]").forEach(el => {
+      fetch(el.getAttribute("include-html"))
+        .then(res => res.text())
+        .then(html => el.innerHTML = html);
+    });
+  </script>
+
+  <!-- 🔙 共通戻るボタン（自動でWorldにリンク） -->
+  <script src="common/back-to-index.js"></script>
+
+  <footer>
+    © Bar SPEC — Irish Index v1.0
+  </footer>
+</body>
+</html>

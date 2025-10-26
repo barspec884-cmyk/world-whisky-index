@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Canadian Distilleries — カナダ蒸溜所一覧</title>
+<meta name="description" content="カナダ国内の主要・クラフト・国際系蒸溜所リスト。Amber Palette World Whisky Index 対応ページ。" />
+<style>
+:root{
+  --bg:#140e0b;
+  --ink:#f9f6f2;
+  --muted:#c9b9a9;
+  --accent:#d85b2e;       /* メープルレッド */
+  --amber:#bfa472;
+  --panel:#1a1410;
+  --border:#3a2a1f;
+}
+html,body{
+  background:radial-gradient(1200px 800px at 45% 10%, #2a1e17 0%, #140e0b 60%, #0c0806 100%);
+  color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",system-ui,sans-serif;
+  margin:0;
+}
+.wrap{max-width:1000px; margin:28px auto; padding:0 16px;}
+h1{font-size:28px; font-weight:800; color:var(--accent); margin:0 0 6px;}
+.subtitle{color:var(--muted); margin:0 0 20px; line-height:1.6;}
+
+.nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:20px;
+}
+.back{
+  display:inline-block;
+  background:var(--panel);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:10px;
+  padding:8px 14px;
+  color:var(--amber);
+  text-decoration:none;
+  font-weight:700;
+  transition:.2s;
+}
+.back:hover{background:#231912; color:#fff;}
+
+section.region{
+  margin:28px 0 40px;
+}
+h2{
+  font-size:22px;
+  font-weight:700;
+  color:var(--amber);
+  border-left:5px solid var(--accent);
+  padding-left:10px;
+  margin:0 0 12px;
+}
+.cards{
+  display:grid;
+  gap:10px;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+}
+.card{
+  background:linear-gradient(160deg,#201712 0%,#18100b 100%);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:12px 14px;
+  transition:all .25s ease;
+  box-shadow:0 0 4px rgba(216,91,46,.1);
+}
+.card:hover{
+  border-color:var(--accent);
+  box-shadow:0 4px 12px rgba(216,91,46,.25);
+  transform:translateY(-3px);
+}
+.en{font-weight:700; color:#fff;}
+.jp{color:var(--muted); font-size:13px;}
+footer{
+  color:var(--muted);
+  font-size:12px;
+  border-top:1px solid rgba(255,255,255,.08);
+  margin:40px 0 30px;
+  padding-top:10px;
+  text-align:center;
+}
+@media (max-width:600px){
+  h1{font-size:22px;}
+  h2{font-size:18px;}
+  .cards{grid-template-columns:1fr;}
+  .back{width:100%; text-align:center;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="nav-links">
+    <a href="five-major-whiskies.html" class="back">← 五大ウイスキーに戻る</a>
+    <a href="world-whisky-index.html" class="back">← World Whisky Index に戻る</a>
+  </div>
+
+  <h1>Canadian Distilleries</h1>
+  <p class="subtitle">クラウン・ローヤルからフォーティー・クリークまで。カナダを代表する蒸溜所とクラフトディスティラリーの一覧。</p>
+
+  <section class="region">
+    <h2>Major & Heritage</h2>
+    <div class="cards">
+      <div class="card"><div class="en">Crown Royal Distillery</div><div class="jp">クラウン・ローヤル蒸溜所（Diageo）</div></div>
+      <div class="card"><div class="en">Canadian Club</div><div class="jp">カナディアン・クラブ蒸溜所（Suntory Global Spirits）</div></div>
+      <div class="card"><div class="en">Wiser’s Whisky Distillery</div><div class="jp">ワイザーズ・ウイスキー蒸溜所</div></div>
+      <div class="card"><div class="en">Forty Creek</div><div class="jp">フォーティー・クリーク蒸溜所（Campari Group）</div></div>
+      <div class="card"><div class="en">Canadian Mist</div><div class="jp">カナディアン・ミスト蒸溜所（Sazerac Company）</div></div>
+      <div class="card"><div class="en">Alberta Distillers</div><div class="jp">アルバータ蒸溜所</div></div>
+      <div class="card"><div class="en">Hiram Walker & Sons</div><div class="jp">ハイラム・ウォーカー＆サンズ蒸溜所（Pernod Ricard）</div></div>
+      <div class="card"><div class="en">Highwood Distillers</div><div class="jp">ハイウッド蒸溜所</div></div>
+    </div>
+  </section>
+
+  <section class="region">
+    <h2>Craft & Local</h2>
+    <div class="cards">
+      <div class="card"><div class="en">Black Fox Farm & Distillery</div><div class="jp">ブラック・フォックス・ファーム＆蒸溜所</div></div>
+      <div class="card"><div class="en">Bridgeland Distillery</div><div class="jp">ブリッジランド蒸溜所</div></div>
+      <div class="card"><div class="en">Ironworks Distillery</div><div class="jp">アイアンワークス蒸溜所</div></div>
+      <div class="card"><div class="en">Copperhead Distillery</div><div class="jp">コッパーヘッド蒸溜所</div></div>
+      <div class="card"><div class="en">Last Mountain Distillery</div><div class="jp">ラスト・マウンテン蒸溜所</div></div>
+      <div class="card"><div class="en">Rig Hand Distillery</div><div class="jp">リグ・ハンド蒸溜所</div></div>
+      <div class="card"><div class="en">Shelter Point Distillery</div><div class="jp">シェルター・ポイント蒸溜所（Thai Bev）</div></div>
+      <div class="card"><div class="en">Caldera Distilling</div><div class="jp">カルデラ蒸溜所</div></div>
+      <div class="card"><div class="en">Signal Hill Spirits</div><div class="jp">シグナル・ヒル・スピリッツ</div></div>
+      <div class="card"><div class="en">Still Waters Distillery</div><div class="jp">スティル・ウォーターズ蒸溜所</div></div>
+      <div class="card"><div class="en">Last Straw Distillery</div><div class="jp">ラスト・ストロー蒸溜所</div></div>
+      <div class="card"><div class="en">Urban Distillery</div><div class="jp">アーバン蒸溜所</div></div>
+      <div class="card"><div class="en">North of 7 Distillery</div><div class="jp">ノース・オブ・７蒸溜所</div></div>
+    </div>
+  </section>
+
+  <section class="region">
+    <h2>Global & Multinational</h2>
+    <div class="cards">
+      <div class="card"><div class="en">Suntory Global Spirits</div><div class="jp">サントリー・グローバル・スピリッツ</div></div>
+      <div class="card"><div class="en">Diageo</div><div class="jp">ディアジオ</div></div>
+      <div class="card"><div class="en">Pernod Ricard</div><div class="jp">ペルノ・リカール</div></div>
+      <div class="card"><div class="en">Campari Group Canada</div><div class="jp">カンパリ・グループ・カナダ</div></div>
+      <div class="card"><div class="en">Sazerac Company</div><div class="jp">サゼラック・カンパニー</div></div>
+      <div class="card"><div class="en">ThaiBev</div><div class="jp">タイ・ベバレッジ</div></div>
+    </div>
+  </section>
+
+  <footer>© Bar SPEC — World Whisky Index (Canada Edition)</footer>
+</div>
+</body>
+</html>
