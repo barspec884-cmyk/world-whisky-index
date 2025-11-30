@@ -116,12 +116,10 @@
 <div include-html="common/header.html"></div>
 
 <div class="wrap">
-
   <div class="nav-links">
     <a href="index.html" class="back">← World Whisky Index</a>
     <a href="five-major-whiskies.html" class="back">← Five major whiskies</a>
   </div>
-
   <header>
     <h1>Japan Whisky Index</h1>
     <p class="subtitle">日本全国の蒸溜所一覧 — Founded / Owner /</p>
@@ -687,11 +685,6 @@
 
 <!-- ▼ 共通 include 読み込み -->
 <script>
-document.querySelectorAll("[include-html]").forEach(el=>{
-  fetch(el.getAttribute("include-html"))
-    .then(res => res.text())
-    .then(html => { el.innerHTML = html });
-});
 </script>
 
 </body>
