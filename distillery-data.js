@@ -1469,3 +1469,27 @@ const usaData = [
   state_en: "IL", state_jp: "イリノイ州",
   name_en: "Koval Distillery", name_jp: "コヴァル・ディスティラリー",
   lat: 41.973, lng: -
+
+	//----------------------------------------------------
+// World（まずは Scotland + Japan + USA のフル統合）
+//----------------------------------------------------
+const worldData = [
+  ...speysideData,
+  ...highlandsData,
+  ...islandsData,
+  ...lowlandsData,
+  ...campbeltownData,
+  ...islayData,
+  ...japanData,
+  ...usaData
+];
+
+//----------------------------------------------------
+// Canada / Ireland / Others は現状データ無し→空で定義
+//----------------------------------------------------
+const canadaData = [];
+const irelandData = [];
+const othersData = [];
+
+	
+	
