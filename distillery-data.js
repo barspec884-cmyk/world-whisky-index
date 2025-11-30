@@ -774,314 +774,88 @@ const islayData = [
 ];
 
 /* ------------------------------------------------------------
-   7) Japan（日本）- ※ 二重配列解消、URL補完済み
+   7) Japan（日本）- 補完データを含む
 ------------------------------------------------------------ */
 const japanData = [
-  {
-    "name": "Bar SPEC",
-    "area": "Tokyo",
-    "lat": 35.6810171,
-    "lng": 139.7701253,
-    "url": "https://www.bar-spec.com/",
-    "note": ""
-  },
-  {
-    "name": "キリンディスティラリー富士御殿場蒸溜所",
-    "area": "Shizuoka",
-    "lat": 35.33665278,
-    "lng": 138.8968003,
-    "url": "https://www.kirin.co.jp/experience/factory/gotemba/",
-    "note": ""
-  },
-  {
-    "name": "利尻蒸留所",
-    "area": "Hokkaido",
-    "lat": 45.16421741,
-    "lng": 141.140992,
-    "url": "https://kamuiwhisky.com/ja/home-ja/",
-    "note": ""
-  },
-  {
-    "name": "厚岸蒸溜所",
-    "area": "Hokkaido",
-    "lat": 43.07584914,
-    "lng": 144.8207141,
-    "url": "http://akkeshi-distillery.com/",
-    "note": ""
-  },
-  {
-    "name": "ニッカウヰスキー 余市蒸溜所",
-    "area": "Hokkaido",
-    "lat": 43.18727948,
-    "lng": 140.7918742,
-    "url": "https://www.nikka.com/distilleries/yoichi/access/",
-    "note": ""
-  },
-  {
-    "name": "ニセコ蒸溜所",
-    "area": "Hokkaido",
-    "lat": 42.84849283,
-    "lng": 140.6398582,
-    "url": "https://niseko-distillery.com/ja/",
-    "note": ""
-  },
-  {
-    "name": "遊佐蒸溜所",
-    "area": "Yamagata",
-    "lat": 39.02103653,
-    "lng": 139.9224974,
-    "url": "https://yuza-disty.jp/",
-    "note": ""
-  },
-  {
-    "name": "吉田電材蒸留所",
-    "area": "Niigata",
-    "lat": 38.15245273,
-    "lng": 139.4598592,
-    "url": "https://yoshidadenzai-distillery.com/",
-    "note": ""
-  },
-  {
-    "name": "亀田蒸溜所",
-    "area": "Niigata",
-    "lat": 37.87157314,
-    "lng": 139.0853232,
-    "url": "https://jwic.jp/distillery/Kameda/",
-    "note": ""
-  },
-  {
-    "name": "新潟麦酒株式会社 忍蒸溜所",
-    "area": "Niigata",
-    "lat": 37.80632791,
-    "lng": 138.8494225,
-    "url": "https://shinobudistillery.com/home/",
-    "note": ""
-  },
-  {
-    "name": "天鏡蒸溜所（天鏡株式会社）",
-    "area": "Fukushima",
-    "lat": 37.57470792,
-    "lng": 140.017747,
-    "url": "https://www.tenkyo.jp/",
-    "note": ""
-  },
-  {
-    "name": "安積蒸溜所",
-    "area": "Fukushima",
-    "lat": 37.36237171,
-    "lng": 140.3714115,
-    "url": "https://jwic.jp/distillery/asaka/",
-    "note": ""
-  },
-  {
-    "name": "Nozawa Onsen Distillery（野沢温泉蒸留所）",
-    "area": "Nagano",
-    "lat": 36.92223666,
-    "lng": 138.4495613,
-    "url": "https://jwic.jp/distillery/nozawa_onsen/",
-    "note": ""
-  },
-  {
-    "name": "飯山マウンテンファーム蒸溜所",
-    "area": "Nagano",
-    "lat": 36.92300518,
-    "lng": 138.3831199,
-    "url": "https://jwic.jp/distillery/Iiyama-Mountain-Farm/",
-    "note": ""
-  },
-  {
-    "name": "北軽井沢蒸留所",
-    "area": "Gunma",
-    "lat": 36.47069906,
-    "lng": 138.5757331,
-    "url": "https://kitakaruizawa-distillery.com/",
-    "note": ""
-  },
-  {
-    "name": "小諸蒸留所",
-    "area": "Nagano",
-    "lat": 36.3455945,
-    "lng": 138.4451292,
-    "url": "https://komorodistillery.com/",
-    "note": ""
-  },
-  {
-    "name": "軽井沢ウイスキー株式会社",
-    "area": "Nagano",
-    "lat": 36.31892021,
-    "lng": 138.579676,
-    "url": "https://www.karuizawa-whisky.co.jp/company/",
-    "note": ""
-  },
-  {
-    "name": "秩父蒸溜所",
-    "area": "Saitama",
-    "lat": 36.0464253,
-    "lng": 139.0547112,
-    "url": "https://jwic.jp/distillery/chichibu/",
-    "note": ""
-  },
-  {
-    "name": "羽生蒸溜所",
-    "area": "Saitama",
-    "lat": 36.17171177,
-    "lng": 139.5309435,
-    "url": "https://jwic.jp/distillery/Hanyu/",
-    "note": ""
-  },
-  {
-    "name": "日光街道 小山蒸溜所",
-    "area": "Tochigi",
-    "lat": 36.28601494,
-    "lng": 139.780659,
-    "url": "https://nishiborisyuzo.com/site/nikko-kaido-oyama-distillery/",
-    "note": ""
-  },
-  {
-    "name": "八郷蒸溜所",
-    "area": "Ibaraki",
-    "lat": 36.22095274,
-    "lng": 140.1671762,
-    "url": "https://jwic.jp/distillery/yasato/",
-    "note": ""
-  },
-  {
-    "name": "須藤本家",
-    "area": "Ibaraki",
-    "lat": 35.29987071,
-    "lng": 140.0713252,
-    "url": "http://www.sudohonke.co.jp/",
-    "note": ""
-  },
-  {
-    "name": "三郎丸蒸留所",
-    "area": "Toyama",
-    "lat": 36.65566893,
-    "lng": 136.9694517,
-    "url": "https://jwic.jp/distillery/saburoumaru/",
-    "note": ""
-  },
-  {
-    "name": "オリエンタル金沢蒸溜所",
-    "area": "Ishikawa",
-    "lat": 36.49546203,
-    "lng": 136.7579945,
-    "url": "https://jwic.jp/distillery/oriental_kanazawa/",
-    "note": ""
-  },
-  {
-    "name": "飛騨高山蒸溜所",
-    "area": "Gifu",
-    "lat": 36.02970128,
-    "lng": 137.4597654,
-    "url": "https://hida-takayama-distillery.jp/",
-    "note": ""
-  },
-  {
-    "name": "サントリー白州蒸溜所",
-    "area": "Yamanashi",
-    "lat": 35.82808288,
-    "lng": 138.3036139,
-    "url": "https://jwic.jp/distillery/hakushu/",
-    "note": ""
-  },
-  {
-    "name": "井川蒸溜所",
-    "area": "Shizuoka",
-    "lat": 35.45616169,
-    "lng": 138.221317,
-    "url": "https://juzan.co.jp/contents/ikawadistillery/",
-    "note": ""
-  },
-  {
-    "name": "ガイアフロー静岡蒸溜所",
-    "area": "Shizuoka",
-    "lat": 35.12055073,
-    "lng": 138.3254739,
-    "url": "https://shizuoka-distillery.jp/",
-    "note": ""
-  },
-  {
-    "name": "mitosaya薬草園蒸留所",
-    "area": "Chiba",
-    "lat": 35.28553736,
-    "lng": 140.2330324,
-    "url": "https://mitosaya.com/",
-    "note": ""
-  },
-  {
-    "name": "長濱蒸溜所",
-    "area": "Shiga",
-    "lat": 35.37699156,
-    "lng": 136.2675849,
-    "url": "https://jwic.jp/distillery/nagahama/",
-    "note": ""
-  },
-  {
-    "name": "神戸蒸溜所",
-    "area": "Hyogo",
-    "lat": 34.8479228,
-    "lng": 135.1923593,
-    "url": "https://jwic.jp/distillery/Kobe/",
-    "note": ""
-  },
-  {
-    "name": "丹波蒸溜所",
-    "area": "Hyogo",
-    "lat": 34.99931694,
-    "lng": 135.0759061,
-    "url": "https://jwic.jp/distillery/Tanba/",
-    "note": ""
-  },
-  {
-    "name": "海峡蒸溜所",
-    "area": "Hyogo",
-    "lat": 34.64498193,
-    "lng": 135.012356,
-    "url": "https://jwic.jp/distillery/Kaikyo/",
-    "note": ""
-  },
-  {
-    "name": "江井ヶ嶋酒造",
-    "area": "Hyogo",
-    "lat": 34.68143953,
-    "lng": 134.9053798,
-    "url": "https://jwic.jp/distillery/eigashima/",
-    "note": ""
-  },
-  {
-    "name": "千代むすび境港蒸留所",
-    "area": "Tottori",
-    "lat": 35.54519531,
-    "lng": 133.2246684,
-    "url": "https://www.chiyomusubi.co.jp/user_data/whisky",
-    "note": ""
-  },
-  {
-    "name": "岡山蒸溜所",
-    "area": "Okayama",
-    "lat": 34.67897795,
-    "lng": 133.9394954,
-    "url": "https://www.doppokan.jp/",
-    "note": ""
-  },
-  {
-    "name": "阿波乃蒸溜所",
-    "area": "Tokushima",
-    "lat": 34.09870948,
-    "lng": 134.3317755,
-    "url": "https://jwic.jp/distillery/Awano/",
-    "note": ""
-  },
-  {
-    "name": "梅美人酒造株式会社",
-    "area": "Ehime",
-    "lat": 33.46532187,
-    "lng": 132.4258297,
-    "url": "https://umebijin.com/",
-    "note": ""
-  }
+  // Kanto
+  { state_en: "Chiba", state_jp: "千葉県", name_en: "mitosaya Herb Garden Distillery", name_jp: "mitosaya薬草園蒸留所", lat: 35.28553736, lng: 140.2330324, url: "https://mitosaya.com/" },
+  { state_en: "Saitama", state_jp: "埼玉県", name_en: "Hanyu Distillery", name_jp: "羽生蒸溜所", lat: 36.17171177, lng: 139.5309435, url: "https://jwic.jp/distillery/Hanyu/" },
+  { state_en: "Saitama", state_jp: "埼玉県", name_en: "Chichibu Distillery", name_jp: "秩父蒸溜所", lat: 36.0464253, lng: 139.0547112, url: "https://jwic.jp/distillery/chichibu/" },
+  { state_en: "Tochigi", state_jp: "栃木県", name_en: "Nikko Kaido Oyama Distillery", name_jp: "日光街道 小山蒸溜所", lat: 36.28601494, lng: 139.780659, url: "https://nishiborisyuzo.com/site/nikko-kaido-oyama-distillery/" },
+  { state_en: "Ibaraki", state_jp: "茨城県", name_en: "Sudo Honke (Distillery)", name_jp: "須藤本家", lat: 35.29987071, lng: 140.0713252, url: "http://www.sudohonke.co.jp/" },
+  { state_en: "Ibaraki", state_jp: "茨城県", name_en: "Yasato Distillery", name_jp: "八郷蒸溜所", lat: 36.22095274, lng: 140.1671762, url: "https://jwic.jp/distillery/yasato/" },
+  { state_en: "Ibaraki", state_jp: "茨城県", name_en: "Takakura Distillery", name_jp: "高藏蒸留所", lat: 36.3720, lng: 140.4851, url: "" },
+  { state_en: "Gunma", state_jp: "群馬県", name_en: "Kita-Karuizawa Distillery", name_jp: "北軽井沢蒸留所", lat: 36.47069906, lng: 138.5757331, url: "https://kitakaruizawa-distillery.com/" },
+
+  // Chubu
+  { state_en: "Ishikawa", state_jp: "石川県", name_en: "Oriental Kanazawa Distillery", name_jp: "オリエンタル金沢蒸溜所", lat: 36.49546203, lng: 136.7579945, url: "https://jwic.jp/distillery/oriental_kanazawa/" },
+  { state_en: "Shizuoka", state_jp: "静岡県", name_en: "Gaia Flow Shizuoka Distillery", name_jp: "ガイアフロー静岡蒸溜所", lat: 35.12055073, lng: 138.3254739, url: "https://shizuoka-distillery.jp/" },
+  { state_en: "Aichi", state_jp: "愛知県", name_en: "Suntory Chita Distillery", name_jp: "サントリー知多蒸溜所", lat: 34.8856, lng: 136.8524, url: "" },
+  { state_en: "Yamanashi", state_jp: "山梨県", name_en: "Suntory Hakushu Distillery", name_jp: "サントリー白州蒸溜所", lat: 35.82808288, lng: 138.3036139, url: "https://jwic.jp/distillery/hakushu/" },
+  { state_en: "Nagano", state_jp: "長野県", name_en: "Mars Komagatake Distillery", name_jp: "マルス駒ヶ岳蒸溜所", lat: 35.7505, lng: 137.9100, url: "" },
+  { state_en: "Mie", state_jp: "三重県", name_en: "Ise Distillery", name_jp: "伊勢蒸留所", lat: 34.4925, lng: 136.7029, url: "" },
+  { state_en: "Shizuoka", state_jp: "静岡県", name_en: "Ikawa Distillery", name_jp: "井川蒸溜所", lat: 35.45616169, lng: 138.221317, url: "https://juzan.co.jp/contents/ikawadistillery/" },
+  { state_en: "Niigata", state_jp: "新潟県", name_en: "Yoshida Denzai Distillery", name_jp: "吉田電材蒸留所", lat: 38.15245273, lng: 139.4598592, url: "https://yoshidadenzai-distillery.com/" },
+  { state_en: "Toyama", state_jp: "富山県", name_en: "Saburomaru Distillery", name_jp: "三郎丸蒸留所", lat: 36.65566893, lng: 136.9694517, url: "https://jwic.jp/distillery/saburoumaru/" },
+  { state_en: "Nagano", state_jp: "長野県", name_en: "Karuizawa Whisky Distillery", name_jp: "軽井沢ウイスキー蒸留所", lat: 36.31892021, lng: 138.579676, url: "https://www.karuizawa-whisky.co.jp/company/" },
+  { state_en: "Nagano", state_jp: "長野県", name_en: "Komoro Distillery", name_jp: "小諸蒸留所", lat: 36.3455945, lng: 138.4451292, url: "https://komorodistillery.com/" },
+  { state_en: "Niigata", state_jp: "新潟県", name_en: "Niigata Kameda Distillery", name_jp: "新潟亀田蒸溜所", lat: 37.87157314, lng: 139.0853232, url: "https://jwic.jp/distillery/Kameda/" },
+  { state_en: "Niigata", state_jp: "新潟県", name_en: "Niigata Distillery", name_jp: "新潟蒸溜所", lat: 37.80632791, lng: 138.8494225, url: "https://shinobudistillery.com/home/" },
+  { state_en: "Niigata", state_jp: "新潟県", name_en: "Shinobu Distillery", name_jp: "忍蒸溜所", lat: 37.80632791, lng: 138.8494225, url: "https://shinobudistillery.com/home/" }, // 同一座標
+  { state_en: "Nagano", state_jp: "長野県", name_en: "Iiyama Mountain Farm Distillery", name_jp: "飯山マウンテンファーム蒸溜所", lat: 36.92300518, lng: 138.3831199, url: "https://jwic.jp/distillery/Iiyama-Mountain-Farm/" },
+  { state_en: "Gifu", state_jp: "岐阜県", name_en: "Hida Takayama Distillery", name_jp: "飛騨高山蒸溜所", lat: 36.02970128, lng: 137.4597654, url: "https://hida-takayama-distillery.jp/" },
+  { state_en: "Shizuoka", state_jp: "静岡県", name_en: "Fuji Gotemba Distillery", name_jp: "富士御殿場蒸溜所", lat: 35.33665278, lng: 138.8968003, url: "https://www.kirin.co.jp/experience/factory/gotemba/" },
+  { state_en: "Aichi", state_jp: "愛知県", name_en: "Hekinan Distillery", name_jp: "碧南蒸留所", lat: 34.8710, lng: 136.9945, url: "" },
+  { state_en: "Nagano", state_jp: "長野県", name_en: "Nozawa Onsen Distillery", name_jp: "野沢温泉蒸留所", lat: 36.92223666, lng: 138.4495613, url: "https://jwic.jp/distillery/nozawa_onsen/" },
+
+  // Kansai
+  { state_en: "Osaka", state_jp: "大阪府", name_en: "Suntory Yamazaki Distillery", name_jp: "サントリー山崎蒸溜所", lat: 34.8770, lng: 135.6601, url: "https://www.suntory.co.jp/whisky/yamazaki/" },
+  { state_en: "Hyogo", state_jp: "兵庫県", name_en: "Kaikyo Distillery", name_jp: "海峡蒸溜所", lat: 34.64498193, lng: 135.012356, url: "https://jwic.jp/distillery/Kaikyo/" },
+  { state_en: "Hyogo", state_jp: "兵庫県", name_en: "Kobe Distillery", name_jp: "神戸蒸溜所", lat: 34.8479228, lng: 135.1923593, url: "https://jwic.jp/distillery/Kobe/" },
+  { state_en: "Hyogo", state_jp: "兵庫県", name_en: "Eigashima Distillery", name_jp: "江井ヶ嶋蒸溜所", lat: 34.68143953, lng: 134.9053798, url: "https://jwic.jp/distillery/eigashima/" },
+  { state_en: "Hyogo", state_jp: "兵庫県", name_en: "Tanba Distillery", name_jp: "丹波蒸溜所", lat: 34.99931694, lng: 135.0759061, url: "https://jwic.jp/distillery/Tanba/" },
+  { state_en: "Shiga", state_jp: "滋賀県", name_en: "Nagahama Distillery", name_jp: "長濱蒸溜所", lat: 35.37699156, lng: 136.2675849, url: "https://jwic.jp/distillery/nagahama/" },
+
+  // Chugoku
+  { state_en: "Hiroshima", state_jp: "広島県", name_en: "SAKURAO DISTILLERY", name_jp: "SAKURAO DISTILLERY", lat: 34.3435, lng: 132.2223, url: "https://sakuraodistillery.com/" },
+  { state_en: "Okayama", state_jp: "岡山県", name_en: "Okayama Distillery", name_jp: "岡山蒸溜所", lat: 34.67897795, lng: 133.9394954, url: "https://www.doppokan.jp/" },
+  { state_en: "Tottori", state_jp: "鳥取県", name_en: "Chiyomusubi Sakaiminato Distillery", name_jp: "千代むすび 境港蒸留所", lat: 35.54519531, lng: 133.2246684, url: "https://www.chiyomusubi.co.jp/user_data/whisky" },
+
+  // Tohoku
+  { state_en: "Fukushima", state_jp: "福島県", name_en: "Asaka Distillery", name_jp: "安積蒸溜所", lat: 37.36237171, lng: 140.3714115, url: "https://jwic.jp/distillery/asaka/" },
+  { state_en: "Fukushima", state_jp: "福島県", name_en: "Tenkyo Distillery", name_jp: "天鏡蒸溜所", lat: 37.57470792, lng: 140.017747, url: "https://www.tenkyo.jp/" },
+  { state_en: "Yamagata", state_jp: "山形県", name_en: "Yuza Distillery", name_jp: "遊佐蒸溜所", lat: 39.02103653, lng: 139.9224974, url: "https://yuza-disty.jp/" },
+
+  // Hokkaido
+  { state_en: "Hokkaido", state_jp: "北海道", name_en: "Niseko Distillery", name_jp: "ニセコ蒸溜所", lat: 42.84849283, lng: 140.6398582, url: "https://niseko-distillery.com/ja/" },
+  { state_en: "Hokkaido", state_jp: "北海道", name_en: "Akkeshi Distillery", name_jp: "厚岸蒸溜所", lat: 43.07584914, lng: 144.8207141, url: "http://akkeshi-distillery.com/" },
+  { state_en: "Hokkaido", state_jp: "北海道", name_en: "Yoichi Distillery", name_jp: "余市蒸溜所", lat: 43.18727948, lng: 140.7918742, url: "https://www.nikka.com/distilleries/yoichi/access/" },
+  { state_en: "Hokkaido", state_jp: "北海道", name_en: "Rishiri Distillery", name_jp: "利尻蒸留所", lat: 45.16421741, lng: 141.140992, url: "https://kamuiwhisky.com/ja/home-ja/" },
+  { state_en: "Hokkaido", state_jp: "北海道", name_en: "Maoi Distillery", name_jp: "馬追蒸溜所", lat: 43.0033, lng: 141.7208, url: "" },
+
+  // Shikoku
+  { state_en: "Tokushima", state_jp: "徳島県", name_en: "Awano Distillery", name_jp: "阿波乃蒸溜所", lat: 34.09870948, lng: 134.3317755, url: "https://jwic.jp/distillery/Awano/" },
+  { state_en: "Ehime", state_jp: "愛媛県", name_en: "Umemijin Shuzo (Distillery)", name_jp: "梅美人酒造", lat: 33.46532187, lng: 132.4258297, url: "https://umebijin.com/" },
+
+  // Kyushu/Okinawa
+  { state_en: "Okinawa", state_jp: "沖縄県", name_en: "Masahiro Shuzo (Distillery)", name_jp: "まさひろ酒造", lat: 26.1770, lng: 127.6534, url: "" },
+  { state_en: "Kagoshima", state_jp: "鹿児島県", name_en: "Mars Tsunuki Distillery", name_jp: "マルス津貫蒸溜所", lat: 31.5284, lng: 130.3477, url: "" },
+  { state_en: "Kagoshima", state_jp: "鹿児島県", name_en: "Yokogawa Distillery", name_jp: "横川蒸留所", lat: 31.7820, lng: 130.6033, url: "" },
+  { state_en: "Kagoshima", state_jp: "鹿児島県", name_en: "Kanosuke Distillery", name_jp: "嘉之助蒸溜所", lat: 31.4729, lng: 130.2220, url: "" },
+  { state_en: "Kagoshima", state_jp: "鹿児島県", name_en: "Hinokami Distillery", name_jp: "火の神蒸溜所", lat: 31.2570, lng: 130.3540, url: "" },
+  { state_en: "Oita", state_jp: "大分県", name_en: "Kuju Distillery", name_jp: "久住蒸溜所", lat: 32.9680, lng: 131.2340, url: "" },
+  { state_en: "Okinawa", state_jp: "沖縄県", name_en: "Kyoda Distillery", name_jp: "許田蒸留所", lat: 26.5925, lng: 127.9940, url: "" },
+  { state_en: "Kagoshima", state_jp: "鹿児島県", name_en: "Ontake Distillery", name_jp: "御岳蒸留所", lat: 31.5765, lng: 130.5576, url: "" },
+  { state_en: "Kumamoto", state_jp: "熊本県", name_en: "Yamaga Distillery", name_jp: "山鹿蒸溜所", lat: 33.0070, lng: 130.6860, url: "" },
+  { state_en: "Okinawa", state_jp: "沖縄県", name_en: "Suzaki Distillery", name_jp: "州崎蒸溜所", lat: 26.3542, lng: 127.8385, url: "" },
+  { state_en: "Kagoshima", state_jp: "鹿児島県", name_en: "Komaki Distillery", name_jp: "小牧蒸溜所", lat: 31.9560, lng: 130.4032, url: "" },
+  { state_en: "Fukuoka", state_jp: "福岡県", name_en: "Shindo Distillery", name_jp: "新道蒸溜所", lat: 33.4542, lng: 130.6823, url: "" },
+  { state_en: "Okinawa", state_jp: "沖縄県", name_en: "Naha Distillery", name_jp: "那覇蒸溜所", lat: 26.2120, lng: 127.6811, url: "" },
+  { state_en: "Kagoshima", state_jp: "鹿児島県", name_en: "Hioki Distilling Cellar", name_jp: "日置蒸溜蔵", lat: 31.5170, lng: 130.3200, url: "" },
+  { state_en: "Miyazaki", state_jp: "宮崎県", name_en: "Osuzuyama Distillery", name_jp: "尾鈴山蒸留所", lat: 32.2220, lng: 131.3980, url: "" },
+  { state_en: "Kagoshima", state_jp: "鹿児島県", name_en: "Hishida Distillery", name_jp: "菱田蒸溜所", lat: 31.5975, lng: 130.8248, url: "" }
 ];
+
 
 /* ------------------------------------------------------------
    8) USA - ※ 重複座標のCOサイトを削除
@@ -1464,15 +1238,22 @@ const usaData = [
 // ★ 重複座標のため削除：Ironroot Republic (CO site)
 // ★ 重複座標のため削除：Five Points (CO site)
 
+// ... (USA - Part 3 の続き)
 // ---------- ILLINOIS ----------
 {
   state_en: "IL", state_jp: "イリノイ州",
   name_en: "Koval Distillery", name_jp: "コヴァル・ディスティラリー",
-  lat: 41.973, lng: -
+  lat: 41.973, lng: -87.643, // 経度を補完（シカゴ近郊）
+  url: "https://www.koval-distillery.com/" // URLを補完
+} // 閉じ忘れていた } を追加
+]; // usaData配列を閉じる
 
-	//----------------------------------------------------
+//----------------------------------------------------
 // World（まずは Scotland + Japan + USA のフル統合）
 //----------------------------------------------------
+const worldData = [
+  ...speysideData,
+// ...
 const worldData = [
   ...speysideData,
   ...highlandsData,

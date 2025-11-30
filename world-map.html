@@ -197,51 +197,8 @@ function clearMarkers(){
   markers = [];
 }
 
-function addAreaMarkers(arr){
-  clearMarkers();
-  let bounds = [];
 
-  arr.forEach(d => {
-    const lat = d.lat, lng = d.lng;
-    if(!lat || !lng) return;
-
-    const hasURL = d.url && d.url.trim() !== '';
-    const radius = hasURL ? 8 : 5;
-    const color  = hasURL ? "#d8a24a" : "#8c6b3b";
-
-    const marker = L.circleMarker([lat, lng], {
-      radius: radius,
-      color: color,
-      fillColor: color,
-      fillOpacity: 0.85,
-      weight: 2
-    }).addTo(map);
-
-    if (hasURL){
-      marker.on('dblclick', () => window.open(d.url, "_blank"));
-    }
-
-    const jp = d.name_jp ?? d.name ?? "";
-    const en = d.name_en ?? d.name ?? "";
-    const label = `
-      <div style="text-align:center;">
-        <div style="font-size:15px; font-weight:bold;">${jp}</div>
-        <div style="font-size:12px; color:#d0c7b7;">${en}</div>
-      </div>
-    `;
-    marker.bindTooltip(label, { direction: 'top' });
-
-    markers.push(marker);
-    bounds.push([lat, lng]);
-  });
-
-  if (bounds.length){
-    const b = L.latLngBounds(bounds);
-    map.fitBounds(b, { padding: [30, 30] });
-  }
-}
-
-
+	
 //=====================================================
 // World ＆ Country 切替
 //=====================================================
@@ -266,7 +223,72 @@ function showLowlands(){ addAreaMarkers(lowlandsData); }
 function showIslay(){ addAreaMarkers(islayData); }
 function showIslands(){ addAreaMarkers(islandsData); }
 function showCampbeltown(){ addAreaMarkers(campbeltownData); }
+//=====================================================
+// マーカー配置とツールチップ設定
+//=====================================================
+function addAreaMarkers(arr){
+  clearMarkers();
+  let bounds = [];
 
+  arr.forEach(d => {
+    const lat = d.lat, lng = d.lng;
+    if(!lat || !lng) return;
+
+    const hasURL = d.url && d.url.trim() !== '';
+    const radius = hasURL ? 8 : 5;
+    const color  = hasURL ? "#d8a24a" : "#8c6b3b";
+
+    const marker = L.circleMarker([lat, lng], {
+      radius: radius,
+      color: color,
+      fillColor: color,
+      fillOpacity: 0.85,
+      weight: 2
+    }).addTo(map);
+
+    if (hasURL){
+      marker.on('dblclick', () => window.open(d.url, "_blank"));
+    }
+
+    // ★ 修正後のロジック: Scotland/Japan/USAの全データに対応
+    
+    // 1行目: 日本語または主要な名前 (name_jp > name > name_en の順で優先)
+    const name_jp = d.name_jp ?? d.name ?? "";
+    const name_en = d.name_en ?? d.name ?? ""; // name_en がない場合は name を使用
+    
+    // 表示のメインとなる名前を決定
+    const name_main = name_jp.trim() !== "" ? name_jp : name_en;
+    
+    // 2行目: サブ情報（state_en/areaを優先）。JapanデータやUSAデータで有用。
+    let name_sub = d.state_en ?? d.area ?? "";
+
+    // スコットランドのデータ（nameとname_enが重複し、name_subが空欄になるのを防ぐ）
+    if(d.area && d.area.trim() !== "" && name_main === name_en){
+        name_sub = d.area;
+    } 
+    // JapanやUSAのデータで name_main に日本語名があり、name_subが空の場合、英語名や州名を入れる
+    else if (name_main === name_jp && name_sub.trim() === "") {
+        name_sub = name_en.trim() !== "" ? name_en : d.state_en ?? "";
+    }
+
+
+    const label = `
+      <div style="text-align:center;">
+        <div style="font-size:15px; font-weight:bold;">${name_main}</div>
+        <div style="font-size:12px; color:#d0c7b7;">${name_sub}</div>
+      </div>
+    `;
+    marker.bindTooltip(label, { direction: 'top' });
+
+    markers.push(marker);
+    bounds.push([lat, lng]);
+  });
+  
+  // ズーム範囲の調整
+  if(bounds.length > 0){
+    map.fitBounds(bounds, {padding: [50, 50], maxZoom: 8});
+  }
+}
 
 //=====================================================
 // 初期表示
