@@ -181,9 +181,7 @@ body{
 // 地図の初期設定
 //=====================================================
 const map = L.map('map', {
-  zoomControl: true,
-  zoomSnap: 0.5,
-  zoomDelta: 0.5,
+  // ... (中略)
 }).setView([20, 0], 2.3);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -191,6 +189,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   minZoom: 2
 }).addTo(map);
 
+// ★★★ 追記が必要な箇所: マーカーリストの初期化 ★★★
 let markers = [];
 function clearMarkers(){
   markers.forEach(m => map.removeLayer(m));
