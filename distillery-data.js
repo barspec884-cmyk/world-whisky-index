@@ -1272,5 +1272,17 @@ const canadaData = [];
 const irelandData = [];
 const othersData = [];
 
-	
+const worldData = [
+  ...japanData,
+  ...usaData,
+  ...canadaData,
+  ...irelandData,
+  ...othersData,
+  ...speysideData,
+  ...highlandsData,
+  ...lowlandsData,
+  ...islayData,
+  ...islandsData,
+  ...campbeltownData
+];	
 	
