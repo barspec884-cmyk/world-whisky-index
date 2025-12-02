@@ -472,8 +472,52 @@ const irelandData = [
   { name:"Hinch Distillery (Waterford)", name_en:"Waterford", name_jp:"ウォーターフォード", area:"Ireland", lat:54.5167, lng:-5.922, url:"" },
   { name:"Killowen Distillery (West Cork)", name_en:"West Cork", name_jp:"ウエストコーク", area:"Ireland", lat:54.0759, lng:-6.136, url:"" },
   { name:"Pernod Ricard (Great Northern)", name_en:"Great Northern", name_jp:"グレートノーザン", area:"Ireland", lat:51.9079, lng:-8.1706, url:"" }
-];
+{
+  name: "宮下酒造 岡山蒸溜所",
+  name_jp: "宮下酒造 岡山蒸溜所",
+  name_en: "Miyashita Shuzo Okayama Distillery",
+  lat: 34.668997,
+  lng: 133.935463,
+  url: "https://www.miyashita.co.jp/okayama-whisky/"
+},
 
+{
+  name: "嘉之助蒸溜所",
+  name_jp: "嘉之助蒸溜所",
+  name_en: "Kanosuke Distillery",
+  lat: 31.671235,
+  lng: 130.294676,
+  url: "https://kanosuke.com/"
+},
+
+{
+  name: "信州マルス蒸溜所（駒ヶ根）",
+  name_jp: "信州マルス蒸溜所（駒ヶ根）",
+  name_en: "Shinshu Mars Distillery (Komagane)",
+  lat: 35.718304,
+  lng: 137.937374,
+  url: "https://www.hombo.co.jp/distillery/shinshu/"
+},
+
+{
+  name: "マルス津貫蒸溜所",
+  name_jp: "マルス津貫蒸溜所",
+  name_en: "Mars Tsunuki Distillery",
+  lat: 31.378657,
+  lng: 130.381292,
+  url: "https://www.hombo.co.jp/distillery/tsunuki/"
+},
+
+{
+  name: "宮城峡蒸溜所",
+  name_jp: "宮城峡蒸溜所",
+  name_en: "Miyagikyo Distillery",
+  lat: 38.346323,
+  lng: 140.755526,
+  url: "https://www.nikka.com/distilleries/miyagikyo/"
+},
+
+];
 /* ------------------------------------------------------------
    11) Others（更新データ 3件：インド, スウェーデン, 台湾）
 ------------------------------------------------------------ */
