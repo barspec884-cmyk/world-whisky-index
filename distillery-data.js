@@ -210,6 +210,9 @@ const islayData = [
 /* ------------------------------------------------------------
    7) Japan（復旧データ 27件）
 ------------------------------------------------------------ */
+/* ------------------------------------------------------------
+   7) Japan（復旧データ 27件 ＋ 追加 5件 = 合計 32件）
+------------------------------------------------------------ */
 const japanData = [
   { name:"Bar SPEC", name_jp:"Bar SPEC", name_en:"Bar SPEC", area:"Tokyo", lat:35.68101710215845, lng:139.77012528270265, url:"https://www.bar-spec.com" },
   { name:"キリンディスティラリー富士御殿場蒸溜所", name_jp:"キリン富士御殿場蒸溜所", name_en:"Kirin Fuji Gotemba Distillery", area:"Shizuoka", lat:35.33665278478666, lng:138.89680030292513, url:"https://www.kirin.co.jp/experience/factory/gotemba/" },
@@ -249,8 +252,78 @@ const japanData = [
   { name:"千代むすび酒造境港蒸留所", name_jp:"千代むすび酒造境港蒸留所", name_en:"Chiyomusubi Sakaiminato Distillery", area:"Tottori", lat:35.54519531, lng:133.2246684, url:"https://www.chiyomusubi.co.jp/user_data/whisky" },
   { name:"岡山蒸留所", name_jp:"岡山蒸留所", name_en:"Okayama Distillery", area:"Okayama", lat:34.67897795, lng:133.939554, url:"https://www.doppokan.jp/" },
   { name:"阿波山蒸留所", name_jp:"阿波山蒸留所", name_en:"Awano Distillery", area:"Tokushima", lat:34.09870948, lng:134.3317755, url:"" },
-  { name:"梅津酒造株式会社", name_jp:"梅津酒造株式会社", name_en:"Umemijin Shuzo Co", area:"Tottori", lat:33.46532187, lng:132.4258297, url:"https://umebijin.com/" }
+  { name:"梅津酒造株式会社", name_jp:"梅津酒造株式会社", name_en:"Umemijin Shuzo Co", area:"Tottori", lat:33.46532187, lng:132.4258297, url:"https://umebijin.com/" }, // ← 修正点: ここにカンマを追加
+  {
+    name: "宮下酒造 岡山蒸溜所",
+    name_jp: "宮下酒造 岡山蒸溜所",
+    name_en: "Miyashita Shuzo Okayama Distillery",
+    lat: 34.668997,
+    lng: 133.935463,
+    url: "https://www.miyashita.co.jp/okayama-whisky/"
+  },
+  {
+    name: "嘉之助蒸溜所",
+    name_jp: "嘉之助蒸溜所",
+    name_en: "Kanosuke Distillery",
+    lat: 31.671235,
+    lng: 130.294676,
+    url: "https://kanosuke.com/"
+  },
+  {
+    name: "信州マルス蒸溜所（駒ヶ根）",
+    name_jp: "信州マルス蒸溜所（駒ヶ根）",
+    name_en: "Shinshu Mars Distillery (Komagane)",
+    lat: 35.718304,
+    lng: 137.937374,
+    url: "https://www.hombo.co.jp/distillery/shinshu/"
+  },
+  {
+    name: "マルス津貫蒸溜所",
+    name_jp: "マルス津貫蒸溜所",
+    name_en: "Mars Tsunuki Distillery",
+    lat: 31.378657,
+    lng: 130.381292,
+    url: "https://www.hombo.co.jp/distillery/tsunuki/"
+  },
+  {
+    name: "宮城峡蒸溜所",
+    name_jp: "宮城峡蒸溜所",
+    name_en: "Miyagikyo Distillery",
+    lat: 38.346323,
+    lng: 140.755526,
+    url: "https://www.nikka.com/distilleries/miyagikyo/"
+  }   // ← 最後の要素なのでカンマは不要
 ];
+
+/* ------------------------------------------------------------
+   10) Ireland（復旧データ 20件）
+------------------------------------------------------------ */
+const irelandData = [
+  { name:"Ballykeefe Distillery", name_en:"Ballykeefe", name_jp:"バリーキーフ", area:"Ireland", lat:52.6186, lng:-7.3197, url:"" },
+  { name:"Boann Distillery", name_en:"Boann", name_jp:"ボアン", area:"Ireland", lat:53.7431, lng:-6.3773, url:"" },
+  { name:"Clonakilty Distillery", name_en:"Clonakilty", name_jp:"クロナキルティ", area:"Ireland", lat:51.6264, lng:-8.8953, url:"" },
+  { name:"Dingle Distillery (Cooley)", name_en:"Cooley", name_jp:"クーリー", area:"Ireland", lat:52.1465, lng:-10.2882, url:"" },
+  { name:"Quintessential Brands (Dingle)", name_en:"Dingle", name_jp:"ディングル", area:"Ireland", lat:53.3375, lng:-6.273, url:"" },
+  { name:"Glendalough Distillery", name_en:"Dublin Liberties", name_jp:"ダブリンリバティーズ", area:"Ireland", lat:53.0076, lng:-6.3752, url:"" },
+  { name:"Lambay Irish Whiskey Co.", name_en:"Glendree", name_jp:"グレンドリー", area:"Ireland", lat:53.4867, lng:-6.0125, url:"" },
+  { name:"Diageo (Kilbeggan)", name_en:"Kilbeggan", name_jp:"キルベガン", area:"Ireland", lat:53.3444, lng:-6.2783, url:"" },
+  { name:"Lough Gill Distillery", name_en:"Lough Gill", name_jp:"ロッホギル", area:"Ireland", lat:54.275, lng:-8.455, url:"" },
+  { name:"Brown-Forman (Midleton)", name_en:"Midleton", name_jp:"ミドルトン", area:"Ireland", lat:53.7088, lng:-6.5501, url:"" },
+  { name:"Teeling Whiskey Co.", name_en:"Pearse Lyons", name_jp:"ピアースライオンズ", area:"Ireland", lat:53.3364, lng:-6.2625, url:"" },
+  { name:"Tipperary Boutique Distillery", name_en:"Powerscourt", name_jp:"パワーズコート", area:"Ireland", lat:52.5008, lng:-7.7801, url:"" },
+  { name:"William Grant & Sons (Roe & Co)", name_en:"Roe & Co", name_jp:"ロー&コー", area:"Ireland", lat:53.2797, lng:-7.5029, url:"" },
+  { name:"Renegade Spirits (Royal Oak)", name_en:"Royal Oak", name_jp:"ロイヤルオーク", area:"Ireland", lat:52.2612, lng:-7.1085, url:"" },
+  { name:"West Cork Distillers (Shed)", name_en:"Shed", name_jp:"シェッド", area:"Ireland", lat:51.5284, lng:-9.2818, url:"" },
+  { name:"Boatyard Distillery (Slane)", name_en:"Slane", name_jp:"スレーン", area:"Ireland", lat:54.3414, lng:-7.6322, url:"" },
+  { name:"Copeland Distillery (Teeling)", name_en:"Teeling", name_jp:"ティーリング", area:"Ireland", lat:54.4069, lng:-5.5139, url:"" },
+  { name:"Hinch Distillery (Waterford)", name_en:"Waterford", name_jp:"ウォーターフォード", area:"Ireland", lat:54.5167, lng:-5.922, url:"" },
+  { name:"Killowen Distillery (West Cork)", name_en:"West Cork", name_jp:"ウエストコーク", area:"Ireland", lat:54.0759, lng:-6.136, url:"" },
+  { name:"Pernod Ricard (Great Northern)", name_en:"Great Northern", name_jp:"グレートノーザン", area:"Ireland", lat:51.9079, lng:-8.1706, url:"" }
+]; // ← 修正点: 重複していた日本の蒸留所データを削除し、アイルランドデータの配列を閉じる
+
+/* ------------------------------------------------------------
+   11) Others（更新データ 3件：インド, スウェーデン, 台湾）
+// ... (以下、元のファイルの内容に戻ります)
 
 /* ------------------------------------------------------------
    8) USA（更新データ 61件）
