@@ -515,7 +515,7 @@ const irelandData = [
   lat: 38.346323,
   lng: 140.755526,
   url: "https://www.nikka.com/distilleries/miyagikyo/"
-},
+}
 
 ];
 /* ------------------------------------------------------------
