@@ -221,7 +221,16 @@ function showHighlands(){ addAreaMarkers(highlandsData); }
 function showLowlands(){ addAreaMarkers(lowlandsData); }
 function showIslay(){ addAreaMarkers(islayData); }
 function showIslands(){ addAreaMarkers(islandsData); }
-function showCampbeltown(){ addAreaMarkers(campbeltownData); }
+function showCampbeltown(){
+  clearMarkers();
+  addAreaMarkers(campbeltownData);
+
+  // ★ fitBounds が走ったあとに強制ズーム上書き
+  setTimeout(() => {
+     map.setView([55.43, -5.61], 12.3); 
+  }, 80);
+}
+
 //=====================================================
 // マーカー配置とツールチップ設定
 //=====================================================
