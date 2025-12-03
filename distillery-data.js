@@ -253,14 +253,16 @@ const japanData = [
   { name:"岡山蒸留所", name_jp:"岡山蒸留所", name_en:"Okayama Distillery", area:"Okayama", lat:34.67897795, lng:133.939554, url:"https://www.doppokan.jp/" },
   { name:"阿波山蒸留所", name_jp:"阿波山蒸留所", name_en:"Awano Distillery", area:"Tokushima", lat:34.09870948, lng:134.3317755, url:"" },
   { name:"梅津酒造株式会社", name_jp:"梅津酒造株式会社", name_en:"Umemijin Shuzo Co", area:"Tottori", lat:33.46532187, lng:132.4258297, url:"https://umebijin.com/" }, // ← 修正点: ここにカンマを追加
-  {
-    name: "宮下酒造 岡山蒸溜所",
-    name_jp: "宮下酒造 岡山蒸溜所",
-    name_en: "Miyashita Shuzo Okayama Distillery",
-    lat: 34.668997,
-    lng: 133.935463,
-    url: "https://www.miyashita.co.jp/okayama-whisky/"
-  },
+{
+  name: "宮下酒造 岡山蒸溜所",
+  name_jp: "宮下酒造 岡山蒸溜所",
+  name_en: "Miyashita Shuzo Okayama Distillery",
+  area: "Okayama",
+  lat: 34.668997,
+  lng: 133.935463,
+  url: "https://www.miyashita.co.jp/okayama-whisky/"
+},
+
   {
     name: "嘉之助蒸溜所",
     name_jp: "嘉之助蒸溜所",
