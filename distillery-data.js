@@ -218,7 +218,7 @@ const japanData = [
   { name:"ニッカウヰスキー余市蒸溜所", name_jp:"ニッカウヰスキー余市蒸溜所", name_en:"Nikka Whisky Yoichi Distillery", area:"Hokkaido", lat:43.18727948, lng:140.918742, url:"" },
   { name:"ニセコ蒸溜所", name_jp:"ニセコ蒸溜所", name_en:"Niseko Distillery", area:"Hokkaido", lat:42.84849283, lng:140.653982, url:"" },
   { name:"遊佐蒸溜所", name_jp:"遊佐蒸溜所", name_en:"Yuza Distillery", area:"Yamagata", lat:39.02103653, lng:139.9224974, url:"https://yuza-disty.jp/" },
-  { name:"吉田酒造丹波蒸留所", name_jp:"吉田酒造丹波蒸留所", name_en:"Yoshida Denzai Distillery", area:"Hyogo", lat:35.15245273, lng:139.4598592, url:"https://yoshidadenzai-distillery.com/" },
+  { name:"丹波蒸留所", name_jp:"丹波蒸留所", name_en:"Yoshida Denzai Distillery", area:"Hyogo", lat:35.00018703957347, lng:135.07799290672295, url:"https://yoshidadenzai-distillery.com/" },
   { name:"亀岡蒸留所", name_jp:"亀岡蒸留所", name_en:"Kameoka Distillery", area:"Kyoto", lat:37.87157314, lng:139.085232, url:"" },
   { name:"新潟麦酒株式会社 忍び市", name_jp:"新潟麦酒株式会社 忍び市", name_en:"Niigata Beer Co", area:"Niigata", lat:37.80632791, lng:138.9494225, url:"https://shinobudistillery.com/home/" },
   { name:"天領酒造", name_jp:"天領酒造", name_en:"Tenkyo Distillery (Tenkyo Co)", area:"Gifu", lat:37.57470792, lng:140.01747, url:"https://www.tenkyo.jp/" },
