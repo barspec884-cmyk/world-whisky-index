@@ -248,8 +248,8 @@ const japanData = [
   { name:"阿波乃蒸留所", name_jp:"阿波乃蒸留所", name_en:"Awano Distillery", area:"Tokushima", lat:34.09863744104866, lng:134.33173164752515, url:"" },
   { name:"梅津酒造株式会社", name_jp:"梅津酒造株式会社", name_en:"Umemijin Shuzo Co", area:"Tottori", lat:33.46532187, lng:132.4258297, url:"https://umebijin.com/" }, // ← 修正点: ここにカンマを追加
 {
-  name: "宮下酒造 岡山蒸溜所",
-  name_jp: "宮下酒造 岡山蒸溜所",
+  name: "岡山蒸溜所",
+  name_jp: "岡山蒸溜所",
   name_en: "Miyashita Shuzo Okayama Distillery",
   area: "Okayama",
   lat: 34.679014176231355,
@@ -271,15 +271,25 @@ const japanData = [
   name: "信州マルス蒸溜所（駒ヶ根）",
   name_jp: "信州マルス蒸溜所（駒ヶ根）",
   name_en: "Shinshu Mars Distillery (Komagane)",
+　area: "Nagano",
   lat: 35.718304,
   lng: 137.937374,
   url: "https://www.hombo.co.jp/distillery/shinshu/"
 },
-
+{
+  name: "久住蒸溜所",
+  name_jp: "久住蒸溜所",
+  name_en: "Kuju Distillery",
+　area: "Oita",
+  lat: 33.021777061672545,
+  lng: 131.297421850923943,
+  url: "https://kujudistillery.jp/?utm_source=chatgpt.com/"
+},
 {
   name: "マルス津貫蒸溜所",
   name_jp: "マルス津貫蒸溜所",
   name_en: "Mars Tsunuki Distillery",
+  area: "Kagoshima",
   lat: 31.358807674635596,
   lng: 130.2862268684703,
   url: "https://www.hombo.co.jp/distillery/tsunuki/"
@@ -289,6 +299,7 @@ const japanData = [
     name: "宮城峡蒸溜所",
     name_jp: "宮城峡蒸溜所",
     name_en: "Miyagikyo Distillery",
+	area: "Miyagi",
     lat: 38.346323,
     lng: 140.755526,
     url: "https://www.nikka.com/distilleries/miyagikyo/"
