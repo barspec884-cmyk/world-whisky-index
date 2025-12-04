@@ -489,178 +489,178 @@ const irelandData = [
 ------------------------------------------------------------ */
 const othersData = [
   { 
-    name:"Amrut Distillery", 
-    name_en:"Amrut Distillery", 
-    name_jp:"アムルット・ディスティラリー", 
-    area:"India", 
+    name:"Amrut Distillery",
+    name_en:"Amrut Distillery",
+    name_jp:"アムルット・ディスティラリー",
+    area:"India",
     lat:12.967018335393982,
     lng:77.59357284473035,
-    url:"http://www.amrutdistilleries.com/" 
-  },
-　{ 
-    name:"Lark Distillery", 
-    name_en:"Lark Distillery", 
-    name_jp:"ラーク蒸溜所", 
-    area:"Australia", 
-    lat:-42.66416595058492,
-    lng:147.26889640000002,
-    url:"	https://larkdistillery.com/" 
+    url:"http://www.amrutdistilleries.com/"
   },
   { 
-    name:"High Coast Distillery", 
-    name_en:"High Coast Distillery", 
-    name_jp:"ハイ・コースト・ディスティラリー", 
-    area:"Sweden", 
+    name:"Lark Distillery",
+    name_en:"Lark Distillery",
+    name_jp:"ラーク蒸溜所",
+    area:"Australia",
+    lat:-42.66416595058492,
+    lng:147.26889640000002,
+    url:"https://larkdistillery.com/"
+  },
+  { 
+    name:"High Coast Distillery",
+    name_en:"High Coast Distillery",
+    name_jp:"ハイ・コースト・ディスティラリー",
+    area:"Sweden",
     lat:63.00154067446897,
     lng:17.79854721700359,
-    url:"https://www.highcoastwhisky.se/" 
+    url:"https://www.highcoastwhisky.se/"
   },
-   { 
-    name:"シュリアーズ蒸溜所", 
-    name_en:"シュリアーズ蒸溜所", 
-    name_jp:"Slyrs Distillery GmbH & Co. KG", 
-    area:"Germany", 
+  { 
+    name:"シュリアーズ蒸溜所",
+    name_en:"Slyrs Distillery GmbH & Co. KG",
+    name_jp:"シュリアーズ蒸溜所",
+    area:"Germany",
     lat:47.702780754355445,
     lng:11.885437678945747,
-    url:"https://slyrs.com/en/?srsltid=AfmBOopGPnKscTz4ogXIpWTAX9YOLBKXksB83JHtffbTuvmvgt3kjO-d" 
+    url:"https://slyrs.com/en/?srsltid=AfmBOopGPnKscTz4ogXIpWTAX9YOLBKXksB83JHtffbTuvmvgt3kjO-d"
   },
- 	{
-  name: "プニ蒸溜所",
-  name_jp: "プニ蒸溜所",
-  name_en: "Puni Distillery",
-  area: "Italy",
-  lat: 46.670806,
-  lng: 10.560900,
-  url: "https://www.puni.com/"
-}
-{
-  name: "ランガトゥン蒸溜所",
-  name_jp: "ランガトゥン蒸溜所",
-  name_en: "Langatun Distillery",
-  area: "Switzerland",
-  lat: 47.242540,
-  lng: 7.772580,
-  url: "https://langatun.ch/"
-}
-{
-  name: "M&H 蒸溜所",
-  name_jp: "M&H 蒸溜所",
-  name_en: "M&H Whisky Distillery",
-  area: "Israel",
-  lat: 32.050838,
-  lng: 34.763635,
-  url: "https://mh-distillery.com/"
-}
-{
-  name: "ウェアハウス蒸溜所 (アルモリック)",
-  name_jp: "ウェアハウス蒸溜所 (アルモリック)",
-  name_en: "Distillerie Warenghem",
-  area: "France",
-  lat: 48.724186,
-  lng: -3.433372,
-  url: "https://distillerie-warenghem.bzh/"
-}
-{
-  name: "スタウニング蒸溜所",
-  name_jp: "スタウニング蒸溜所",
-  name_en: "Stauning Whisky",
-  area: "Denmark",
-  lat: 55.952773,
-  lng: 8.403275,
-  url: "https://stauningwhisky.com/"
-}
-{
-  name: "リベル蒸溜所",
-  name_jp: "リベル蒸溜所",
-  name_en: "Destilerías Liber",
-  area: "Spain",
-  lat: 37.031428,
-  lng: -3.632777,
-  url: "http://www.destileriasliber.com/"
-}
-{
-  name: "ジェームズ・セジウィック蒸溜所",
-  name_jp: "ジェームズ・セジウィック蒸溜所",
-  name_en: "The James Sedgwick Distillery",
-  area: "South Africa",
-  lat: -33.643800,
-  lng: 19.011200,
-  url: "https://www.jamessedgwickdistillery.co.za/"
-}
-{
-  name: "トムソン蒸溜所",
-  name_jp: "トムソン蒸溜所",
-  name_en: "Thomson Whisky Distillery",
-  area: "New Zealand",
-  lat: -36.766702,
-  lng: 174.588690,
-  url: "https://thomsonwhisky.co.nz/"
-}
-{
-  name: "アガルディ蒸溜所",
-  name_jp: "アガルディ蒸溜所",
-  name_en: "Agárdi Distillery",
-  area: "Hungary",
-  lat: 47.184850,
-  lng: 18.618230,
-  url: "https://agardipalinka.hu/"
-}
-{
-  name: "アバソロ蒸溜所",
-  name_jp: "アバソロ蒸溜所",
-  name_en: "Destilería Abasolo",
-  area: "Mexico",
-  lat: 19.948250,
-  lng: -99.601550,
-  url: "https://abasolowhisky.com/"
-}
-{
-  name: "ザ・チュアン (叠川) 蒸溜所",
-  name_jp: "ザ・チュアン (叠川) 蒸溜所",
-  name_en: "The Chuan Malt Whisky Distillery",
-  area: "China",
-  lat: 29.553200,
-  lng: 103.425500,
-  url: "https://www.pernod-ricard.com/en/locations/china/the-chuan"
-}
-{
-  name: "スリー・ソサエティーズ蒸溜所",
-  name_jp: "スリー・ソサエティーズ蒸溜所",
-  name_en: "Three Societies Distillery",
-  area: "Korea",
-  lat: 37.668700,
-  lng: 127.288900,
-  url: "https://threesocieties.co.kr/"
-}
-{
-  name: "ネストヴィル蒸溜所",
-  name_jp: "ネストヴィル蒸溜所",
-  name_en: "Nestville Distillery",
-  area: "Slovakia",
-  lat: 49.303380,
-  lng: 20.635230,
-  url: "https://nestville.sk/"
-}
-{
-  name: "ペンダーリン蒸溜所",
-  name_jp: "ペンダーリン蒸溜所",
-  name_en: "Penderyn Distillery",
-  area: "Wales",
-  lat: 51.765180,
-  lng: -3.522060,
-  url: "https://www.penderyn.wales/"
-}
-
-	{ 
-    name:"Kavalan Distillery", 
-    name_en:"Kavalan Distillery", 
-    name_jp:"カバラン・ディスティラリー", 
-    area:"Taiwan", 
+  {
+    name: "プニ蒸溜所",
+    name_jp: "プニ蒸溜所",
+    name_en: "Puni Distillery",
+    area: "Italy",
+    lat: 46.670806,
+    lng: 10.560900,
+    url: "https://www.puni.com/"
+  },
+  {
+    name: "ランガトゥン蒸溜所",
+    name_jp: "ランガトゥン蒸溜所",
+    name_en: "Langatun Distillery",
+    area: "Switzerland",
+    lat: 47.242540,
+    lng: 7.772580,
+    url: "https://langatun.ch/"
+  },
+  {
+    name: "M&H 蒸溜所",
+    name_jp: "M&H 蒸溜所",
+    name_en: "M&H Whisky Distillery",
+    area: "Israel",
+    lat: 32.050838,
+    lng: 34.763635,
+    url: "https://mh-distillery.com/"
+  },
+  {
+    name: "ウェアハウス蒸溜所 (アルモリック)",
+    name_jp: "ウェアハウス蒸溜所 (アルモリック)",
+    name_en: "Distillerie Warenghem",
+    area: "France",
+    lat: 48.724186,
+    lng: -3.433372,
+    url: "https://distillerie-warenghem.bzh/"
+  },
+  {
+    name: "スタウニング蒸溜所",
+    name_jp: "スタウニング蒸溜所",
+    name_en: "Stauning Whisky",
+    area: "Denmark",
+    lat: 55.952773,
+    lng: 8.403275,
+    url: "https://stauningwhisky.com/"
+  },
+  {
+    name: "リベル蒸溜所",
+    name_jp: "リベル蒸溜所",
+    name_en: "Destilerías Liber",
+    area: "Spain",
+    lat: 37.031428,
+    lng: -3.632777,
+    url: "http://www.destileriasliber.com/"
+  },
+  {
+    name: "ジェームズ・セジウィック蒸溜所",
+    name_jp: "ジェームズ・セジウィック蒸溜所",
+    name_en: "The James Sedgwick Distillery",
+    area: "South Africa",
+    lat: -33.643800,
+    lng: 19.011200,
+    url: "https://www.jamessedgwickdistillery.co.za/"
+  },
+  {
+    name: "トムソン蒸溜所",
+    name_jp: "トムソン蒸溜所",
+    name_en: "Thomson Whisky Distillery",
+    area: "New Zealand",
+    lat: -36.766702,
+    lng: 174.588690,
+    url: "https://thomsonwhisky.co.nz/"
+  },
+  {
+    name: "アガルディ蒸溜所",
+    name_jp: "アガルディ蒸溜所",
+    name_en: "Agárdi Distillery",
+    area: "Hungary",
+    lat: 47.184850,
+    lng: 18.618230,
+    url: "https://agardipalinka.hu/"
+  },
+  {
+    name: "アバソロ蒸溜所",
+    name_jp: "アバソロ蒸溜所",
+    name_en: "Destilería Abasolo",
+    area: "Mexico",
+    lat: 19.948250,
+    lng: -99.601550,
+    url: "https://abasolowhisky.com/"
+  },
+  {
+    name: "ザ・チュアン (叠川) 蒸溜所",
+    name_jp: "ザ・チュアン (叠川) 蒸溜所",
+    name_en: "The Chuan Malt Whisky Distillery",
+    area: "China",
+    lat: 29.553200,
+    lng: 103.425500,
+    url: "https://www.pernod-ricard.com/en/locations/china/the-chuan"
+  },
+  {
+    name: "スリー・ソサエティーズ蒸溜所",
+    name_jp: "スリー・ソサエティーズ蒸溜所",
+    name_en: "Three Societies Distillery",
+    area: "Korea",
+    lat: 37.668700,
+    lng: 127.288900,
+    url: "https://threesocieties.co.kr/"
+  },
+  {
+    name: "ネストヴィル蒸溜所",
+    name_jp: "ネストヴィル蒸溜所",
+    name_en: "Nestville Distillery",
+    area: "Slovakia",
+    lat: 49.303380,
+    lng: 20.635230,
+    url: "https://nestville.sk/"
+  },
+  {
+    name: "ペンダーリン蒸溜所",
+    name_jp: "ペンダーリン蒸溜所",
+    name_en: "Penderyn Distillery",
+    area: "Wales",
+    lat: 51.765180,
+    lng: -3.522060,
+    url: "https://www.penderyn.wales/"
+  },
+  {
+    name:"Kavalan Distillery",
+    name_en:"Kavalan Distillery",
+    name_jp:"カバラン・ディスティラリー",
+    area:"Taiwan",
     lat:24.713956452542728,
-    lng:121.688545789396, 
-    url:"https://www.kavalanwhisky.com/" 
+    lng:121.688545789396,
+    url:"https://www.kavalanwhisky.com/"
   }
 ];
+
 
 /* ------------------------------------------------------------
    12) World（全データを結合 → 初期表示/Worldボタンで使用）
