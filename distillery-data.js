@@ -493,26 +493,44 @@ const othersData = [
     name_en:"Amrut Distillery", 
     name_jp:"アムルット・ディスティラリー", 
     area:"India", 
-    lat:13.0142, 
-    lng:77.6975, 
+    lat:12.967018335393982,
+    lng:77.59357284473035,
     url:"http://www.amrutdistilleries.com/" 
+  },
+　{ 
+    name:"Lark Distillery", 
+    name_en:"Lark Distillery", 
+    name_jp:"ラーク蒸溜所", 
+    area:"Australia", 
+    lat:-42.66416595058492,
+    lng:147.26889640000002,
+    url:"	https://larkdistillery.com/" 
   },
   { 
     name:"High Coast Distillery", 
     name_en:"High Coast Distillery", 
     name_jp:"ハイ・コースト・ディスティラリー", 
     area:"Sweden", 
-    lat:63.0019, 
-    lng:17.7986, 
+    lat:63.00154067446897,
+    lng:17.79854721700359,
     url:"https://www.highcoastwhisky.se/" 
   },
-  { 
+   { 
+    name:"シュリアーズ蒸溜所", 
+    name_en:"シュリアーズ蒸溜所", 
+    name_jp:"Slyrs Distillery GmbH & Co. KG", 
+    area:"Germany", 
+    lat:47.702780754355445,
+    lng:11.885437678945747,
+    url:"https://slyrs.com/en/?srsltid=AfmBOopGPnKscTz4ogXIpWTAX9YOLBKXksB83JHtffbTuvmvgt3kjO-d" 
+  },
+ 	{ 
     name:"Kavalan Distillery", 
     name_en:"Kavalan Distillery", 
     name_jp:"カバラン・ディスティラリー", 
     area:"Taiwan", 
-    lat:24.7137, 
-    lng:121.6919, 
+    lat:24.713956452542728,
+    lng:121.688545789396, 
     url:"https://www.kavalanwhisky.com/" 
   }
 ];
