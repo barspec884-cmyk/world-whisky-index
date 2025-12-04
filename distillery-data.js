@@ -245,16 +245,15 @@ const japanData = [
   { name:"海峡蒸留所", name_jp:"海峡蒸留所", name_en:"Kaikyo Distillery", area:"Hyogo", lat:34.64498193, lng:135.012356, url:"" },
   { name:"明石蒸留所", name_jp:"明石蒸留所", name_en:"Akashi Distillery (No longer exists or Akashi Distillery (None))", area:"Hyogo", lat:34.68143953, lng:134.9053798, url:"" },
   { name:"千代むすび酒造境港蒸留所", name_jp:"千代むすび酒造境港蒸留所", name_en:"Chiyomusubi Sakaiminato Distillery", area:"Tottori", lat:35.54519531, lng:133.2246684, url:"https://www.chiyomusubi.co.jp/user_data/whisky" },
-  { name:"岡山蒸留所", name_jp:"岡山蒸留所", name_en:"Okayama Distillery", area:"Okayama", lat:34.67897795, lng:133.939554, url:"https://www.doppokan.jp/" },
-  { name:"阿波山蒸留所", name_jp:"阿波山蒸留所", name_en:"Awano Distillery", area:"Tokushima", lat:34.09870948, lng:134.3317755, url:"" },
+  { name:"阿波乃蒸留所", name_jp:"阿波乃蒸留所", name_en:"Awano Distillery", area:"Tokushima", lat:34.09863744104866, lng:134.33173164752515, url:"" },
   { name:"梅津酒造株式会社", name_jp:"梅津酒造株式会社", name_en:"Umemijin Shuzo Co", area:"Tottori", lat:33.46532187, lng:132.4258297, url:"https://umebijin.com/" }, // ← 修正点: ここにカンマを追加
 {
   name: "宮下酒造 岡山蒸溜所",
   name_jp: "宮下酒造 岡山蒸溜所",
   name_en: "Miyashita Shuzo Okayama Distillery",
   area: "Okayama",
-  lat: 34.668997,
-  lng: 133.935463,
+  lat: 34.679014176231355,
+  lng: 133.93965212771613,
   url: "https://www.miyashita.co.jp/okayama-whisky/"
 },
 
@@ -281,8 +280,8 @@ const japanData = [
   name: "マルス津貫蒸溜所",
   name_jp: "マルス津貫蒸溜所",
   name_en: "Mars Tsunuki Distillery",
-  lat: 31.378657,
-  lng: 130.381292,
+  lat: 31.358807674635596,
+  lng: 130.2862268684703,
   url: "https://www.hombo.co.jp/distillery/tsunuki/"
 },
 
