@@ -182,75 +182,48 @@ body{
 <script src="distillery-data.js"></script>
 
 <script>
-//=====================================================
-// 地図の初期設定
-//=====================================================
+// =====================================================
+// 1. マップの初期化
+// =====================================================
+// ズームコントロールの位置などを調整したい場合はオプションを追加
 const map = L.map('map', {
-  // ... (中略)
-}).setView([20, 0], 2.3);
+  zoomControl: false // ズームボタンを一旦消す場合（お好みで）
+}).setView([20, 10], 2);
+
+L.control.zoom({ position: 'topright' }).addTo(map);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
-  minZoom: 2
+  minZoom: 2,
+  attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// ★★★ 追記が必要な箇所: マーカーリストの初期化 ★★★
+// マーカー管理用配列
 let markers = [];
+
+// =====================================================
+// 2. 共通関数: マーカー削除 & 追加
+// =====================================================
+
+// マーカー全削除
 function clearMarkers(){
   markers.forEach(m => map.removeLayer(m));
   markers = [];
 }
 
-
-	
-//=====================================================
-// World ＆ Country 切替
-//=====================================================
-function showWorld(){ addAreaMarkers(worldData); }
-function showJapan(){ addAreaMarkers(japanData); }
-function showUSA(){ addAreaMarkers(usaData); }
-function showCanada(){ addAreaMarkers(canadaData); }
-function showIreland(){ addAreaMarkers(irelandData); }
-function showOthers(){ addAreaMarkers(othersData); }
-
-//=====================================================
-// Scotland（メイン → サブ6エリア）
-//=====================================================
-function toggleScotlandSub(){
-  const s = document.getElementById("scotlandSub");
-  s.style.display = (s.style.display === "flex") ? "none" : "flex";
-}
-
-function showSpeyside(){ addAreaMarkers(speysideData); }
-function showHighlands(){ addAreaMarkers(highlandsData); }
-function showLowlands(){ addAreaMarkers(lowlandsData); }
-function showIslay(){ addAreaMarkers(islayData); }
-function showIslands(){ addAreaMarkers(islandsData); }
-function showCampbeltown(){
-  clearMarkers();
-  addAreaMarkers(campbeltownData);
-
-  // ★ fitBounds が走ったあとに強制ズーム上書き
-  setTimeout(() => {
-     map.setView([55.43, -5.61], 12.3); 
-  }, 80);
-}
-
-//=====================================================
-// マーカー配置とツールチップ設定
-//=====================================================
+// エリアごとのマーカー配置
 function addAreaMarkers(arr){
-  clearMarkers();
+  clearMarkers(); // まず消す
   let bounds = [];
 
   arr.forEach(d => {
     const lat = d.lat, lng = d.lng;
     if(!lat || !lng) return;
 
-    // ★ Bar SPEC ロゴアイコン
+    // ★ Bar SPEC ロゴアイコン（特別処理）
     if (d.name === "Bar SPEC") {
       const logoIcon = L.icon({
-        iconUrl: "icons/barspec.png",
+        iconUrl: "icons/barspec.png", // パスが正しいか確認してください
         iconSize: [28, 28], 
         iconAnchor: [14, 14],
         popupAnchor: [0, -20],
@@ -262,7 +235,8 @@ function addAreaMarkers(arr){
       if (d.url) {
         logoMarker.on("dblclick", () => window.open(d.url, "_blank"));
       }
-
+      
+      // ツールチップ
       logoMarker.bindTooltip(`
         <div style="text-align:center;">
           <div style="font-size:15px; font-weight:bold;">Bar SPEC</div>
@@ -272,36 +246,39 @@ function addAreaMarkers(arr){
 
       markers.push(logoMarker);
       bounds.push([lat, lng]);
-      return;
+      return; // Bar SPEC処理終了
     }
 
-    // 通常マーカー
+    // --- 通常の蒸留所マーカー ---
     const hasURL = d.url && d.url.trim() !== '';
     const radius = hasURL ? 8 : 5;
     const color  = hasURL ? "#d8a24a" : "#8c6b3b";
 
+    // 円マーカーを作成
     const marker = L.circleMarker([lat, lng], {
       radius: radius,
       color: color,
       fillColor: color,
       fillOpacity: 0.85,
-      weight: 2
+      weight: 1
     }).addTo(map);
 
     if (hasURL){
       marker.on('dblclick', () => window.open(d.url, "_blank"));
     }
 
+    // ツールチップのラベル生成
     const name_jp = d.name_jp ?? d.name ?? "";
     const name_en = d.name_en ?? d.name ?? "";
+    // 日本語があれば日本語をメインに、なければ英語
     const name_main = name_jp.trim() !== "" ? name_jp : name_en;
+    
+    // サブ名（地域名など）
     let name_sub = d.state_en ?? d.area ?? "";
-
     if(d.area && d.area.trim() !== "" && name_main === name_en){
       name_sub = d.area;
-    } 
-    else if (name_main === name_jp && name_sub.trim() === "") {
-      name_sub = name_en.trim() !== "" ? name_en : d.state_en ?? "";
+    } else if (name_main === name_jp && (!name_sub || name_sub.trim() === "")) {
+      name_sub = name_en.trim() !== "" ? name_en : (d.state_en ?? "");
     }
 
     const label = `
@@ -316,58 +293,128 @@ function addAreaMarkers(arr){
     bounds.push([lat, lng]);
   });
   
+  // マーカーがある範囲にズーム（World以外の場合に有効）
+  // ※ World表示の時は別途 setView しているのでここは動作してもOK
   if(bounds.length > 0){
-    map.fitBounds(bounds, {padding: [50, 50], maxZoom: 8});
+    // パディングをつけて範囲に収める
+    map.fitBounds(bounds, {padding: [50, 50], maxZoom: 10});
+  }
+  
+  // マーカー配置後にスタイル更新（サイズ合わせ）
+  updateMarkerStyle();
+}
+
+// =====================================================
+// 3. 表示切り替え関数
+// =====================================================
+
+function showWorld(){
+  // 全データを結合（worldData変数がなくても動くように修正）
+  // ※ distillery-data.js 内の変数名に合わせてください
+  const allData = [
+    ...(typeof japanData !== 'undefined' ? japanData : []),
+    ...(typeof usaData !== 'undefined' ? usaData : []),
+    ...(typeof canadaData !== 'undefined' ? canadaData : []),
+    ...(typeof ukData !== 'undefined' ? ukData : []), // イングランド等
+    ...(typeof irelandData !== 'undefined' ? irelandData : []),
+    ...(typeof scotlandData !== 'undefined' ? scotlandData : []),
+    ...(typeof othersData !== 'undefined' ? othersData : []),
+    // エリア別データが重複していないか注意（scotlandDataにIslayなどが含まれているなら不要）
+  ];
+  
+  // マーカー配置
+  addAreaMarkers(allData);
+  
+  // Worldだけは強制的に全世界が見えるズーム位置に固定
+  map.setView([25, 0], 2);
+}
+
+function showJapan(){ if(typeof japanData !== 'undefined') addAreaMarkers(japanData); }
+function showUSA(){ if(typeof usaData !== 'undefined') addAreaMarkers(usaData); }
+function showCanada(){ if(typeof canadaData !== 'undefined') addAreaMarkers(canadaData); }
+function showIreland(){ if(typeof irelandData !== 'undefined') addAreaMarkers(irelandData); }
+function showOthers(){ if(typeof othersData !== 'undefined') addAreaMarkers(othersData); }
+
+// Scotland のサブメニュー切り替え
+function toggleScotlandSub(){
+  const s = document.getElementById("scotlandSub");
+  s.style.display = (s.style.display === "flex") ? "none" : "flex";
+  // ボタンを押しただけでScotland全域を表示したい場合は以下を有効化
+  // if(typeof scotlandData !== 'undefined') addAreaMarkers(scotlandData);
+}
+
+// Scotland 各エリア
+function showSpeyside(){ if(typeof speysideData !== 'undefined') addAreaMarkers(speysideData); }
+function showHighlands(){ if(typeof highlandsData !== 'undefined') addAreaMarkers(highlandsData); }
+function showLowlands(){ if(typeof lowlandsData !== 'undefined') addAreaMarkers(lowlandsData); }
+function showIslay(){ if(typeof islayData !== 'undefined') addAreaMarkers(islayData); }
+function showIslands(){ if(typeof islandsData !== 'undefined') addAreaMarkers(islandsData); }
+
+function showCampbeltown(){
+  if(typeof campbeltownData !== 'undefined') {
+    addAreaMarkers(campbeltownData);
+    // Campbeltownは狭いので個別にズーム調整したい場合
+    setTimeout(() => {
+       map.setView([55.42, -5.60], 13); 
+    }, 100);
   }
 }
 
-//============================
-// Zoom に応じてマーカーの大きさ & 透明度変更
-//============================
+
+// =====================================================
+// 4. ズーム連動スタイル変更
+// =====================================================
 function updateMarkerStyle() {
   const zoom = map.getZoom();
   let size; 
   let opacity;
 
+  // ズームレベルごとのサイズ設定
   if (zoom <= 4) { 
-    size = 8;
-    opacity = 0.5;
+    size = 6;      // 引きのときは小さく
+    opacity = 0.6;
   } 
   else if (zoom <= 7) { 
-    size = 16;
-    opacity = 0.85;
+    size = 12;
+    opacity = 0.8;
   } 
   else { 
-    size = 22;
-    opacity = 1;
+    size = 18;     // 寄りのときは大きく
+    opacity = 1.0;
   }
 
   markers.forEach(m => {
-    if (m.setStyle) {
+    // CircleMarker (通常) の場合
+    if (m.setStyle) { 
+      // CircleMarkerのradiusは「半径」なので size/2
       m.setStyle({ radius: size / 2, fillOpacity: opacity, opacity: opacity });
     }
-    if (m.options.icon) {
-      m.setIcon(
-        L.icon({
-          iconUrl: m.options.icon.options.iconUrl,
-          iconSize: [size, size],
-          iconAnchor: [size / 2, size / 2],
-        })
-      );
+    // Icon Marker (Bar SPECなど画像) の場合
+    if (m.options.icon && m.setIcon) {
+      // アイコンサイズを再設定
+      // ※元のアイコンURLを保持しつつサイズだけ変える
+      const oldIcon = m.options.icon;
+      const newIcon = L.icon({
+        iconUrl: oldIcon.options.iconUrl,
+        iconSize: [size * 1.5, size * 1.5], // 画像は少し大きめに
+        iconAnchor: [(size * 1.5)/2, (size * 1.5)/2],
+        className: oldIcon.options.className
+      });
+      m.setIcon(newIcon);
     }
   });
 }
 
-// 地図のズーム操作のたびに実行
+// ズーム終了時にスタイル更新を実行
 map.on("zoomend", updateMarkerStyle);
-updateMarkerStyle(); // ← 初期反映ここ！！！
-showWorld();
 
 
-//=====================================================
-// 初期表示
-//=====================================================
+// =====================================================
+// 5. 初期実行
+// =====================================================
+// ページ読み込み時は World を表示
 showWorld();
+
 </script>
 
 </body>
