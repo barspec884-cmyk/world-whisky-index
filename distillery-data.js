@@ -207,9 +207,10 @@ const islayData = [
   { name:"Laggan Bay Distillery (New)", name_en:"Laggan Bay Distillery (New)", name_jp:"ラガンベイ蒸留所（新設）", area:"Islay", lat:55.6813, lng:-6.2517, url:"" }
 ];
 /* ------------------------------------------------------------
-   7) Japan（重複削除・データ統合・構文修正済み）
+   7) Japan（統合・重複削除済み）
 ------------------------------------------------------------ */
 const japanData = [
+  // --- 既存リスト ---
   { name: "Bar SPEC", name_jp: "Bar SPEC", name_en: "Bar SPEC", area: "Tokyo", lat: 35.68101710215845, lng: 139.77012528270265, url: "https://www.bar-spec.com" },
   { name: "キリンディスティラリー富士御殿場蒸溜所", name_jp: "キリン富士御殿場蒸溜所", name_en: "Kirin Fuji Gotemba Distillery", area: "Shizuoka", lat: 35.33665278478666, lng: 138.89680030292513, url: "https://www.kirin.co.jp/experience/factory/gotemba/" },
   { name: "秩父蒸溜所", name_jp: "秩父蒸溜所", name_en: "Chichibu Distillery", area: "Saitama", lat: 36.0464252969324, lng: 139.054711167096, url: "https://www.ichiros-malt.jp/" },
@@ -258,54 +259,31 @@ const japanData = [
   { name: "波佐見蒸留所", name_jp: "波佐見蒸留所", name_en: "Hasami Distillery", area: "Nagasaki", lat: 33.1417135569309, lng: 129.902059676719, url: "" },
   { name: "久住蒸溜所", name_jp: "久住蒸溜所", name_en: "Kuju Distillery", area: "Oita", lat: 33.021777061672545, lng: 131.297421850923943, url: "https://kujudistillery.jp/" },
   { name: "嘉之助蒸溜所", name_jp: "嘉之助蒸溜所", name_en: "Kanosuke Distillery", area: "Kagoshima", lat: 31.603006091293214, lng: 130.33543333395434, url: "https://kanosuke.com/" },
-	{ name: "紀州熊野蒸溜所", name_jp: "紀州熊野蒸溜所", name_en: "Kishu Kumano Distillery", area: "Wakayama", lat: 33.722234, lng: 135.428543, url: "https://kishukumano-distillery.com/" },
+  { name: "紀州熊野蒸溜所", name_jp: "紀州熊野蒸溜所", name_en: "Kishu Kumano Distillery", area: "Wakayama", lat: 33.722234, lng: 135.428543, url: "https://kishukumano-distillery.com/" },
   { name: "山鹿蒸溜所", name_jp: "山鹿蒸溜所", name_en: "Yamaga Distillery", area: "Kumamoto", lat: 33.013115, lng: 130.692386, url: "https://yamagadistillery.co.jp/" },
   { name: "菱田蒸溜所", name_jp: "菱田蒸溜所 (天星酒造)", name_en: "Hishida Distillery (Tensei Shuzo)", area: "Kagoshima", lat: 31.503468, lng: 131.005721, url: "http://tensei-shuzo.com/" },
   { name: "許田蒸留所", name_jp: "許田蒸留所 (ヘリオス酒造)", name_en: "Kyoda Distillery (Helios Distillery)", area: "Okinawa", lat: 26.533446, lng: 127.957124, url: "https://helios-syuzo.co.jp/" },
   { name: "まさひろ酒造", name_jp: "まさひろ酒造", name_en: "Masahiro Distillery", area: "Okinawa", lat: 26.137452, lng: 127.662363, url: "https://www.masahiro.co.jp/" },
   { name: "那覇蒸溜所", name_jp: "那覇蒸溜所 (瑞穂酒造)", name_en: "Naha Distillery (Mizuho Shuzo)", area: "Okinawa", lat: 26.212726, lng: 127.727658, url: "https://mizuhoshuzo.co.jp/" },
   { name: "マルス津貫蒸溜所", name_jp: "マルス津貫蒸溜所", name_en: "Mars Tsunuki Distillery", area: "Kagoshima", lat: 31.358807674635596, lng: 130.2862268684703, url: "https://www.hombo.co.jp/distillery/tsunuki/" },
-　{ name: "高藏蒸留所", name_jp: "高藏蒸留所", name_en: "Takazo Distillery", area: "Ibaraki", 　lat: 36.356616, lng: 140.476442, url: "https://takazo.meirishurui.com/" },
+  { name: "高藏蒸留所", name_jp: "高藏蒸留所", name_en: "Takazo Distillery", area: "Ibaraki", lat: 36.356616, lng: 140.476442, url: "https://takazo.meirishurui.com/" },
+  { name: "御岳蒸留所", name_jp: "御岳蒸留所 (西酒造)", name_en: "Ontake Distillery (Nishi Shuzo)", area: "Kagoshima", lat: 31.498858, lng: 130.362947, url: "https://www.nishi-shuzo.co.jp/ontake/" },
+  { name: "火の神蒸溜所", name_jp: "火の神蒸溜所 (薩摩酒造)", name_en: "Hinokami Distillery (Satsuma Shuzo)", area: "Kagoshima", lat: 31.272186, lng: 130.297314, url: "https://satsuma.co.jp/" },
+  { name: "日置蒸溜蔵", name_jp: "日置蒸溜蔵 (小正醸造)", name_en: "Hioki Distillery (Komasa Jyozo)", area: "Kagoshima", lat: 31.579133, lng: 130.380489, url: "https://komasa.co.jp/" },
+  { name: "尾鈴山蒸留所", name_jp: "尾鈴山蒸留所", name_en: "Osuzuyama Distillery", area: "Miyazaki", lat: 32.228384, lng: 131.396347, url: "https://osuzuyama.co.jp/" },
+  { name: "サントリー知多蒸溜所", name_jp: "サントリー知多蒸溜所", name_en: "Suntory Chita Distillery", area: "Aichi", lat: 34.970598, lng: 136.837568, url: "https://www.suntory.co.jp/factory/chita/" },
   { name: "宮城峡蒸溜所", name_jp: "宮城峡蒸溜所", name_en: "Miyagikyo Distillery", area: "Miyagi", lat: 38.346323, lng: 140.755526, url: "https://www.nikka.com/distilleries/miyagikyo/" },
-  { name: "紅櫻蒸溜所", name_jp: "紅櫻蒸溜所", name_en: "Benizakura Distillery", area: "Hokkaido", lat: 42.990104, lng: 141.364671, url: "https://www.hlwhisky.co.jp/" }
+  { name: "紅櫻蒸溜所", name_jp: "紅櫻蒸溜所", name_en: "Benizakura Distillery", area: "Hokkaido", lat: 42.990104, lng: 141.364671, url: "https://www.hlwhisky.co.jp/" },
+
+  // --- 今回の新規追加分 (7件) ---
+  { name: "伊勢蒸留所", name_jp: "伊勢蒸留所 (伊勢萬)", name_en: "Ise Distillery (Iseman)", area: "Mie", lat: 34.461523, lng: 136.721845, url: "https://www.iseman.co.jp/" },
+  { name: "Distillery Water Dragon", name_jp: "Distillery Water Dragon", name_en: "Distillery Water Dragon", area: "Shizuoka", lat: 35.120345, lng: 138.919012, url: "https://whiskey.co.jp/" },
+  { name: "御代田蒸留所", name_jp: "御代田蒸留所 (戸塚酒造)", name_en: "Miyota Distillery (Totsuka Shuzo)", area: "Nagano", lat: 36.322310, lng: 138.507620, url: "http://www.kanchiku.com/" },
+  { name: "富嶽蒸溜所", name_jp: "富嶽蒸溜所 (SASAKAWA)", name_en: "Fugaku Distillery (Sasakawa Whisky)", area: "Yamanashi", lat: 35.475432, lng: 138.795812, url: "https://sasakawa-whisky.jp/" },
+  { name: "深沢原蒸溜所", name_jp: "深沢原蒸溜所 (八海醸造)", name_en: "Fukasawahara Distillery (Hakkaisan)", area: "Niigata", lat: 37.086543, lng: 138.885678, url: "https://www.uonuma-no-sato.jp/" },
+  { name: "月光川蒸留所", name_jp: "月光川蒸留所", name_en: "Gakkogawa Distillery", area: "Yamagata", lat: 39.018012, lng: 139.907034, url: "https://gakkogawa.com/" },
+  { name: "南部美人 本社蔵", name_jp: "南部美人 本社蔵", name_en: "Nanbu Bijin Head Brewery", area: "Iwate", lat: 40.271356, lng: 141.299523, url: "https://www.nanbubijin.co.jp/" }
 ];
-/* ------------------------------------------------------------
-   8) USA（更新データ 61件）
------------------------------------------------------------- */
-const usaData = [
-  // ---------- TEXAS ----------
-  { name:"Ranger Creek", name_en: "Ranger Creek", name_jp: "レンジャー・クリーク", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 29.52952609, lng: -98.39702277, url: "https://drinkrangercreek.com/" },
-  { name:"Rebecca Creek", name_en: "Rebecca Creek", name_jp: "レベッカ・クリーク", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 29.69428386, lng: -98.45449383, url: "https://rebeccacreekdistillery.com/" },
-  { name:"Bone Spirits", name_en: "Bone Spirits", name_jp: "ボーン・スピリッツ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.0037369, lng: -97.15365958, url: "https://bonespirits.com/default.php" },
-  { name:"Real Spirits", name_en: "Real Spirits", name_jp: "リアル・スピリッツ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.11167876, lng: -98.41120761, url: "https://realalebrewing.com/distilling-process/" },
-  { name:"Garrison Brothers", name_en: "Garrison Brothers", name_jp: "ギャリソン・ブラザーズ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.21752205, lng: -98.56660156, url: "https://www.garrisonbros.com/" },
-  { name:"Banner Distilling Co.", name_en: "Banner Distilling Co.", name_jp: "バナー", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.39121875, lng: -97.49003612, url: "" },
-  { name:"Spirit of Texas", name_en: "Spirit of Texas", name_jp: "スピリット・オブ・テキサス", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.48016201, lng: -97.58412798, url: "https://spiritoftx.com/" },
-  { name:"Andalusia", name_en: "Andalusia", name_jp: "アンダルシア", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.52987612, lng: -98.25508207, url: "https://www.andalusiawhiskey.com/" },
-  { name:"Fire Oak", name_en: "Fire Oak", name_jp: "ファイアー・オーク", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.76780559, lng: -97.90483191, url: "https://www.fireoakdistillery.com/" },
-  { name:"Front Porch", name_en: "Front Porch", name_jp: "フロント・ポーチ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 31.49262122, lng: -94.71541242, url: "https://www.frontporchdistillery.com/" },
-  { name:"Balcones", name_en: "Balcones", name_jp: "バルコーンズ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 31.55061932, lng: -97.13512539, url: "https://www.balconesdistilling.com/" },
-  { name:"Kiepersol Enterprises", name_en: "Kiepersol Enterprises", name_jp: "キーパーソル・エンタープライゼズ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 32.16524064, lng: -95.29903331, url: "https://www.kiepersol.com/" },
-  { name:"Five Points", name_en: "Five Points", name_jp: "ファイブ・ポインツ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 32.68483469, lng: -96.47789607, url: "https://lone-elm.com/" },
-  { name:"Firestone & Robertson", name_en: "Firestone & Robertson", name_jp: "ファイアストーン＆ロバートソン", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 32.70211032, lng: -97.2865846, url: "https://txwhiskey.com/en-us/" },
-  { name:"Rocking M Ranch", name_en: "Rocking M Ranch", name_jp: "ロッキング・M・ランチ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 33.65998683, lng: -98.31296547, url: "https://www.rockingmranchdistillery.com/" },
-  { name:"Ironroot Republic", name_en: "Ironroot Republic", name_jp: "アイアンルート・リパブリック", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 33.73100095, lng: -96.58366498, url: "https://www.ironrootrepublic.com/" },
-
-  // ---------- TENNESSEE ----------
-  { name:"Southern Pride", name_en: "Southern Pride", name_jp: "サザン・プライド", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.03468511, lng: -86.5301669, url: "http://www.southernpridedistillery.com/" },
-  { name:"Jack Daniel’s", name_en: "Jack Daniel’s", name_jp: "ジャック・ダニエル", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.29827491, lng: -86.37336312, url: "https://www.jackdaniels.com/ageGate" },
-  { name:"George Dickel", name_en: "George Dickel", name_jp: "ジョージ・ディッケル", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.43845743, lng: -86.24612412, url: "https://www.georgedickel.com/visitus" },
-  { name:"Sugarlands", name_en: "Sugarlands", name_jp: "シュガーランズ", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.71154802, lng: -83.51867354, url: "https://www.sugarlands.com/" },
-  { name:"Old Forge", name_en: "Old Forge", name_jp: "オールド・フォージ", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.78872036, lng: -83.55350945, url: "" },
-  { name:"Short Mountain", name_en: "Short Mountain", name_jp: "ショート・マウンテン", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.86656882, lng: -85.93097471, url: "https://www.shortmountaindistillery.com/" },
-  { name:"Leiper’s Fork", name_en: "Leiper’s Fork", name_jp: "レイパーズ・フォーク", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.89649985, lng: -86.97856611, url: "https://leipersforkdistillery.com/" },
-  { name:"Knox Whiskey Works", name_en: "Knox Whiskey Works", name_jp: "ノックス・ウィスキー・ワークス", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.96730419, lng: -83.92290967, url: "https://www.knoxwhiskeyworks.com/" },
-  { name:"Nashville Craft", name_en: "Nashville Craft", name_jp: "ナッシュビル・クラフト", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 36.14134233, lng: -86.77256382, url: "https://www.nashvillecraft.com/" },
-  { name:"Nelson’s Greenbrier", name_en: "Nelson’s Greenbrier", name_jp: "ネルソンズ・グリーンブライアー", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 36.16361033, lng: -86.79825367, url: "https://greenbrierdistillery.com/" },
-  { name:"Corsair", name_en: "Corsair", name_jp: "コルセア", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 36.16518238, lng: -86.79513401, url: "https://www.corsairdistillery.com/marathon/" },
-  { name:"Hook & Ladder", name_en: "Hook & Ladder", name_jp: "フック＆ラダー", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 36.54800747, lng: -82.55973276, url: "" },
-  { name:"Tennessee Hills", name_en: "Tennessee Hills", name_jp: "テネシー・ヒルズ", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 36.58790165, lng: -82.26491685, url: "https://tennesseehills.com/" },
-
   // ---------- KENTUCKY ----------
   { name:"MB Roland", name_en: "MB Roland", name_jp: "MB ローランド", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 36.69831873, lng: -87.39278785, url: "https://mbroland.com/" },
   { name:"Dueling Grounds", name_en: "Dueling Grounds", name_jp: "デュエリング・グラウンズ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 36.70633242, lng: -86.57242679, url: "https://duelinggroundsdistillery.com/" },
