@@ -191,20 +191,20 @@ const campbeltownData = [
 ];
 
 /* ------------------------------------------------------------
-   6) Scotland — Islay（更新データ 11件）
+   6) Scotland — Islay（修正版：高精度座標）
 ------------------------------------------------------------ */
 const islayData = [
-  { name:"Ardbeg Distillery", name_en:"Ardbeg Distillery", name_jp:"アードベッグ蒸留所", area:"Islay", lat:55.6464, lng:-6.1094, url:"https://www.ardbeg.com" },
-  { name:"Ardnahoe Distillery", name_en:"Ardnahoe Distillery", name_jp:"アードナホー蒸留所", area:"Islay", lat:55.8592, lng:-6.0584, url:"https://ardnahoedistillery.com" },
-  { name:"Bowmore Distillery", name_en:"Bowmore Distillery", name_jp:"ボウモア蒸留所", area:"Islay", lat:55.7567, lng:-6.2895, url:"https://www.bowmore.com" },
-  { name:"Bruichladdich Distillery", name_en:"Bruichladdich Distillery", name_jp:"ブルックラディ蒸留所", area:"Islay", lat:55.7550, lng:-6.3600, url:"https://www.bruichladdich.com" },
-  { name:"Bunnahabhain Distillery", name_en:"Bunnahabhain Distillery", name_jp:"ブナハーブン蒸留所", area:"Islay", lat:55.8699, lng:-6.1417, url:"https://bunnahabhain.com" },
-  { name:"Caol Ila Distillery", name_en:"Caol Ila Distillery", name_jp:"カリラ蒸留所", area:"Islay", lat:55.8483, lng:-6.0931, url:"https://www.malts.com" },
-  { name:"Kilchoman Distillery", name_en:"Kilchoman Distillery", name_jp:"キルホーマン蒸留所", area:"Islay", lat:55.8064, lng:-6.4233, url:"https://www.kilchomandistillery.com" },
-  { name:"Lagavulin Distillery", name_en:"Lagavulin Distillery", name_jp:"ラガヴーリン蒸留所", area:"Islay", lat:55.6355, lng:-6.1267, url:"https://www.malts.com" },
-  { name:"Laphroaig Distillery", name_en:"Laphroaig Distillery", name_jp:"ラフロイグ蒸留所", area:"Islay", lat:55.6240, lng:-6.1520, url:"https://www.laphroaig.com" },
-  { name:"Port Ellen Distillery (Revival)", name_en:"Port Ellen Distillery (Revival)", name_jp:"ポートエレン蒸留所（再稼働）", area:"Islay", lat:55.6350, lng:-6.1904, url:"https://www.discoveringportellen.com" },
-  { name:"Laggan Bay Distillery (New)", name_en:"Laggan Bay Distillery (New)", name_jp:"ラガンベイ蒸留所（新設）", area:"Islay", lat:55.6813, lng:-6.2517, url:"" }
+  { name:"Ardbeg Distillery", name_en:"Ardbeg Distillery", name_jp:"アードベッグ蒸留所", area:"Islay", lat:55.642436, lng:-6.112447, url:"https://www.ardbeg.com" },
+  { name:"Ardnahoe Distillery", name_en:"Ardnahoe Distillery", name_jp:"アードナホー蒸留所", area:"Islay", lat:55.859664, lng:-6.107086, url:"https://ardnahoedistillery.com" },
+  { name:"Bowmore Distillery", name_en:"Bowmore Distillery", name_jp:"ボウモア蒸留所", area:"Islay", lat:55.756916, lng:-6.289758, url:"https://www.bowmore.com" },
+  { name:"Bruichladdich Distillery", name_en:"Bruichladdich Distillery", name_jp:"ブルックラディ蒸留所", area:"Islay", lat:55.765666, lng:-6.361413, url:"https://www.bruichladdich.com" },
+  { name:"Bunnahabhain Distillery", name_en:"Bunnahabhain Distillery", name_jp:"ブナハーブン蒸留所", area:"Islay", lat:55.882672, lng:-6.126422, url:"https://bunnahabhain.com" },
+  { name:"Caol Ila Distillery", name_en:"Caol Ila Distillery", name_jp:"カリラ蒸留所", area:"Islay", lat:55.853246, lng:-6.108480, url:"https://www.malts.com" },
+  { name:"Kilchoman Distillery", name_en:"Kilchoman Distillery", name_jp:"キルホーマン蒸留所", area:"Islay", lat:55.787682, lng:-6.436214, url:"https://www.kilchomandistillery.com" },
+  { name:"Lagavulin Distillery", name_en:"Lagavulin Distillery", name_jp:"ラガヴーリン蒸留所", area:"Islay", lat:55.636048, lng:-6.126588, url:"https://www.malts.com" },
+  { name:"Laphroaig Distillery", name_en:"Laphroaig Distillery", name_jp:"ラフロイグ蒸留所", area:"Islay", lat:55.629398, lng:-6.153723, url:"https://www.laphroaig.com" },
+  { name:"Port Ellen Distillery (Revival)", name_en:"Port Ellen Distillery (Revival)", name_jp:"ポートエレン蒸留所（再稼働）", area:"Islay", lat:55.630656, lng:-6.186847, url:"https://www.discoveringportellen.com" },
+  { name:"Laggan Bay Distillery (New)", name_en:"Laggan Bay Distillery (New)", name_jp:"ラガンベイ蒸留所（新設）", area:"Islay", lat:55.683050, lng:-6.255500, url:"" }
 ];
 /* ------------------------------------------------------------
    7) Japan（統合・緯度順ソート済み・構文修正版）
