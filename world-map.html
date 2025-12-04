@@ -115,6 +115,11 @@ body{
   background:#c7a97a;
   color:#23160c;
 }
+.leaflet-marker-icon,
+.leaflet-interactive {
+  transition: all 0.25s ease;
+}
+
 </style>
 </head>
 
@@ -235,47 +240,46 @@ function showCampbeltown(){
 // マーカー配置とツールチップ設定
 //=====================================================
 function addAreaMarkers(arr){
-  clearMarkers();
-  let bounds = [];
+  clearMarkers();
+  let bounds = [];
 
-  arr.forEach(d => {
-    const lat = d.lat, lng = d.lng;
-    if(!lat || !lng) return;
+  arr.forEach(d => {
+    const lat = d.lat, lng = d.lng;
+    if(!lat || !lng) return;
 
-    // ★ ここにカスタムアイコンマーカーの処理を挿入する
-    // ★ Bar SPEC だけロゴアイコン
-    if (d.name === "Bar SPEC") {
-        const logoIcon = L.icon({
-            iconUrl: "icons/barspec.png",   // ← Bar SPEC ロゴ画像パス
-            iconSize: [28, 28],             // ← 大きさ（調整可能）
-            iconAnchor: [14, 14],
-            popupAnchor: [0, -20],
-            className: "barspec-icon"
-        });
+    // ★ Bar SPEC ロゴアイコン
+    if (d.name === "Bar SPEC") {
+      const logoIcon = L.icon({
+        iconUrl: "icons/barspec.png",
+        iconSize: [28, 28], 
+        iconAnchor: [14, 14],
+        popupAnchor: [0, -20],
+        className: "barspec-icon"
+      });
 
-        const logoMarker = L.marker([lat, lng], { icon: logoIcon }).addTo(map);
+      const logoMarker = L.marker([lat, lng], { icon: logoIcon }).addTo(map);
 
-        if (d.url) {
-            logoMarker.on("dblclick", () => window.open(d.url, "_blank"));
-        }
+      if (d.url) {
+        logoMarker.on("dblclick", () => window.open(d.url, "_blank"));
+      }
 
-        logoMarker.bindTooltip(`
-          <div style="text-align:center;">
-            <div style="font-size:15px; font-weight:bold;">Bar SPEC</div>
-            <div style="font-size:12px; color:#d0c7b7;">Tokyo</div>
-          </div>
-        `, { direction: "top" });
+      logoMarker.bindTooltip(`
+        <div style="text-align:center;">
+          <div style="font-size:15px; font-weight:bold;">Bar SPEC</div>
+          <div style="font-size:12px; color:#d0c7b7;">Tokyo</div>
+        </div>
+      `, { direction: "top" });
 
-        markers.push(logoMarker);
-        bounds.push([lat, lng]);
-        return; // ★ return で以降の標準マーカー処理をスキップ
-    }
+      markers.push(logoMarker);
+      bounds.push([lat, lng]);
+      return;
+    }
 
-    // ここから通常の円形マーカーの処理
-    const hasURL = d.url && d.url.trim() !== '';
-    const radius = hasURL ? 8 : 5;
-    const color  = hasURL ? "#d8a24a" : "#8c6b3b";
-    // ... (以降省略)
+    // 通常マーカー
+    const hasURL = d.url && d.url.trim() !== '';
+    const radius = hasURL ? 8 : 5;
+    const color  = hasURL ? "#d8a24a" : "#8c6b3b";
+
     const marker = L.circleMarker([lat, lng], {
       radius: radius,
       color: color,
@@ -288,27 +292,17 @@ function addAreaMarkers(arr){
       marker.on('dblclick', () => window.open(d.url, "_blank"));
     }
 
-    // ★ 修正後のロジック: Scotland/Japan/USAの全データに対応
-    
-    // 1行目: 日本語または主要な名前 (name_jp > name > name_en の順で優先)
     const name_jp = d.name_jp ?? d.name ?? "";
-    const name_en = d.name_en ?? d.name ?? ""; // name_en がない場合は name を使用
-    
-    // 表示のメインとなる名前を決定
+    const name_en = d.name_en ?? d.name ?? "";
     const name_main = name_jp.trim() !== "" ? name_jp : name_en;
-    
-    // 2行目: サブ情報（state_en/areaを優先）。JapanデータやUSAデータで有用。
     let name_sub = d.state_en ?? d.area ?? "";
 
-    // スコットランドのデータ（nameとname_enが重複し、name_subが空欄になるのを防ぐ）
     if(d.area && d.area.trim() !== "" && name_main === name_en){
-        name_sub = d.area;
+      name_sub = d.area;
     } 
-    // JapanやUSAのデータで name_main に日本語名があり、name_subが空の場合、英語名や州名を入れる
     else if (name_main === name_jp && name_sub.trim() === "") {
-        name_sub = name_en.trim() !== "" ? name_en : d.state_en ?? "";
+      name_sub = name_en.trim() !== "" ? name_en : d.state_en ?? "";
     }
-
 
     const label = `
       <div style="text-align:center;">
@@ -322,11 +316,53 @@ function addAreaMarkers(arr){
     bounds.push([lat, lng]);
   });
   
-  // ズーム範囲の調整
   if(bounds.length > 0){
     map.fitBounds(bounds, {padding: [50, 50], maxZoom: 8});
   }
 }
+
+//============================
+// Zoom に応じてマーカーの大きさ & 透明度変更
+//============================
+function updateMarkerStyle() {
+  const zoom = map.getZoom();
+  let size; 
+  let opacity;
+
+  if (zoom <= 4) { 
+    size = 8;
+    opacity = 0.5;
+  } 
+  else if (zoom <= 7) { 
+    size = 16;
+    opacity = 0.85;
+  } 
+  else { 
+    size = 22;
+    opacity = 1;
+  }
+
+  markers.forEach(m => {
+    if (m.setStyle) {
+      m.setStyle({ radius: size / 2, fillOpacity: opacity, opacity: opacity });
+    }
+    if (m.options.icon) {
+      m.setIcon(
+        L.icon({
+          iconUrl: m.options.icon.options.iconUrl,
+          iconSize: [size, size],
+          iconAnchor: [size / 2, size / 2],
+        })
+      );
+    }
+  });
+}
+
+// 地図のズーム操作のたびに実行
+map.on("zoomend", updateMarkerStyle);
+updateMarkerStyle(); // ← 初期反映ここ！！！
+showWorld();
+
 
 //=====================================================
 // 初期表示
