@@ -262,8 +262,8 @@ const japanData = [
   name_jp: "嘉之助蒸溜所",
   name_en: "Kanosuke Distillery",
   area: "Kagoshima",
-  lat: 31.671235,
-  lng: 130.294676,
+  lat: 31.603006091293214,
+  lng: 130.33543333395434,
   url: "https://kanosuke.com/"
 },
 
