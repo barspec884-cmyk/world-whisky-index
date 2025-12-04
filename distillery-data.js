@@ -207,209 +207,303 @@ const islayData = [
   { name:"Laggan Bay Distillery (New)", name_en:"Laggan Bay Distillery (New)", name_jp:"ラガンベイ蒸留所（新設）", area:"Islay", lat:55.6813, lng:-6.2517, url:"" }
 ];
 /* ------------------------------------------------------------
-   7) Japan（統合・重複削除済み）
+   7) Japan（統合・緯度順ソート済み・構文修正版）
 ------------------------------------------------------------ */
 const japanData = [
-  // --- 既存リスト ---
-  { name: "Bar SPEC", name_jp: "Bar SPEC", name_en: "Bar SPEC", area: "Tokyo", lat: 35.68101710215845, lng: 139.77012528270265, url: "https://www.bar-spec.com" },
-  { name: "キリンディスティラリー富士御殿場蒸溜所", name_jp: "キリン富士御殿場蒸溜所", name_en: "Kirin Fuji Gotemba Distillery", area: "Shizuoka", lat: 35.33665278478666, lng: 138.89680030292513, url: "https://www.kirin.co.jp/experience/factory/gotemba/" },
-  { name: "秩父蒸溜所", name_jp: "秩父蒸溜所", name_en: "Chichibu Distillery", area: "Saitama", lat: 36.0464252969324, lng: 139.054711167096, url: "https://www.ichiros-malt.jp/" },
-  { name: "秩父第二蒸溜所", name_jp: "秩父第二蒸溜所", name_en: "Chichibu 2nd Distillery", area: "Saitama", lat: 36.046670, lng: 139.052960, url: "https://www.ichiros-malt.jp/" },
-  { name: "利尻島蒸溜所", name_jp: "利尻島蒸溜所", name_en: "Rishiri Distillery", area: "Hokkaido", lat: 45.16421741, lng: 141.240992, url: "http://kamuiwhisky.com/ja/home-ja/" },
-  { name: "厚岸蒸溜所", name_jp: "厚岸蒸溜所", name_en: "Akkeshi Distillery", area: "Hokkaido", lat: 43.0758491366795, lng: 144.820714118559, url: "http://akkeshi-distillery.com/" },
-  { name: "ニッカウヰスキー余市蒸溜所", name_jp: "ニッカウヰスキー余市蒸溜所", name_en: "Nikka Whisky Yoichi Distillery", area: "Hokkaido", lat: 43.1872794755906, lng: 140.791874159733, url: "https://www.nikka.com/distilleries/yoichi/" },
-  { name: "ニセコ蒸溜所", name_jp: "ニセコ蒸溜所", name_en: "Niseko Distillery", area: "Hokkaido", lat: 42.84849283, lng: 140.653982, url: "" },
-  { name: "遊佐蒸溜所", name_jp: "遊佐蒸溜所", name_en: "Yuza Distillery", area: "Yamagata", lat: 39.0210365285459, lng: 139.922497357596, url: "https://yuza-disty.jp/" },
-  { name: "亀岡蒸留所", name_jp: "亀岡蒸留所", name_en: "Kameoka Distillery", area: "Kyoto", lat: 37.87157314, lng: 139.085232, url: "" },
-  { name: "新潟麦酒株式会社 忍州崎蒸溜所蒸溜所", name_jp: "新潟麦酒株式会社 忍蒸溜所", name_en: "Niigata Beer Co. Shinobu Distillery", area: "Niigata", lat: 37.8063279115294, lng: 138.849422490482, url: "https://shinobudistillery.com/home/" },
-  { name: "吉田電材蒸留所", name_jp: "吉田電材蒸留所", name_en: "Yoshida Denzai Distillery", area: "Niigata", lat: 38.1524527257824, lng: 139.459859227001, url: "https://yoshidadenzai-distillery.com/" },
-  { name: "新潟亀田蒸溜所", name_jp: "新潟亀田蒸溜所", name_en: "Niigata Kameda Distillery", area: "Niigata", lat: 37.871660699843, lng: 139.085345593253, url: "" },
-  { name: "天鏡蒸溜所", name_jp: "天鏡蒸溜所", name_en: "Tenkyo Distillery", area: "Fukushima", lat: 37.5747079225452, lng: 140.017746989954, url: "https://www.tenkyo.jp/" },
-  { name: "安積蒸溜所", name_jp: "安積蒸溜所", name_en: "Asaka Distillery", area: "Fukushima", lat: 37.3623717092332, lng: 140.371411507795, url: "https://www.sasanokawa.co.jp/asaka-distillery/index.html" },
-  { name: "野沢温泉蒸溜所", name_jp: "野沢温泉蒸溜所", name_en: "Nozawa Onsen Distillery", area: "Nagano", lat: 36.92223666, lng: 138.4495613, url: "" },
-  { name: "飯山マウンテンファーム蒸溜所", name_jp: "飯山マウンテンファーム蒸溜所", name_en: "Iiyama Mountain Farm Distillery", area: "Nagano", lat: 36.9230051815437, lng: 138.383119851303, url: "https://www.kiyokawa.co/distillery" },
-  { name: "北沢蒸留所", name_jp: "北沢蒸留所", name_en: "Kita Karuizawa Distillery", area: "Nagano", lat: 36.47069906, lng: 138.5757331, url: "" },
-  { name: "小諸蒸留所", name_jp: "小諸蒸留所", name_en: "Komoro Distillery", area: "Nagano", lat: 36.3455945045533, lng: 138.445129205481, url: "https://komorodistillery.com/" },
-  { name: "軽井沢ウイスキー株式会社", name_jp: "軽井沢ウイスキー株式会社", name_en: "Karuizawa Whisky Co", area: "Nagano", lat: 36.3189202080721, lng: 138.579675980268, url: "https://www.karuizawa-whisky.co.jp/" },
-  { name: "信州マルス蒸溜所（駒ヶ根）", name_jp: "信州マルス蒸溜所（駒ヶ根）", name_en: "Shinshu Mars Distillery (Komagane)", area: "Nagano", lat: 35.718304, lng: 137.937374, url: "https://www.hombo.co.jp/distillery/shinshu/" },
-  { name: "羽生蒸溜所", name_jp: "羽生蒸溜所", name_en: "Hanyu Distillery", area: "Saitama", lat: 36.1717117682279, lng: 139.530943509522, url: "https://hanyu-distillery.jp/" },
-  { name: "日光街道 小山蒸溜所", name_jp: "日光街道 小山蒸溜所", name_en: "Nikko Kaido Oyama Distillery", area: "Tochigi", lat: 36.2860149447327, lng: 139.780658996223, url: "https://nishiborisyuzo.com/nikko-kaido-oyama-distillery" },
-  { name: "八郷蒸溜所", name_jp: "八郷蒸溜所", name_en: "Yasato Distillery", area: "Ibaraki", lat: 36.22095273761, lng: 140.167176247024, url: "https://kodawari.cc/brewery/yasatodistillery.html" },
-  { name: "須藤本家", name_jp: "須藤本家", name_en: "Sudo Honke", area: "Ibaraki", lat: 35.29897071, lng: 140.0713252, url: "" },
-  { name: "三郎丸蒸留所", name_jp: "三郎丸蒸留所", name_en: "Saburomaru Distillery", area: "Toyama", lat: 36.6556689344565, lng: 136.96945170303, url: "https://www.wakatsuru.co.jp/saburomaru/" },
-  { name: "オリエンタル金沢蒸溜所", name_jp: "オリエンタル金沢蒸溜所", name_en: "Oriental Kanazawa Distillery", area: "Ishikawa", lat: 36.4954620343738, lng: 136.75799449397, url: "https://orientalbrewing.com/" },
-  { name: "飛騨高山蒸溜所", name_jp: "飛騨高山蒸溜所", name_en: "Hida Takayama Distillery", area: "Gifu", lat: 36.0297620419274, lng: 137.459760006746, url: "https://www.whisky-hida.com/" },
-  { name: "天領酒造", name_jp: "天領酒造", name_en: "Tenkyo Distillery (Tenkyo Co)", area: "Gifu", lat: 37.57470792, lng: 140.01747, url: "https://www.tenkyo.jp/" },
-  { name: "サントリー白州蒸溜所", name_jp: "サントリー白州蒸溜所", name_en: "Suntory Hakushu Distillery", area: "Yamanashi", lat: 35.826763, lng: 138.300453, url: "https://www.suntory.com/factory/hakushu/about/" },
-  { name: "御勅使蒸留所", name_jp: "御勅使蒸留所", name_en: "Mitsuyoshi Botanical Distillery", area: "Yamanashi", lat: 35.28553736, lng: 140.2330324, url: "" },
-  { name: "井川蒸留所", name_jp: "井川蒸留所", name_en: "Igawa Distillery", area: "Shizuoka", lat: 35.43859664, lng: 138.2046467, url: "https://juzan.co.jp/contents/ikawadistillery/" },
-  { name: "ガイアフロー静岡蒸溜所", name_jp: "ガイアフロー静岡蒸溜所", name_en: "Gaia Flow Shizuoka Distillery", area: "Shizuoka", lat: 35.1205507262747, lng: 138.32547385384, url: "https://shizuoka-distillery.jp/" },
-  { name: "長浜蒸留所", name_jp: "長浜蒸留所", name_en: "Nagahama Distillery", area: "Shiga", lat: 35.37699156, lng: 136.2675849, url: "" },
-  { name: "サントリー山崎蒸溜所", name_jp: "サントリー山崎蒸溜所", name_en: "Suntory Yamazaki Distillery", area: "Osaka", lat: 34.892677563314, lng: 135.674381106939, url: "https://www.suntory.co.jp/factory/yamazaki/" },
-  { name: "神戸蒸溜所", name_jp: "神戸蒸溜所", name_en: "Kobe Distillery", area: "Hyogo", lat: 34.8479228019881, lng: 135.19235926732, url: "https://www.kobe-distillery.com/" },
-  { name: "丹波蒸溜所", name_jp: "丹波蒸溜所", name_en: "Tanba Distillery", area: "Hyogo", lat: 34.9993169434242, lng: 135.075906144337, url: "https://kizakura.co.jp/tamba/" },
-  { name: "海峡蒸溜所", name_jp: "海峡蒸溜所", name_en: "Kaikyo Distillery", area: "Hyogo", lat: 34.64498192596, lng: 135.012356009639, url: "https://akashisakebrewery.com/ja/the-kaikyo-distillery/" },
-  { name: "江井ヶ嶋酒造", name_jp: "江井ヶ嶋酒造", name_en: "Eigashima Shuzo", area: "Hyogo", lat: 34.6814395313355, lng: 134.905379843349, url: "https://www.ei-sake.jp/" },
-  { name: "千代むすび境港蒸留所", name_jp: "千代むすび境港蒸留所", name_en: "Chiyomusubi Sakaiminato Distillery", area: "Tottori", lat: 35.54337, lng: 133.23057, url: "https://www.chiyomusubi.co.jp/user_data/whisky" },
-  { name: "梅津酒造株式会社", name_jp: "梅津酒造株式会社", name_en: "Umemijin Shuzo Co", area: "Tottori", lat: 33.46532187, lng: 132.4258297, url: "https://umebijin.com/" },
-  { name: "岡山蒸溜所", name_jp: "岡山蒸溜所", name_en: "Miyashita Shuzo Okayama Distillery", area: "Okayama", lat: 34.679014176231355, lng: 133.93965212771613, url: "https://www.miyashita.co.jp/okayama-whisky/" },
-  { name: "桜尾蒸留所", name_jp: "桜尾蒸留所", name_en: "Sakurao Distillery", area: "Hiroshima", lat: 34.354477, lng: 132.340216, url: "https://www.sakuraodistillery.com/" },
-  { name: "阿波乃蒸留所", name_jp: "阿波乃蒸留所", name_en: "Awano Distillery", area: "Tokushima", lat: 34.09863744104866, lng: 134.33173164752515, url: "" },
-  { name: "新道蒸溜所", name_jp: "新道蒸溜所", name_en: "Shindo Distillery", area: "Fukuoka", lat: 33.3816563627779, lng: 130.72810326243, url: "https://shindo-lab.jp/distillery/" },
-  { name: "波佐見蒸留所", name_jp: "波佐見蒸留所", name_en: "Hasami Distillery", area: "Nagasaki", lat: 33.1417135569309, lng: 129.902059676719, url: "" },
-  { name: "久住蒸溜所", name_jp: "久住蒸溜所", name_en: "Kuju Distillery", area: "Oita", lat: 33.021777061672545, lng: 131.297421850923943, url: "https://kujudistillery.jp/" },
-  { name: "嘉之助蒸溜所", name_jp: "嘉之助蒸溜所", name_en: "Kanosuke Distillery", area: "Kagoshima", lat: 31.603006091293214, lng: 130.33543333395434, url: "https://kanosuke.com/" },
-  { name: "紀州熊野蒸溜所", name_jp: "紀州熊野蒸溜所", name_en: "Kishu Kumano Distillery", area: "Wakayama", lat: 33.722234, lng: 135.428543, url: "https://kishukumano-distillery.com/" },
-  { name: "山鹿蒸溜所", name_jp: "山鹿蒸溜所", name_en: "Yamaga Distillery", area: "Kumamoto", lat: 33.013115, lng: 130.692386, url: "https://yamagadistillery.co.jp/" },
-  { name: "菱田蒸溜所", name_jp: "菱田蒸溜所 (天星酒造)", name_en: "Hishida Distillery (Tensei Shuzo)", area: "Kagoshima", lat: 31.503468, lng: 131.005721, url: "http://tensei-shuzo.com/" },
-  { name: "許田蒸留所", name_jp: "許田蒸留所 (ヘリオス酒造)", name_en: "Kyoda Distillery (Helios Distillery)", area: "Okinawa", lat: 26.533446, lng: 127.957124, url: "https://helios-syuzo.co.jp/" },
-  { name: "まさひろ酒造", name_jp: "まさひろ酒造", name_en: "Masahiro Distillery", area: "Okinawa", lat: 26.137452, lng: 127.662363, url: "https://www.masahiro.co.jp/" },
-  { name: "那覇蒸溜所", name_jp: "那覇蒸溜所 (瑞穂酒造)", name_en: "Naha Distillery (Mizuho Shuzo)", area: "Okinawa", lat: 26.212726, lng: 127.727658, url: "https://mizuhoshuzo.co.jp/" },
-  { name: "マルス津貫蒸溜所", name_jp: "マルス津貫蒸溜所", name_en: "Mars Tsunuki Distillery", area: "Kagoshima", lat: 31.358807674635596, lng: 130.2862268684703, url: "https://www.hombo.co.jp/distillery/tsunuki/" },
-  { name: "高藏蒸留所", name_jp: "高藏蒸留所", name_en: "Takazo Distillery", area: "Ibaraki", lat: 36.356616, lng: 140.476442, url: "https://takazo.meirishurui.com/" },
-  { name: "御岳蒸留所", name_jp: "御岳蒸留所 (西酒造)", name_en: "Ontake Distillery (Nishi Shuzo)", area: "Kagoshima", lat: 31.498858, lng: 130.362947, url: "https://www.nishi-shuzo.co.jp/ontake/" },
-  { name: "火の神蒸溜所", name_jp: "火の神蒸溜所 (薩摩酒造)", name_en: "Hinokami Distillery (Satsuma Shuzo)", area: "Kagoshima", lat: 31.272186, lng: 130.297314, url: "https://satsuma.co.jp/" },
-  { name: "日置蒸溜蔵", name_jp: "日置蒸溜蔵 (小正醸造)", name_en: "Hioki Distillery (Komasa Jyozo)", area: "Kagoshima", lat: 31.579133, lng: 130.380489, url: "https://komasa.co.jp/" },
-  { name: "尾鈴山蒸留所", name_jp: "尾鈴山蒸留所", name_en: "Osuzuyama Distillery", area: "Miyazaki", lat: 32.228384, lng: 131.396347, url: "https://osuzuyama.co.jp/" },
-  { name: "サントリー知多蒸溜所", name_jp: "サントリー知多蒸溜所", name_en: "Suntory Chita Distillery", area: "Aichi", lat: 34.970598, lng: 136.837568, url: "https://www.suntory.co.jp/factory/chita/" },
-  { name: "宮城峡蒸溜所", name_jp: "宮城峡蒸溜所", name_en: "Miyagikyo Distillery", area: "Miyagi", lat: 38.346323, lng: 140.755526, url: "https://www.nikka.com/distilleries/miyagikyo/" },
+  { name: "利尻島蒸溜所", name_jp: "利尻島蒸溜所", name_en: "Rishiri Distillery", area: "Hokkaido", lat: 45.164217, lng: 141.240992, url: "http://kamuiwhisky.com/ja/home-ja/" },
+  { name: "ニッカウヰスキー余市蒸溜所", name_jp: "ニッカウヰスキー余市蒸溜所", name_en: "Nikka Whisky Yoichi Distillery", area: "Hokkaido", lat: 43.187279, lng: 140.791874, url: "https://www.nikka.com/distilleries/yoichi/" },
+  { name: "厚岸蒸溜所", name_jp: "厚岸蒸溜所", name_en: "Akkeshi Distillery", area: "Hokkaido", lat: 43.075849, lng: 144.820714, url: "http://akkeshi-distillery.com/" },
   { name: "紅櫻蒸溜所", name_jp: "紅櫻蒸溜所", name_en: "Benizakura Distillery", area: "Hokkaido", lat: 42.990104, lng: 141.364671, url: "https://www.hlwhisky.co.jp/" },
-
-  // --- 今回の新規追加分 (7件) ---
-  { name: "伊勢蒸留所", name_jp: "伊勢蒸留所 (伊勢萬)", name_en: "Ise Distillery (Iseman)", area: "Mie", lat: 34.461523, lng: 136.721845, url: "https://www.iseman.co.jp/" },
-  { name: "Distillery Water Dragon", name_jp: "Distillery Water Dragon", name_en: "Distillery Water Dragon", area: "Shizuoka", lat: 35.120345, lng: 138.919012, url: "https://whiskey.co.jp/" },
-  { name: "御代田蒸留所", name_jp: "御代田蒸留所 (戸塚酒造)", name_en: "Miyota Distillery (Totsuka Shuzo)", area: "Nagano", lat: 36.322310, lng: 138.507620, url: "http://www.kanchiku.com/" },
-  { name: "富嶽蒸溜所", name_jp: "富嶽蒸溜所 (SASAKAWA)", name_en: "Fugaku Distillery (Sasakawa Whisky)", area: "Yamanashi", lat: 35.475432, lng: 138.795812, url: "https://sasakawa-whisky.jp/" },
-  { name: "深沢原蒸溜所", name_jp: "深沢原蒸溜所 (八海醸造)", name_en: "Fukasawahara Distillery (Hakkaisan)", area: "Niigata", lat: 37.086543, lng: 138.885678, url: "https://www.uonuma-no-sato.jp/" },
+  { name: "ニセコ蒸溜所", name_jp: "ニセコ蒸溜所", name_en: "Niseko Distillery", area: "Hokkaido", lat: 42.848493, lng: 140.653982, url: "https://niseko-distillery.com/" },
+  { name: "南部美人 本社蔵", name_jp: "南部美人 本社蔵", name_en: "Nanbu Bijin Head Brewery", area: "Iwate", lat: 40.271356, lng: 141.299523, url: "https://www.nanbubijin.co.jp/" },
+  { name: "遊佐蒸溜所", name_jp: "遊佐蒸溜所", name_en: "Yuza Distillery", area: "Yamagata", lat: 39.021037, lng: 139.922497, url: "https://yuza-disty.jp/" },
   { name: "月光川蒸留所", name_jp: "月光川蒸留所", name_en: "Gakkogawa Distillery", area: "Yamagata", lat: 39.018012, lng: 139.907034, url: "https://gakkogawa.com/" },
-  { name: "南部美人 本社蔵", name_jp: "南部美人 本社蔵", name_en: "Nanbu Bijin Head Brewery", area: "Iwate", lat: 40.271356, lng: 141.299523, url: "https://www.nanbubijin.co.jp/" }
+  { name: "宮城峡蒸溜所", name_jp: "宮城峡蒸溜所", name_en: "Miyagikyo Distillery", area: "Miyagi", lat: 38.346323, lng: 140.755526, url: "https://www.nikka.com/distilleries/miyagikyo/" },
+  { name: "吉田電材蒸留所", name_jp: "吉田電材蒸留所", name_en: "Yoshida Denzai Distillery", area: "Niigata", lat: 38.152453, lng: 139.459859, url: "https://yoshidadenzai-distillery.com/" },
+  { name: "新潟亀田蒸溜所", name_jp: "新潟亀田蒸溜所", name_en: "Niigata Kameda Distillery", area: "Niigata", lat: 37.871661, lng: 139.085346, url: "" },
+  { name: "亀岡蒸留所", name_jp: "亀岡蒸留所", name_en: "Kameoka Distillery", area: "Kyoto", lat: 37.871573, lng: 139.085232, url: "" },
+  { name: "新潟麦酒株式会社 忍州崎蒸溜所蒸溜所", name_jp: "新潟麦酒株式会社 忍蒸溜所", name_en: "Niigata Beer Co. Shinobu Distillery", area: "Niigata", lat: 37.806328, lng: 138.849422, url: "https://shinobudistillery.com/home/" },
+  { name: "天鏡蒸溜所", name_jp: "天鏡蒸溜所", name_en: "Tenkyo Distillery", area: "Fukushima", lat: 37.574708, lng: 140.017747, url: "https://www.tenkyo.jp/" },
+  { name: "天領酒造", name_jp: "天領酒造", name_en: "Tenkyo Distillery (Tenkyo Co)", area: "Gifu", lat: 37.574708, lng: 140.017470, url: "https://www.tenkyo.jp/" },
+  { name: "安積蒸溜所", name_jp: "安積蒸溜所", name_en: "Asaka Distillery", area: "Fukushima", lat: 37.362372, lng: 140.371412, url: "https://www.sasanokawa.co.jp/asaka-distillery/index.html" },
+  { name: "深沢原蒸溜所", name_jp: "深沢原蒸溜所 (八海醸造)", name_en: "Fukasawahara Distillery (Hakkaisan)", area: "Niigata", lat: 37.086543, lng: 138.885678, url: "https://www.uonuma-no-sato.jp/" },
+  { name: "飯山マウンテンファーム蒸溜所", name_jp: "飯山マウンテンファーム蒸溜所", name_en: "Iiyama Mountain Farm Distillery", area: "Nagano", lat: 36.923005, lng: 138.383120, url: "https://www.kiyokawa.co/distillery" },
+  { name: "野沢温泉蒸溜所", name_jp: "野沢温泉蒸溜所", name_en: "Nozawa Onsen Distillery", area: "Nagano", lat: 36.922237, lng: 138.449561, url: "" },
+  { name: "三郎丸蒸留所", name_jp: "三郎丸蒸留所", name_en: "Saburomaru Distillery", area: "Toyama", lat: 36.655669, lng: 136.969452, url: "https://www.wakatsuru.co.jp/saburomaru/" },
+  { name: "オリエンタル金沢蒸溜所", name_jp: "オリエンタル金沢蒸溜所", name_en: "Oriental Kanazawa Distillery", area: "Ishikawa", lat: 36.495462, lng: 136.757994, url: "https://orientalbrewing.com/" },
+  { name: "北沢蒸留所", name_jp: "北沢蒸留所", name_en: "Kita Karuizawa Distillery", area: "Nagano", lat: 36.470699, lng: 138.575733, url: "" },
+  { name: "高藏蒸留所", name_jp: "高藏蒸留所", name_en: "Takazo Distillery", area: "Ibaraki", lat: 36.356616, lng: 140.476442, url: "https://takazo.meirishurui.com/" },
+  { name: "小諸蒸留所", name_jp: "小諸蒸留所", name_en: "Komoro Distillery", area: "Nagano", lat: 36.345595, lng: 138.445129, url: "https://komorodistillery.com/" },
+  { name: "御代田蒸留所", name_jp: "御代田蒸留所 (戸塚酒造)", name_en: "Miyota Distillery (Totsuka Shuzo)", area: "Nagano", lat: 36.322310, lng: 138.507620, url: "http://www.kanchiku.com/" },
+  { name: "軽井沢ウイスキー株式会社", name_jp: "軽井沢ウイスキー株式会社", name_en: "Karuizawa Whisky Co", area: "Nagano", lat: 36.318920, lng: 138.579676, url: "https://www.karuizawa-whisky.co.jp/" },
+  { name: "日光街道 小山蒸溜所", name_jp: "日光街道 小山蒸溜所", name_en: "Nikko Kaido Oyama Distillery", area: "Tochigi", lat: 36.286015, lng: 139.780659, url: "https://nishiborisyuzo.com/nikko-kaido-oyama-distillery" },
+  { name: "八郷蒸溜所", name_jp: "八郷蒸溜所", name_en: "Yasato Distillery", area: "Ibaraki", lat: 36.220953, lng: 140.167176, url: "https://kodawari.cc/brewery/yasatodistillery.html" },
+  { name: "羽生蒸溜所", name_jp: "羽生蒸溜所", name_en: "Hanyu Distillery", area: "Saitama", lat: 36.171712, lng: 139.530944, url: "https://hanyu-distillery.jp/" },
+  { name: "秩父第二蒸溜所", name_jp: "秩父第二蒸溜所", name_en: "Chichibu 2nd Distillery", area: "Saitama", lat: 36.046670, lng: 139.052960, url: "https://www.ichiros-malt.jp/" },
+  { name: "秩父蒸溜所", name_jp: "秩父蒸溜所", name_en: "Chichibu Distillery", area: "Saitama", lat: 36.046425, lng: 139.054711, url: "https://www.ichiros-malt.jp/" },
+  { name: "飛騨高山蒸溜所", name_jp: "飛騨高山蒸溜所", name_en: "Hida Takayama Distillery", area: "Gifu", lat: 36.029762, lng: 137.459760, url: "https://www.whisky-hida.com/" },
+  { name: "サントリー白州蒸溜所", name_jp: "サントリー白州蒸溜所", name_en: "Suntory Hakushu Distillery", area: "Yamanashi", lat: 35.826763, lng: 138.300453, url: "https://www.suntory.com/factory/hakushu/about/" },
+  { name: "信州マルス蒸溜所（駒ヶ根）", name_jp: "信州マルス蒸溜所（駒ヶ根）", name_en: "Shinshu Mars Distillery (Komagane)", area: "Nagano", lat: 35.718304, lng: 137.937374, url: "https://www.hombo.co.jp/distillery/shinshu/" },
+  { name: "Bar SPEC", name_jp: "Bar SPEC", name_en: "Bar SPEC", area: "Tokyo", lat: 35.681017, lng: 139.770125, url: "https://www.bar-spec.com" },
+  { name: "千代むすび境港蒸留所", name_jp: "千代むすび境港蒸留所", name_en: "Chiyomusubi Sakaiminato Distillery", area: "Tottori", lat: 35.543370, lng: 133.230570, url: "https://www.chiyomusubi.co.jp/user_data/whisky" },
+  { name: "富嶽蒸溜所", name_jp: "富嶽蒸溜所 (SASAKAWA)", name_en: "Fugaku Distillery (Sasakawa Whisky)", area: "Yamanashi", lat: 35.475432, lng: 138.795812, url: "https://sasakawa-whisky.jp/" },
+  { name: "井川蒸留所", name_jp: "井川蒸留所", name_en: "Igawa Distillery", area: "Shizuoka", lat: 35.438597, lng: 138.204647, url: "https://juzan.co.jp/contents/ikawadistillery/" },
+  { name: "長浜蒸留所", name_jp: "長浜蒸留所", name_en: "Nagahama Distillery", area: "Shiga", lat: 35.376992, lng: 136.267585, url: "" },
+  { name: "キリンディスティラリー富士御殿場蒸溜所", name_jp: "キリン富士御殿場蒸溜所", name_en: "Kirin Fuji Gotemba Distillery", area: "Shizuoka", lat: 35.336653, lng: 138.896800, url: "https://www.kirin.co.jp/experience/factory/gotemba/" },
+  { name: "須藤本家", name_jp: "須藤本家", name_en: "Sudo Honke", area: "Ibaraki", lat: 35.298971, lng: 140.071325, url: "" },
+  { name: "御勅使蒸留所", name_jp: "御勅使蒸留所", name_en: "Mitsuyoshi Botanical Distillery", area: "Yamanashi", lat: 35.285537, lng: 140.233032, url: "" },
+  { name: "ガイアフロー静岡蒸溜所", name_jp: "ガイアフロー静岡蒸溜所", name_en: "Gaia Flow Shizuoka Distillery", area: "Shizuoka", lat: 35.120551, lng: 138.325474, url: "https://shizuoka-distillery.jp/" },
+  { name: "Distillery Water Dragon", name_jp: "Distillery Water Dragon", name_en: "Distillery Water Dragon", area: "Shizuoka", lat: 35.120345, lng: 138.919012, url: "https://whiskey.co.jp/" },
+  { name: "丹波蒸溜所", name_jp: "丹波蒸溜所", name_en: "Tanba Distillery", area: "Hyogo", lat: 34.999317, lng: 135.075906, url: "https://kizakura.co.jp/tamba/" },
+  { name: "サントリー知多蒸溜所", name_jp: "サントリー知多蒸溜所", name_en: "Suntory Chita Distillery", area: "Aichi", lat: 34.970598, lng: 136.837568, url: "https://www.suntory.co.jp/factory/chita/" },
+  { name: "サントリー山崎蒸溜所", name_jp: "サントリー山崎蒸溜所", name_en: "Suntory Yamazaki Distillery", area: "Osaka", lat: 34.892678, lng: 135.674381, url: "https://www.suntory.co.jp/factory/yamazaki/" },
+  { name: "神戸蒸溜所", name_jp: "神戸蒸溜所", name_en: "Kobe Distillery", area: "Hyogo", lat: 34.847923, lng: 135.192359, url: "https://www.kobe-distillery.com/" },
+  { name: "江井ヶ嶋酒造", name_jp: "江井ヶ嶋酒造", name_en: "Eigashima Shuzo", area: "Hyogo", lat: 34.681440, lng: 134.905380, url: "https://www.ei-sake.jp/" },
+  { name: "岡山蒸溜所", name_jp: "岡山蒸溜所", name_en: "Miyashita Shuzo Okayama Distillery", area: "Okayama", lat: 34.679014, lng: 133.939652, url: "https://www.miyashita.co.jp/okayama-whisky/" },
+  { name: "海峡蒸溜所", name_jp: "海峡蒸溜所", name_en: "Kaikyo Distillery", area: "Hyogo", lat: 34.644982, lng: 135.012356, url: "https://akashisakebrewery.com/ja/the-kaikyo-distillery/" },
+  { name: "伊勢蒸留所", name_jp: "伊勢蒸留所 (伊勢萬)", name_en: "Ise Distillery (Iseman)", area: "Mie", lat: 34.461523, lng: 136.721845, url: "https://www.iseman.co.jp/" },
+  { name: "桜尾蒸留所", name_jp: "桜尾蒸留所", name_en: "Sakurao Distillery", area: "Hiroshima", lat: 34.354477, lng: 132.340216, url: "https://www.sakuraodistillery.com/" },
+  { name: "阿波乃蒸留所", name_jp: "阿波乃蒸留所", name_en: "Awano Distillery", area: "Tokushima", lat: 34.098637, lng: 134.331732, url: "" },
+  { name: "紀州熊野蒸溜所", name_jp: "紀州熊野蒸溜所", name_en: "Kishu Kumano Distillery", area: "Wakayama", lat: 33.722234, lng: 135.428543, url: "https://kishukumano-distillery.com/" },
+  { name: "梅津酒造株式会社", name_jp: "梅津酒造株式会社", name_en: "Umemijin Shuzo Co", area: "Tottori", lat: 33.465322, lng: 132.425830, url: "https://umebijin.com/" },
+  { name: "新道蒸溜所", name_jp: "新道蒸溜所", name_en: "Shindo Distillery", area: "Fukuoka", lat: 33.381656, lng: 130.728103, url: "https://shindo-lab.jp/distillery/" },
+  { name: "波佐見蒸留所", name_jp: "波佐見蒸留所", name_en: "Hasami Distillery", area: "Nagasaki", lat: 33.141714, lng: 129.902060, url: "" },
+  { name: "久住蒸溜所", name_jp: "久住蒸溜所", name_en: "Kuju Distillery", area: "Oita", lat: 33.021777, lng: 131.297422, url: "https://kujudistillery.jp/" },
+  { name: "山鹿蒸溜所", name_jp: "山鹿蒸溜所", name_en: "Yamaga Distillery", area: "Kumamoto", lat: 33.013115, lng: 130.692386, url: "https://yamagadistillery.co.jp/" },
+  { name: "尾鈴山蒸留所", name_jp: "尾鈴山蒸留所", name_en: "Osuzuyama Distillery", area: "Miyazaki", lat: 32.228384, lng: 131.396347, url: "https://osuzuyama.co.jp/" },
+  { name: "嘉之助蒸溜所", name_jp: "嘉之助蒸溜所", name_en: "Kanosuke Distillery", area: "Kagoshima", lat: 31.603006, lng: 130.335433, url: "https://kanosuke.com/" },
+  { name: "日置蒸溜蔵", name_jp: "日置蒸溜蔵 (小正醸造)", name_en: "Hioki Distillery (Komasa Jyozo)", area: "Kagoshima", lat: 31.579133, lng: 130.380489, url: "https://komasa.co.jp/" },
+  { name: "菱田蒸溜所", name_jp: "菱田蒸溜所 (天星酒造)", name_en: "Hishida Distillery (Tensei Shuzo)", area: "Kagoshima", lat: 31.503468, lng: 131.005721, url: "http://tensei-shuzo.com/" },
+  { name: "御岳蒸留所", name_jp: "御岳蒸留所 (西酒造)", name_en: "Ontake Distillery (Nishi Shuzo)", area: "Kagoshima", lat: 31.498858, lng: 130.362947, url: "https://www.nishi-shuzo.co.jp/ontake/" },
+  { name: "マルス津貫蒸溜所", name_jp: "マルス津貫蒸溜所", name_en: "Mars Tsunuki Distillery", area: "Kagoshima", lat: 31.358808, lng: 130.286227, url: "https://www.hombo.co.jp/distillery/tsunuki/" },
+  { name: "火の神蒸溜所", name_jp: "火の神蒸溜所 (薩摩酒造)", name_en: "Hinokami Distillery (Satsuma Shuzo)", area: "Kagoshima", lat: 31.272186, lng: 130.297314, url: "https://satsuma.co.jp/" },
+  { name: "許田蒸留所", name_jp: "許田蒸留所 (ヘリオス酒造)", name_en: "Kyoda Distillery (Helios Distillery)", area: "Okinawa", lat: 26.533446, lng: 127.957124, url: "https://helios-syuzo.co.jp/" },
+  { name: "那覇蒸溜所", name_jp: "那覇蒸溜所 (瑞穂酒造)", name_en: "Naha Distillery (Mizuho Shuzo)", area: "Okinawa", lat: 26.212726, lng: 127.727658, url: "https://mizuhoshuzo.co.jp/" },
+  { name: "まさひろ酒造", name_jp: "まさひろ酒造", name_en: "Masahiro Distillery", area: "Okinawa", lat: 26.137452, lng: 127.662363, url: "https://www.masahiro.co.jp/" },
 ];
-  // ---------- KENTUCKY ----------
-  { name:"MB Roland", name_en: "MB Roland", name_jp: "MB ローランド", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 36.69831873, lng: -87.39278785, url: "https://mbroland.com/" },
-  { name:"Dueling Grounds", name_en: "Dueling Grounds", name_jp: "デュエリング・グラウンズ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 36.70633242, lng: -86.57242679, url: "https://duelinggroundsdistillery.com/" },
-  { name:"Limestone Branch", name_en: "Limestone Branch", name_jp: "ライムストーン・ブランチ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.58174606, lng: -85.2719278, url: "" },
-  { name:"Maker’s Mark", name_en: "Maker’s Mark", name_jp: "メーカーズ・マーク", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.64699621, lng: -85.34886348, url: "https://www.makersmark.com/distillery" },
-  { name:"Gleen River", name_en: "Gleen River", name_jp: "グレン・リバー", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.77892395, lng: -87.13847226, url: "https://greenriverwhiskey.com/" },
-  { name:"Willett", name_en: "Willett", name_jp: "ウィレット", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.78478806, lng: -85.46129417, url: "https://www.kentuckybourbonwhiskey.com/" },
-  { name:"Heaven Hill", name_en: "Heaven Hill", name_jp: "ヘブン・ヒル", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.79329064, lng: -85.46576692, url: "https://heavenhilldistillery.com/heaven-hill-bourbon-experience.php" },
-  { name:"Boundary Oak", name_en: "Boundary Oak", name_jp: "バウンダリー・オーク", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.79752964, lng: -85.91117673, url: "https://www.boundaryoak.co/" },
-  { name:"Barton 1792", name_en: "Barton 1792", name_jp: "バートン 1792", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.80775748, lng: -85.47574096, url: "https://www.1792bourbon.com/" },
-  { name:"Jim Beam", name_en: "Jim Beam", name_jp: "ジム・ビーム", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.9311908, lng: -85.65243261, url: "https://www.beamdistilling.com/" },
-  { name:"Four Roses", name_en: "Four Roses", name_jp: "フォア・ローゼズ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.97349621, lng: -84.89758767, url: "https://www.fourrosesbourbon.com/" },
-  { name:"Barrel House", name_en: "Barrel House", name_jp: "バレル・ハウス", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.05650221, lng: -84.51871515, url: "https://barrelhousedistillery.com/" },
-  { name:"Woodford Reserve", name_en: "Woodford Reserve", name_jp: "ウッドフォード・リザーブ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.11321852, lng: -84.81095759, url: "https://www.woodfordreserve.com/our-distillery/" },
-  { name:"Glenns Creek", name_en: "Glenns Creek", name_jp: "グレンズ・クリーク", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.14804528, lng: -84.84591287, url: "https://glennscreekdistillery.com/" },
-  { name:"Bluegrass", name_en: "Bluegrass", name_jp: "ブルーグラス", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.16145979, lng: -84.6850918, url: "https://bluegrassdistillers.com/" },
-  { name:"Jeptha Creed", name_en: "Jeptha Creed", name_jp: "ジェプサ・クリード", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.18959289, lng: -85.2647531, url: "https://jepthacreed.com/" },
-  { name:"Brown Forman", name_en: "Brown Forman", name_jp: "ブラウン・フォーマン", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.20725436, lng: -85.79459647, url: "https://www.brown-forman.com/" },
-  { name:"Buffalo Trace", name_en: "Buffalo Trace", name_jp: "バッファロー・トレース", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.2166746, lng: -84.87063068, url: "https://www.buffalotracedistillery.com/" },
-  { name:"Kentucky Peerless", name_en: "Kentucky Peerless", name_jp: "ケンタッキー・ピアレス", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.25859262, lng: -85.76645432, url: "https://kentuckypeerless.com/" },
-  { name:"Old Pogue", name_en: "Old Pogue", name_jp: "オールド・ポーグ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.66240333, lng: -83.780003, url: "https://www.oldpogue.com/" },
-  { name:"Neeley Family", name_en: "Neeley Family", name_jp: "ニーリー・ファミリー", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.70739356, lng: -84.94551314, url: "https://www.neeleyfamilydistillery.com/" },
-  { name:"Second Sight Spirits", name_en: "Second Sight Spirits", name_jp: "セカンド・サイト・スピリッツ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 39.09357298, lng: -84.5484326, url: "https://www.secondsightspirits.com/" },
-  { name:"New Riff", name_en: "New Riff", name_jp: "ニュー・リフ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 39.10074649, lng: -84.48895465, url: "https://www.newriffdistilling.com/" },
-  { name:"Michter’s", name_en: "Michter’s", name_jp: "ミクターズ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.2489, lng: -85.7636, url: "https://michters.com/" },
-  { name:"Castle & Key", name_en: "Castle & Key", name_jp: "キャッスル＆キー", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.14717, lng: -84.83253, url: "https://www.skurnik.com/producer/castle-key-distillery/" },
-  
-  // ---------- VIRGINIA ----------
-  { name:"A. Smith Bowman Distillery", name_en: "A. Smith Bowman Distillery", name_jp: "A. スミス・ボウマン・ディスティラリー", area: "VA", state_en: "VA", state_jp: "バージニア州", lat: 38.303, lng: -77.484, url: "https://asmithbowman.com/" },
+/* ------------------------------------------------------------	
+   8) USA（更新データ 61件）	
+------------------------------------------------------------ */	
+const usaData = [	
+  // ---------- TEXAS ----------	
+  { name:"Ranger Creek", name_en: "Ranger Creek", name_jp: "レンジャー・クリーク", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 29.52952609, lng: -98.39702277, url: "https://drinkrangercreek.com/" },	
+  { name:"Rebecca Creek", name_en: "Rebecca Creek", name_jp: "レベッカ・クリーク", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 29.69428386, lng: -98.45449383, url: "https://rebeccacreekdistillery.com/" },	
+  { name:"Bone Spirits", name_en: "Bone Spirits", name_jp: "ボーン・スピリッツ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.0037369, lng: -97.15365958, url: "https://bonespirits.com/default.php" },	
+  { name:"Real Spirits", name_en: "Real Spirits", name_jp: "リアル・スピリッツ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.11167876, lng: -98.41120761, url: "https://realalebrewing.com/distilling-process/" },	
+  { name:"Garrison Brothers", name_en: "Garrison Brothers", name_jp: "ギャリソン・ブラザーズ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.21752205, lng: -98.56660156, url: "https://www.garrisonbros.com/" },	
+  { name:"Banner Distilling Co.", name_en: "Banner Distilling Co.", name_jp: "バナー", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.39121875, lng: -97.49003612, url: "" },	
+  { name:"Spirit of Texas", name_en: "Spirit of Texas", name_jp: "スピリット・オブ・テキサス", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.48016201, lng: -97.58412798, url: "https://spiritoftx.com/" },	
+  { name:"Andalusia", name_en: "Andalusia", name_jp: "アンダルシア", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.52987612, lng: -98.25508207, url: "https://www.andalusiawhiskey.com/" },	
+  { name:"Fire Oak", name_en: "Fire Oak", name_jp: "ファイアー・オーク", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 30.76780559, lng: -97.90483191, url: "https://www.fireoakdistillery.com/" },	
+  { name:"Front Porch", name_en: "Front Porch", name_jp: "フロント・ポーチ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 31.49262122, lng: -94.71541242, url: "https://www.frontporchdistillery.com/" },	
+  { name:"Balcones", name_en: "Balcones", name_jp: "バルコーンズ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 31.55061932, lng: -97.13512539, url: "https://www.balconesdistilling.com/" },	
+  { name:"Kiepersol Enterprises", name_en: "Kiepersol Enterprises", name_jp: "キーパーソル・エンタープライゼズ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 32.16524064, lng: -95.29903331, url: "https://www.kiepersol.com/" },	
+  { name:"Five Points", name_en: "Five Points", name_jp: "ファイブ・ポインツ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 32.68483469, lng: -96.47789607, url: "https://lone-elm.com/" },	
+  { name:"Firestone & Robertson", name_en: "Firestone & Robertson", name_jp: "ファイアストーン＆ロバートソン", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 32.70211032, lng: -97.2865846, url: "https://txwhiskey.com/en-us/" },	
+  { name:"Rocking M Ranch", name_en: "Rocking M Ranch", name_jp: "ロッキング・M・ランチ", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 33.65998683, lng: -98.31296547, url: "https://www.rockingmranchdistillery.com/" },	
+  { name:"Ironroot Republic", name_en: "Ironroot Republic", name_jp: "アイアンルート・リパブリック", area: "TX", state_en: "TX", state_jp: "テキサス州", lat: 33.73100095, lng: -96.58366498, url: "https://www.ironrootrepublic.com/" },	
+	
+  // ---------- TENNESSEE ----------	
+  { name:"Southern Pride", name_en: "Southern Pride", name_jp: "サザン・プライド", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.03468511, lng: -86.5301669, url: "http://www.southernpridedistillery.com/" },	
+  { name:"Jack Daniel’s", name_en: "Jack Daniel’s", name_jp: "ジャック・ダニエル", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.29827491, lng: -86.37336312, url: "https://www.jackdaniels.com/ageGate" },	
+  { name:"George Dickel", name_en: "George Dickel", name_jp: "ジョージ・ディッケル", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.43845743, lng: -86.24612412, url: "https://www.georgedickel.com/visitus" },	
+  { name:"Sugarlands", name_en: "Sugarlands", name_jp: "シュガーランズ", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.71154802, lng: -83.51867354, url: "https://www.sugarlands.com/" },	
+  { name:"Old Forge", name_en: "Old Forge", name_jp: "オールド・フォージ", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.78872036, lng: -83.55350945, url: "" },	
+  { name:"Short Mountain", name_en: "Short Mountain", name_jp: "ショート・マウンテン", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.86656882, lng: -85.93097471, url: "https://www.shortmountaindistillery.com/" },	
+  { name:"Leiper’s Fork", name_en: "Leiper’s Fork", name_jp: "レイパーズ・フォーク", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.89649985, lng: -86.97856611, url: "https://leipersforkdistillery.com/" },	
+  { name:"Knox Whiskey Works", name_en: "Knox Whiskey Works", name_jp: "ノックス・ウィスキー・ワークス", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 35.96730419, lng: -83.92290967, url: "https://www.knoxwhiskeyworks.com/" },	
+  { name:"Nashville Craft", name_en: "Nashville Craft", name_jp: "ナッシュビル・クラフト", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 36.14134233, lng: -86.77256382, url: "https://www.nashvillecraft.com/" },	
+  { name:"Nelson’s Greenbrier", name_en: "Nelson’s Greenbrier", name_jp: "ネルソンズ・グリーンブライアー", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 36.16361033, lng: -86.79825367, url: "https://greenbrierdistillery.com/" },	
+  { name:"Corsair", name_en: "Corsair", name_jp: "コルセア", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 36.16518238, lng: -86.79513401, url: "https://www.corsairdistillery.com/marathon/" },	
+  { name:"Hook & Ladder", name_en: "Hook & Ladder", name_jp: "フック＆ラダー", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 36.54800747, lng: -82.55973276, url: "" },	
+  { name:"Tennessee Hills", name_en: "Tennessee Hills", name_jp: "テネシー・ヒルズ", area: "TN", state_en: "TN", state_jp: "テネシー州", lat: 36.58790165, lng: -82.26491685, url: "https://tennesseehills.com/" },	
+	
+  // ---------- KENTUCKY ----------	
+  { name:"MB Roland", name_en: "MB Roland", name_jp: "MB ローランド", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 36.69831873, lng: -87.39278785, url: "https://mbroland.com/" },	
+  { name:"Dueling Grounds", name_en: "Dueling Grounds", name_jp: "デュエリング・グラウンズ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 36.70633242, lng: -86.57242679, url: "https://duelinggroundsdistillery.com/" },	
+  { name:"Limestone Branch", name_en: "Limestone Branch", name_jp: "ライムストーン・ブランチ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.58174606, lng: -85.2719278, url: "" },	
+  { name:"Maker’s Mark", name_en: "Maker’s Mark", name_jp: "メーカーズ・マーク", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.64699621, lng: -85.34886348, url: "https://www.makersmark.com/distillery" },	
+  { name:"Gleen River", name_en: "Gleen River", name_jp: "グレン・リバー", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.77892395, lng: -87.13847226, url: "https://greenriverwhiskey.com/" },	
+  { name:"Willett", name_en: "Willett", name_jp: "ウィレット", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.78478806, lng: -85.46129417, url: "https://www.kentuckybourbonwhiskey.com/" },	
+  { name:"Heaven Hill", name_en: "Heaven Hill", name_jp: "ヘブン・ヒル", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.79329064, lng: -85.46576692, url: "https://heavenhilldistillery.com/heaven-hill-bourbon-experience.php" },	
+  { name:"Boundary Oak", name_en: "Boundary Oak", name_jp: "バウンダリー・オーク", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.79752964, lng: -85.91117673, url: "https://www.boundaryoak.co/" },	
+  { name:"Barton 1792", name_en: "Barton 1792", name_jp: "バートン 1792", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.80775748, lng: -85.47574096, url: "https://www.1792bourbon.com/" },	
+  { name:"Jim Beam", name_en: "Jim Beam", name_jp: "ジム・ビーム", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.9311908, lng: -85.65243261, url: "https://www.beamdistilling.com/" },	
+  { name:"Four Roses", name_en: "Four Roses", name_jp: "フォア・ローゼズ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 37.97349621, lng: -84.89758767, url: "https://www.fourrosesbourbon.com/" },	
+  { name:"Barrel House", name_en: "Barrel House", name_jp: "バレル・ハウス", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.05650221, lng: -84.51871515, url: "https://barrelhousedistillery.com/" },	
+  { name:"Woodford Reserve", name_en: "Woodford Reserve", name_jp: "ウッドフォード・リザーブ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.11321852, lng: -84.81095759, url: "https://www.woodfordreserve.com/our-distillery/" },	
+  { name:"Glenns Creek", name_en: "Glenns Creek", name_jp: "グレンズ・クリーク", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.14804528, lng: -84.84591287, url: "https://glennscreekdistillery.com/" },	
+  { name:"Bluegrass", name_en: "Bluegrass", name_jp: "ブルーグラス", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.16145979, lng: -84.6850918, url: "https://bluegrassdistillers.com/" },	
+  { name:"Jeptha Creed", name_en: "Jeptha Creed", name_jp: "ジェプサ・クリード", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.18959289, lng: -85.2647531, url: "https://jepthacreed.com/" },	
+  { name:"Brown Forman", name_en: "Brown Forman", name_jp: "ブラウン・フォーマン", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.20725436, lng: -85.79459647, url: "https://www.brown-forman.com/" },	
+  { name:"Buffalo Trace", name_en: "Buffalo Trace", name_jp: "バッファロー・トレース", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.2166746, lng: -84.87063068, url: "https://www.buffalotracedistillery.com/" },	
+  { name:"Kentucky Peerless", name_en: "Kentucky Peerless", name_jp: "ケンタッキー・ピアレス", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.25859262, lng: -85.76645432, url: "https://kentuckypeerless.com/" },	
+  { name:"Old Pogue", name_en: "Old Pogue", name_jp: "オールド・ポーグ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.66240333, lng: -83.780003, url: "https://www.oldpogue.com/" },	
+  { name:"Neeley Family", name_en: "Neeley Family", name_jp: "ニーリー・ファミリー", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.70739356, lng: -84.94551314, url: "https://www.neeleyfamilydistillery.com/" },	
+  { name:"Second Sight Spirits", name_en: "Second Sight Spirits", name_jp: "セカンド・サイト・スピリッツ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 39.09357298, lng: -84.5484326, url: "https://www.secondsightspirits.com/" },	
+  { name:"New Riff", name_en: "New Riff", name_jp: "ニュー・リフ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 39.10074649, lng: -84.48895465, url: "https://www.newriffdistilling.com/" },	
+  { name:"Michter’s", name_en: "Michter’s", name_jp: "ミクターズ", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.2489, lng: -85.7636, url: "https://michters.com/" },	
+  { name:"Castle & Key", name_en: "Castle & Key", name_jp: "キャッスル＆キー", area: "KY", state_en: "KY", state_jp: "ケンタッキー州", lat: 38.14717, lng: -84.83253, url: "https://www.skurnik.com/producer/castle-key-distillery/" },	
+  	
+  // ---------- VIRGINIA ----------	
+  { name:"A. Smith Bowman Distillery", name_en: "A. Smith Bowman Distillery", name_jp: "A. スミス・ボウマン・ディスティラリー", area: "VA", state_en: "VA", state_jp: "バージニア州", lat: 38.303, lng: -77.484, url: "https://asmithbowman.com/" },	
+	
+  // ---------- WYOMING ----------	
+  { name:"Wyoming Whiskey", name_en: "Wyoming Whiskey", name_jp: "ワイオミング・ウイスキー", area: "WY", state_en: "WY", state_jp: "ワイオミング州", lat: 42.897, lng: -108.181, url: "https://www.wyomingwhiskey.com/" },	
+	
+  // ---------- ALASKA ----------	
+  { name:"Alaska Distillery", name_en: "Alaska Distillery", name_jp: "アラスカ・ディスティラリー", area: "AK", state_en: "AK", state_jp: "アラスカ州", lat: 61.582, lng: -149.443, url: "https://alaskadistillery.com/" },	
+	
+  // ---------- COLORADO ----------	
+  { name:"Stranahan's Colorado Whiskey", name_en: "Stranahan's Colorado Whiskey", name_jp: "ストラナハンズ・コロラド・ウイスキー", area: "CO", state_en: "CO", state_jp: "コロラド州", lat: 39.728, lng: -105.002, url: "https://www.stranahans.com/" },	
+  { name:"Garrison Brothers (CO site)", name_en: "Garrison Brothers (CO site)", name_jp: "ギャリソン・ブラザーズ（CO）", area: "CO", state_en: "CO", state_jp: "コロラド州", lat: 30.21752205, lng: -98.56660156, url: "https://www.garrisonbros.com/" },	
+  { name:"Ironroot Republic (CO site)", name_en: "Ironroot Republic (CO site)", name_jp: "アイアンルート・リパブリック（CO）", area: "CO", state_en: "CO", state_jp: "コロラド州", lat: 33.73100095, lng: -96.58366498, url: "https://www.ironrootrepublic.com/" },	
+  { name:"Five Points (CO site)", name_en: "Five Points (CO site)", name_jp: "ファイブ・ポインツ（CO）", area: "CO", state_en: "CO", state_jp: "コロラド州", lat: 32.68483469, lng: -96.47789607, url: "https://lone-elm.com/" },	
+	
+  // ---------- ILLINOIS ----------	
+  { name:"Koval Distillery", name_en: "Koval Distillery", name_jp: "コヴァル・ディスティラリー", area: "IL", state_en: "IL", state_jp: "イリノイ州", lat: 41.973, lng: -87.688, url: "https://www.koval-distillery.com/" },	
+	
+  // ---------- OREGON ----------	
+  { name:"House Spirits Distillery (Westward)", name_en: "House Spirits Distillery (Westward)", name_jp: "ハウス・スピリッツ（ウエストワード）", area: "OR", state_en: "OR", state_jp: "オレゴン州", lat: 45.522, lng: -122.670, url: "https://www.westwardwhiskey.com/" },	
+	
+  // ---------- WASHINGTON ----------	
+  { name:"Woodinville Whiskey Co.", name_en: "Woodinville Whiskey Co.", name_jp: "ウーディンビル・ウイスキー", area: "WA", state_en: "WA", state_jp: "ワシントン州", lat: 47.755, lng: -122.157, url: "https://www.woodinvillewhiskeyco.com/" },	
+	
+  // ---------- MONTANA ----------	
+  { name:"Whistling Andy Distillery", name_en: "Whistling Andy Distillery", name_jp: "ウィスリング・アンディ", area: "MT", state_en: "MT", state_jp: "モンタナ州", lat: 48.110, lng: -114.082, url: "https://www.whistlingandy.com/" },	
+	
+  // ---------- MINNESOTA ----------	
+  { name:"Tattersall Distilling", name_en: "Tattersall Distilling", name_jp: "タッターサル・ディスティリング", area: "MN", state_en: "MN", state_jp: "ミネソタ州", lat: 45.010, lng: -93.246, url: "https://tattersalldistilling.com/" },	
+	
+  // ---------- OHIO ----------	
+  { name:"Middle West Spirits", name_en: "Middle West Spirits", name_jp: "ミドル・ウェスト・スピリッツ", area: "OH", state_en: "OH", state_jp: "オハイオ州", lat: 39.987, lng: -83.004, url: "https://middlewestspirits.com/" },	
+	
+  // ---------- PENNSYLVANIA ----------	
+  { name:"Wigle Whiskey Distillery", name_en: "Wigle Whiskey Distillery", name_jp: "ウィグル・ウイスキー", area: "PA", state_en: "PA", state_jp: "ペンシルベニア州", lat: 40.450, lng: -80.002, url: "https://www.wiglewhiskey.com/" },	
+	
+  // ---------- NEW YORK ----------	
+  { name:"Tuthilltown Spirits", name_en: "Tuthilltown Spirits", name_jp: "トゥーティルタウン・スピリッツ", area: "NY", state_en: "NY", state_jp: "ニューヨーク州", lat: 41.660, lng: -74.070, url: "https://www.hudsonwhiskey.com/" },	
+	
+  // ---------- NEW HAMPSHIRE ----------	
+  { name:"Tamworth Distilling", name_en: "Tamworth Distilling", name_jp: "タムワース・ディスティリング", area: "NH", state_en: "NH", state_jp: "ニューハンプシャー州", lat: 43.859, lng: -71.280, url: "https://tamworthdistilling.com/" },	
+	
+  // ---------- NEW JERSEY ----------	
+  { name:"Claremont Distilled Spirits", name_en: "Claremont Distilled Spirits", name_jp: "クレアモント・ディスティルド・スピリッツ", area: "NJ", state_en: "NJ", state_jp: "ニュージャージー州", lat: 40.752, lng: -74.087, url: "https://www.claremontdistilledspirits.com/" },	
+	
+  // ---------- RHODE ISLAND ----------	
+  { name:"Sons of Liberty Spirits", name_en: "Sons of Liberty Spirits", name_jp: "サンズ・オブ・リバティ", area: "RI", state_en: "RI", state_jp: "ロードアイランド州", lat: 41.457, lng: -71.492, url: "https://solspirits.com/" },	
+	
+  // ---------- VERMONT ----------	
+  { name:"WhistlePig Whiskey", name_en: "WhistlePig Whiskey", name_jp: "ホイッスルピッグ・ウイスキー", area: "VT", state_en: "VT", state_jp: "バーモント州", lat: 44.806, lng: -72.574, url: "https://whistlepigwhiskey.com/" },	
+	
+  // ---------- MAINE ----------	
+  { name:"Maine Craft Distilling", name_en: "Maine Craft Distilling", name_jp: "メイン・クラフト・ディスティリング", area: "ME", state_en: "ME", state_jp: "メイン州", lat: 43.660, lng: -70.254, url: "https://www.mainecraftdistilling.com/" },	
+	
+  // ---------- MASSACHUSETTS ----------	
+  { name:"Boston Harbor Distillery", name_en: "Boston Harbor Distillery", name_jp: "ボストン・ハーバー・ディスティラリー", area: "MA", state_en: "MA", state_jp: "マサチューセッツ州", lat: 42.320, lng: -71.044, url: "https://www.bostonharbordistillery.com/" },	
+	
+  // ---------- SOUTH CAROLINA ----------	
+  { name:"Charleston Distilling Co.", name_en: "Charleston Distilling Co.", name_jp: "チャールストン・ディスティリング", area: "SC", state_en: "SC", state_jp: "サウスカロライナ州", lat: 32.776, lng: -79.933, url: "https://charlestondistilling.com/" },	
+	
+  // ---------- GEORGIA ----------	
+  { name:"ASW Distillery", name_en: "ASW Distillery", name_jp: "ASW ディスティラリー", area: "GA", state_en: "GA", state_jp: "ジョージア州", lat: 33.803, lng: -84.423, url: "https://www.aswdistillery.com/" },	
+	
+  // ---------- FLORIDA ----------	
+  { name:"St. Augustine Distillery", name_en: "St. Augustine Distillery", name_jp: "セント・オーガスティン・ディスティラリー", area: "FL", state_en: "FL", state_jp: "フロリダ州", lat: 29.899, lng: -81.322, url: "https://www.staugustinedistillery.com/" },	
+	
+  // ---------- NORTH CAROLINA ----------	
+  { name:"High Wire Distilling Co.", name_en: "High Wire Distilling Co.", name_jp: "ハイ・ワイヤー・ディスティリング", area: "NC", state_en: "NC", state_jp: "ノースカロライナ州", lat: 32.796, lng: -79.940, url: "https://highwiredistilling.com/" },	
+	
+  // ---------- NORTH DAKOTA ----------	
+  { name:"Proof Artisan Distillers", name_en: "Proof Artisan Distillers", name_jp: "プルーフ・アーティザン", area: "ND", state_en: "ND", state_jp: "ノースダコタ州", lat: 46.876, lng: -96.789, url: "https://proofdistillers.com/" },	
+	
+  // ---------- SOUTH DAKOTA ----------	
+  { name:"Dakota Spirits Distillery", name_en: "Dakota Spirits Distillery", name_jp: "ダコタ・スピリッツ", area: "SD", state_en: "SD", state_jp: "サウスダコタ州", lat: 44.368, lng: -100.350, url: "https://dakotaspiritsdistillery.com/" },	
+	
+  // ---------- NEBRASKA ----------	
+  { name:"Cut Spike Distillery", name_en: "Cut Spike Distillery", name_jp: "カット・スパイク", area: "NE", state_en: "NE", state_jp: "ネブラスカ州", lat: 41.138, lng: -96.245, url: "https://cutspike.com/" },	
+	
+  // ---------- KANSAS ----------	
+  { name:"Boot Hill Distillery", name_en: "Boot Hill Distillery", name_jp: "ブーツ・ヒル・ディスティラリー", area: "KS", state_en: "KS", state_jp: "カンザス州", lat: 37.750, lng: -100.017, url: "https://boothilldistillery.com/" },	
+	
+  // ---------- OKLAHOMA ----------	
+  { name:"Prairie Wolf Spirits", name_en: "Prairie Wolf Spirits", name_jp: "プレーリー・ウルフ", area: "OK", state_en: "OK", state_jp: "オクラホマ州", lat: 35.489, lng: -97.816, url: "https://prairiewolfspirits.com/" },	
+	
+  // ---------- LOUISIANA ----------	
+  { name:"Donner-Peltier Distillers", name_en: "Donner-Peltier Distillers", name_jp: "ダナー・ペルティエ", area: "LA", state_en: "LA", state_jp: "ルイジアナ州", lat: 29.795, lng: -90.817, url: "https://www.dpdistillers.com/" },	
+	
+  // ---------- MISSISSIPPI ----------	
+  { name:"Cathead Distillery", name_en: "Cathead Distillery", name_jp: "キャットヘッド", area: "MS", state_en: "MS", state_jp: "ミシシッピ州", lat: 32.298, lng: -90.180, url: "https://catheaddistillery.com/" },	
+	
+  // ---------- ALABAMA ----------	
+  { name:"Conecuh Ridge Distillery", name_en: "Conecuh Ridge Distillery", name_jp: "コネキュー・リッジ", area: "AL", state_en: "AL", state_jp: "アラバマ州", lat: 31.870, lng: -86.595, url: "https://www.connorspointdistillery.com/" },	
+	
+  // ---------- ARIZONA ----------	
+  { name:"Whiskey Del Bac", name_en: "Whiskey Del Bac", name_jp: "ウイスキー・デル・バック", area: "AZ", state_en: "AZ", state_jp: "アリゾナ州", lat: 32.222, lng: -110.974, url: "https://www.whiskeydelbac.com/" },	
+	
+  // ---------- IDAHO ----------	
+  { name:"Koenig Distillery", name_en: "Koenig Distillery", name_jp: "ケーニッヒ・ディスティラリー", area: "ID", state_en: "ID", state_jp: "アイダホ州", lat: 43.491, lng: -112.033, url: "https://www.koenigdistillery.com/" },	
+];	
+	
+/* ------------------------------------------------------------	
+   9) Canada（更新データ 26件）	
+------------------------------------------------------------ */	
+const canadaData = [	
+  { name: "Alberta Distillers", name_en: "Alberta Distillers", name_jp: "アルバータ・ディスティラーズ", area: "Canada", lat: 53.5444, lng: -113.4909, url: "https://www.albertadistillers.com/", slug: "alberta-distillers", summary: "100%ライ麦ウイスキー『アルバータ・プレミアム』で有名。" },	
+  { name: "Wolfhead Distillery (Amherstburg)", name_en: "Wolfhead Distillery (Amherstburg)", name_jp: "ウルフヘッド・ディスティラリー（アマーストバーグ）", area: "Canada", lat: 42.1026, lng: -83.1099, url: "https://amherstburg.ca/", slug: "amherstburg", summary: "エセックス郡初のクラフト蒸留所。" },	
+  { name: "Bridgeland Distillery", name_en: "Bridgeland Distillery", name_jp: "ブリッジランド・ディスティラリー", area: "Canada", lat: 51.0545, lng: -114.0375, url: "https://www.bridgelanddistillery.com/", slug: "bridgeland", summary: "受賞歴多数のクラフト蒸留所。ブランデーやグラッパも生産。" },	
+  { name: "Canadian Club", name_en: "Canadian Club", name_jp: "カナディアン・クラブ", area: "Canada", lat: 42.3168, lng: -83.0376, url: "https://www.canadianclub.com/", slug: "canadian-club", summary: "世界的ブランド。ハイラム・ウォーカーによる設立。" },	
+  { name: "Dillon's Small Batch Distillers", name_en: "Dillon's Small Batch Distillers", name_jp: "ディロンズ・スモールバッチ", area: "Canada", lat: 43.1492, lng: -79.5443, url: "https://dillons.ca/", slug: "dillons", summary: "地元産フルーツやボタニカルを使用したクラフト蒸留所。" },	
+  { name: "Forty Creek", name_en: "Forty Creek", name_jp: "フォーティークリーク", area: "Canada", lat: 43.1906, lng: -79.6231, url: "https://www.fortycreekwhisky.com/", slug: "forty-creek", summary: "個別熟成後にブレンドする独自手法で知られる。" },	
+  { name: "Crown Royal (Gimli Distillery)", name_en: "Crown Royal (Gimli Distillery)", name_jp: "ギムリ蒸留所（クラウンローヤル）", area: "Canada", lat: 50.6389, lng: -96.9936, url: "https://www.crownroyal.com/age-gate/", slug: "gimli", summary: "クラウンロイヤル主要生産拠点の大規模蒸留所。" },	
+  { name: "Glenora Distillery", name_en: "Glenora Distillery", name_jp: "グレノラ蒸留所", area: "Canada", lat: 46.2230, lng: -61.1250, url: "https://www.glenoradistillery.com/", slug: "glenora", summary: "カナダ初のシングルモルト蒸留所。スコットランド様式。" },	
+  { name: "Goodridge & Williams", name_en: "Goodridge & Williams", name_jp: "グッドリッジ＆ウィリアムズ", area: "Canada", lat: 49.8885, lng: -119.4678, url: "https://www.goodridgeandwilliams.com/", slug: "goodridge-williams", summary: "クラフトスピリッツ製造を行う蒸留所。" },	
+  { name: "Highwood Distillers", name_en: "Highwood Distillers", name_jp: "ハイウッド・ディスティラーズ", area: "Canada", lat: 50.5828, lng: -113.8732, url: "https://www.highwooddistillers.com/", slug: "highwood", summary: "カナダ最大級の独立系蒸留所の1つ。" },	
+  { name: "Hiram Walker", name_en: "Hiram Walker", name_jp: "ハイラム・ウォーカー", area: "Canada", lat: 42.3168, lng: -83.0376, url: "https://www.hwdc.ca/", slug: "hiram-walker", summary: "カナディアンクラブを生んだ歴史ある蒸留所。" },	
+  { name: "Kinsip House of Fine Spirits", name_en: "Kinsip House of Fine Spirits", name_jp: "キンシップ・ハウス", area: "Canada", lat: 43.9575, lng: -77.2530, url: "https://kinsip.ca/", slug: "kinsip", summary: "“Farm to Glass”を掲げる農場蒸留所。" },	
+  { name: "Last Best Brewing & Distilling", name_en: "Last Best Brewing & Distilling", name_jp: "ラストベスト", area: "Canada", lat: 51.0428, lng: -114.0721, url: "https://lastbestbrewing.com/", slug: "last-best", summary: "醸造と蒸留を行うハイブリッド施設。" },	
+  { name: "Myriad View Artisan Distillery", name_en: "Myriad View Artisan Distillery", name_jp: "ミリアドビュー・アーティサン", area: "Canada", lat: 46.3056, lng: -62.1932, url: "https://www.myriadview.ca/", slug: "myriad-view", summary: "カナダ唯一の“合法的密造酒（シーン）”で有名。" },	
+  { name: "Okanagan Spirits", name_en: "Okanagan Spirits", name_jp: "オカナガン・スピリッツ", area: "Canada", lat: 50.2676, lng: -119.2778, url: "https://okanaganspirits.com/", slug: "okanagan-spirits", summary: "西カナダ最古級のクラフト蒸留所。" },	
+  { name: "Old Order Distilling", name_en: "Old Order Distilling", name_jp: "オールド・オーダー", area: "Canada", lat: 49.1834, lng: -119.5539, url: "https://www.oldorderdistilling.ca/", slug: "old-order", summary: "モルトベースのダッチスタイルジンが人気。" },	
+  { name: "Park Distillery", name_en: "Park Distillery", name_jp: "パーク・ディスティラリー", area: "Canada", lat: 51.1779, lng: -115.5701, url: "https://parkdistillery.com/", slug: "park", summary: "カナダ国立公園内にあるユニークな蒸留所。" },	
+  { name: "RAW Distillery", name_en: "RAW Distillery", name_jp: "RAWディスティラリー", area: "Canada", lat: 51.0883, lng: -115.3725, url: "https://www.rawdistillery.com/", slug: "raw", summary: "アルバータ産の素材でジンやライウイスキーを製造。" },	
+  { name: "Rig Hand Distillery", name_en: "Rig Hand Distillery", name_jp: "リグ・ハンド・ディスティラリー", area: "Canada", lat: 53.3082, lng: -113.5298, url: "https://righanddistillery.com/", slug: "rig-hand", summary: "エドモントン地域の人気クラフト蒸留所。" },	
+  { name: "Shelter Point Distillery", name_en: "Shelter Point Distillery", name_jp: "シェルターポイント", area: "Canada", lat: 50.0617, lng: -125.2638, url: "https://www.shelterpointdistillery.com/", slug: "shelter-point", summary: "自社大麦で良質なシングルモルトを生産。" },	
+  { name: "Still Waters Distillery", name_en: "Still Waters Distillery", name_jp: "スティルウォーターズ", area: "Canada", lat: 43.8340, lng: -79.5190, url: "https://stillwatersdistillery.com/", slug: "still-waters", summary: "カナダ初のクラフトウイスキー蒸留所の一つ。" },	
+  { name: "Strathcona Spirits", name_en: "Strathcona Spirits", name_jp: "ストラスコナ・スピリッツ", area: "Canada", lat: 53.5359, lng: -113.4866, url: "https://strathconaspirits.ca/", slug: "strathcona", summary: "北米最小規模クラスの小さなクラフト蒸留所。" },	
+  { name: "The Liberty Distillery", name_en: "The Liberty Distillery", name_jp: "ザ・リバティー", area: "Canada", lat: 49.2764, lng: -123.1099, url: "https://thelibertydistillery.com/", slug: "the-liberty", summary: "100%オーガニック穀物を使用する都市型蒸留所。" },	
+  { name: "Top Shelf Distillers", name_en: "Top Shelf Distillers", name_jp: "トップシェルフ", area: "Canada", lat: 44.9126, lng: -76.2415, url: "https://www.topshelfdistillers.com/", slug: "top-shelf", summary: "オンタリオ伝統のウイスキー製造を復興。" },	
+  { name: "Two Brewers Whisky", name_en: "Two Brewers Whisky", name_jp: "トゥー・ブリュワーズ", area: "Canada", lat: 60.7135, lng: -135.0560, url: "https://two-brewers.com/", slug: "two-brewers", summary: "ユーコン準州のシングルモルトで有名。" },	
+  { name: "Urban Distilleries", name_en: "Urban Distilleries", name_jp: "アーバン・ディスティラーズ", area: "Canada", lat: 49.8885, lng: -119.4678, url: "https://www.urbandistilleries.ca/", slug: "urban", summary: "BC州最初期のクラフト蒸留所の一つ。" }	
+];	
+	
+/* ------------------------------------------------------------	
+   10) Ireland（復旧データ 20件）	
+------------------------------------------------------------ */	
+const irelandData = [	
+  { name:"Ballykeefe Distillery", name_en:"Ballykeefe", name_jp:"バリーキーフ", area:"Ireland", lat:52.6186, lng:-7.3197, url:"" },	
+  { name:"Boann Distillery", name_en:"Boann", name_jp:"ボアン", area:"Ireland", lat:53.7431, lng:-6.3773, url:"" },	
+  { name:"Clonakilty Distillery", name_en:"Clonakilty", name_jp:"クロナキルティ", area:"Ireland", lat:51.6264, lng:-8.8953, url:"" },	
+  { name:"Dingle Distillery (Cooley)", name_en:"Cooley", name_jp:"クーリー", area:"Ireland", lat:52.1465, lng:-10.2882, url:"" },	
+  { name:"Quintessential Brands (Dingle)", name_en:"Dingle", name_jp:"ディングル", area:"Ireland", lat:53.3375, lng:-6.273, url:"" },	
+  { name:"Glendalough Distillery", name_en:"Dublin Liberties", name_jp:"ダブリンリバティーズ", area:"Ireland", lat:53.0076, lng:-6.3752, url:"" },	
+  { name:"Lambay Irish Whiskey Co.", name_en:"Glendree", name_jp:"グレンドリー", area:"Ireland", lat:53.4867, lng:-6.0125, url:"" },	
+  { name:"Diageo (Kilbeggan)", name_en:"Kilbeggan", name_jp:"キルベガン", area:"Ireland", lat:53.3444, lng:-6.2783, url:"" },	
+  { name:"Lough Gill Distillery", name_en:"Lough Gill", name_jp:"ロッホギル", area:"Ireland", lat:54.275, lng:-8.455, url:"" },	
+  { name:"Brown-Forman (Midleton)", name_en:"Midleton", name_jp:"ミドルトン", area:"Ireland", lat:53.7088, lng:-6.5501, url:"" },	
+  { name:"Teeling Whiskey Co.", name_en:"Pearse Lyons", name_jp:"ピアースライオンズ", area:"Ireland", lat:53.3364, lng:-6.2625, url:"" },	
+  { name:"Tipperary Boutique Distillery", name_en:"Powerscourt", name_jp:"パワーズコート", area:"Ireland", lat:52.5008, lng:-7.7801, url:"" },	
+  { name:"William Grant & Sons (Roe & Co)", name_en:"Roe & Co", name_jp:"ロー&コー", area:"Ireland", lat:53.2797, lng:-7.5029, url:"" },	
+  { name:"Renegade Spirits (Royal Oak)", name_en:"Royal Oak", name_jp:"ロイヤルオーク", area:"Ireland", lat:52.2612, lng:-7.1085, url:"" },	
+  { name:"West Cork Distillers (Shed)", name_en:"Shed", name_jp:"シェッド", area:"Ireland", lat:51.5284, lng:-9.2818, url:"" },	
+  { name:"Boatyard Distillery (Slane)", name_en:"Slane", name_jp:"スレーン", area:"Ireland", lat:54.3414, lng:-7.6322, url:"" },	
+  { name:"Copeland Distillery (Teeling)", name_en:"Teeling", name_jp:"ティーリング", area:"Ireland", lat:54.4069, lng:-5.5139, url:"" },	
+  { name:"Hinch Distillery (Waterford)", name_en:"Waterford", name_jp:"ウォーターフォード", area:"Ireland", lat:54.5167, lng:-5.922, url:"" },	
+  { name:"Killowen Distillery (West Cork)", name_en:"West Cork", name_jp:"ウエストコーク", area:"Ireland", lat:54.0759, lng:-6.136, url:"" },	
+  { name:"Pernod Ricard (Great Northern)", name_en:"Great Northern", name_jp:"グレートノーザン", area:"Ireland", lat:51.9079, lng:-8.1706, url:"" }	
+	
+];	
 
-  // ---------- WYOMING ----------
-  { name:"Wyoming Whiskey", name_en: "Wyoming Whiskey", name_jp: "ワイオミング・ウイスキー", area: "WY", state_en: "WY", state_jp: "ワイオミング州", lat: 42.897, lng: -108.181, url: "https://www.wyomingwhiskey.com/" },
-
-  // ---------- ALASKA ----------
-  { name:"Alaska Distillery", name_en: "Alaska Distillery", name_jp: "アラスカ・ディスティラリー", area: "AK", state_en: "AK", state_jp: "アラスカ州", lat: 61.582, lng: -149.443, url: "https://alaskadistillery.com/" },
-
-  // ---------- COLORADO ----------
-  { name:"Stranahan's Colorado Whiskey", name_en: "Stranahan's Colorado Whiskey", name_jp: "ストラナハンズ・コロラド・ウイスキー", area: "CO", state_en: "CO", state_jp: "コロラド州", lat: 39.728, lng: -105.002, url: "https://www.stranahans.com/" },
-  { name:"Garrison Brothers (CO site)", name_en: "Garrison Brothers (CO site)", name_jp: "ギャリソン・ブラザーズ（CO）", area: "CO", state_en: "CO", state_jp: "コロラド州", lat: 30.21752205, lng: -98.56660156, url: "https://www.garrisonbros.com/" },
-  { name:"Ironroot Republic (CO site)", name_en: "Ironroot Republic (CO site)", name_jp: "アイアンルート・リパブリック（CO）", area: "CO", state_en: "CO", state_jp: "コロラド州", lat: 33.73100095, lng: -96.58366498, url: "https://www.ironrootrepublic.com/" },
-  { name:"Five Points (CO site)", name_en: "Five Points (CO site)", name_jp: "ファイブ・ポインツ（CO）", area: "CO", state_en: "CO", state_jp: "コロラド州", lat: 32.68483469, lng: -96.47789607, url: "https://lone-elm.com/" },
-
-  // ---------- ILLINOIS ----------
-  { name:"Koval Distillery", name_en: "Koval Distillery", name_jp: "コヴァル・ディスティラリー", area: "IL", state_en: "IL", state_jp: "イリノイ州", lat: 41.973, lng: -87.688, url: "https://www.koval-distillery.com/" },
-
-  // ---------- OREGON ----------
-  { name:"House Spirits Distillery (Westward)", name_en: "House Spirits Distillery (Westward)", name_jp: "ハウス・スピリッツ（ウエストワード）", area: "OR", state_en: "OR", state_jp: "オレゴン州", lat: 45.522, lng: -122.670, url: "https://www.westwardwhiskey.com/" },
-
-  // ---------- WASHINGTON ----------
-  { name:"Woodinville Whiskey Co.", name_en: "Woodinville Whiskey Co.", name_jp: "ウーディンビル・ウイスキー", area: "WA", state_en: "WA", state_jp: "ワシントン州", lat: 47.755, lng: -122.157, url: "https://www.woodinvillewhiskeyco.com/" },
-
-  // ---------- MONTANA ----------
-  { name:"Whistling Andy Distillery", name_en: "Whistling Andy Distillery", name_jp: "ウィスリング・アンディ", area: "MT", state_en: "MT", state_jp: "モンタナ州", lat: 48.110, lng: -114.082, url: "https://www.whistlingandy.com/" },
-
-  // ---------- MINNESOTA ----------
-  { name:"Tattersall Distilling", name_en: "Tattersall Distilling", name_jp: "タッターサル・ディスティリング", area: "MN", state_en: "MN", state_jp: "ミネソタ州", lat: 45.010, lng: -93.246, url: "https://tattersalldistilling.com/" },
-
-  // ---------- OHIO ----------
-  { name:"Middle West Spirits", name_en: "Middle West Spirits", name_jp: "ミドル・ウェスト・スピリッツ", area: "OH", state_en: "OH", state_jp: "オハイオ州", lat: 39.987, lng: -83.004, url: "https://middlewestspirits.com/" },
-
-  // ---------- PENNSYLVANIA ----------
-  { name:"Wigle Whiskey Distillery", name_en: "Wigle Whiskey Distillery", name_jp: "ウィグル・ウイスキー", area: "PA", state_en: "PA", state_jp: "ペンシルベニア州", lat: 40.450, lng: -80.002, url: "https://www.wiglewhiskey.com/" },
-
-  // ---------- NEW YORK ----------
-  { name:"Tuthilltown Spirits", name_en: "Tuthilltown Spirits", name_jp: "トゥーティルタウン・スピリッツ", area: "NY", state_en: "NY", state_jp: "ニューヨーク州", lat: 41.660, lng: -74.070, url: "https://www.hudsonwhiskey.com/" },
-
-  // ---------- NEW HAMPSHIRE ----------
-  { name:"Tamworth Distilling", name_en: "Tamworth Distilling", name_jp: "タムワース・ディスティリング", area: "NH", state_en: "NH", state_jp: "ニューハンプシャー州", lat: 43.859, lng: -71.280, url: "https://tamworthdistilling.com/" },
-
-  // ---------- NEW JERSEY ----------
-  { name:"Claremont Distilled Spirits", name_en: "Claremont Distilled Spirits", name_jp: "クレアモント・ディスティルド・スピリッツ", area: "NJ", state_en: "NJ", state_jp: "ニュージャージー州", lat: 40.752, lng: -74.087, url: "https://www.claremontdistilledspirits.com/" },
-
-  // ---------- RHODE ISLAND ----------
-  { name:"Sons of Liberty Spirits", name_en: "Sons of Liberty Spirits", name_jp: "サンズ・オブ・リバティ", area: "RI", state_en: "RI", state_jp: "ロードアイランド州", lat: 41.457, lng: -71.492, url: "https://solspirits.com/" },
-
-  // ---------- VERMONT ----------
-  { name:"WhistlePig Whiskey", name_en: "WhistlePig Whiskey", name_jp: "ホイッスルピッグ・ウイスキー", area: "VT", state_en: "VT", state_jp: "バーモント州", lat: 44.806, lng: -72.574, url: "https://whistlepigwhiskey.com/" },
-
-  // ---------- MAINE ----------
-  { name:"Maine Craft Distilling", name_en: "Maine Craft Distilling", name_jp: "メイン・クラフト・ディスティリング", area: "ME", state_en: "ME", state_jp: "メイン州", lat: 43.660, lng: -70.254, url: "https://www.mainecraftdistilling.com/" },
-
-  // ---------- MASSACHUSETTS ----------
-  { name:"Boston Harbor Distillery", name_en: "Boston Harbor Distillery", name_jp: "ボストン・ハーバー・ディスティラリー", area: "MA", state_en: "MA", state_jp: "マサチューセッツ州", lat: 42.320, lng: -71.044, url: "https://www.bostonharbordistillery.com/" },
-
-  // ---------- SOUTH CAROLINA ----------
-  { name:"Charleston Distilling Co.", name_en: "Charleston Distilling Co.", name_jp: "チャールストン・ディスティリング", area: "SC", state_en: "SC", state_jp: "サウスカロライナ州", lat: 32.776, lng: -79.933, url: "https://charlestondistilling.com/" },
-
-  // ---------- GEORGIA ----------
-  { name:"ASW Distillery", name_en: "ASW Distillery", name_jp: "ASW ディスティラリー", area: "GA", state_en: "GA", state_jp: "ジョージア州", lat: 33.803, lng: -84.423, url: "https://www.aswdistillery.com/" },
-
-  // ---------- FLORIDA ----------
-  { name:"St. Augustine Distillery", name_en: "St. Augustine Distillery", name_jp: "セント・オーガスティン・ディスティラリー", area: "FL", state_en: "FL", state_jp: "フロリダ州", lat: 29.899, lng: -81.322, url: "https://www.staugustinedistillery.com/" },
-
-  // ---------- NORTH CAROLINA ----------
-  { name:"High Wire Distilling Co.", name_en: "High Wire Distilling Co.", name_jp: "ハイ・ワイヤー・ディスティリング", area: "NC", state_en: "NC", state_jp: "ノースカロライナ州", lat: 32.796, lng: -79.940, url: "https://highwiredistilling.com/" },
-
-  // ---------- NORTH DAKOTA ----------
-  { name:"Proof Artisan Distillers", name_en: "Proof Artisan Distillers", name_jp: "プルーフ・アーティザン", area: "ND", state_en: "ND", state_jp: "ノースダコタ州", lat: 46.876, lng: -96.789, url: "https://proofdistillers.com/" },
-
-  // ---------- SOUTH DAKOTA ----------
-  { name:"Dakota Spirits Distillery", name_en: "Dakota Spirits Distillery", name_jp: "ダコタ・スピリッツ", area: "SD", state_en: "SD", state_jp: "サウスダコタ州", lat: 44.368, lng: -100.350, url: "https://dakotaspiritsdistillery.com/" },
-
-  // ---------- NEBRASKA ----------
-  { name:"Cut Spike Distillery", name_en: "Cut Spike Distillery", name_jp: "カット・スパイク", area: "NE", state_en: "NE", state_jp: "ネブラスカ州", lat: 41.138, lng: -96.245, url: "https://cutspike.com/" },
-
-  // ---------- KANSAS ----------
-  { name:"Boot Hill Distillery", name_en: "Boot Hill Distillery", name_jp: "ブーツ・ヒル・ディスティラリー", area: "KS", state_en: "KS", state_jp: "カンザス州", lat: 37.750, lng: -100.017, url: "https://boothilldistillery.com/" },
-
-  // ---------- OKLAHOMA ----------
-  { name:"Prairie Wolf Spirits", name_en: "Prairie Wolf Spirits", name_jp: "プレーリー・ウルフ", area: "OK", state_en: "OK", state_jp: "オクラホマ州", lat: 35.489, lng: -97.816, url: "https://prairiewolfspirits.com/" },
-
-  // ---------- LOUISIANA ----------
-  { name:"Donner-Peltier Distillers", name_en: "Donner-Peltier Distillers", name_jp: "ダナー・ペルティエ", area: "LA", state_en: "LA", state_jp: "ルイジアナ州", lat: 29.795, lng: -90.817, url: "https://www.dpdistillers.com/" },
-
-  // ---------- MISSISSIPPI ----------
-  { name:"Cathead Distillery", name_en: "Cathead Distillery", name_jp: "キャットヘッド", area: "MS", state_en: "MS", state_jp: "ミシシッピ州", lat: 32.298, lng: -90.180, url: "https://catheaddistillery.com/" },
-
-  // ---------- ALABAMA ----------
-  { name:"Conecuh Ridge Distillery", name_en: "Conecuh Ridge Distillery", name_jp: "コネキュー・リッジ", area: "AL", state_en: "AL", state_jp: "アラバマ州", lat: 31.870, lng: -86.595, url: "https://www.connorspointdistillery.com/" },
-
-  // ---------- ARIZONA ----------
-  { name:"Whiskey Del Bac", name_en: "Whiskey Del Bac", name_jp: "ウイスキー・デル・バック", area: "AZ", state_en: "AZ", state_jp: "アリゾナ州", lat: 32.222, lng: -110.974, url: "https://www.whiskeydelbac.com/" },
-
-  // ---------- IDAHO ----------
-  { name:"Koenig Distillery", name_en: "Koenig Distillery", name_jp: "ケーニッヒ・ディスティラリー", area: "ID", state_en: "ID", state_jp: "アイダホ州", lat: 43.491, lng: -112.033, url: "https://www.koenigdistillery.com/" },
-];
 
 /* ------------------------------------------------------------
    9) Canada（更新データ 26件）
