@@ -3,40 +3,353 @@
 ============================================================ */
 
 /* ------------------------------------------------------------
-   1) Scotland — Speyside（復旧データ 30件）
+1) Scotland — Speyside（復旧データ 30件：修正済み）
 ------------------------------------------------------------ */
 const speysideData = [
-  { name:"Aberlour Distillery", name_en:"Aberlour Distillery", name_jp:"アベラワー蒸留所", area:"Speyside", lat:57.4704, lng:-3.2290, url:"https://www.aberlour.com" },
-  { name:"Allt-A-Bhainne Distillery", name_en:"Allt-A-Bhainne Distillery", name_jp:"オルトナバーン蒸留所", area:"Speyside", lat:57.4245, lng:-3.2739, url:"" },
-  { name:"Auchroisk Distillery", name_en:"Auchroisk Distillery", name_jp:"オスロスク蒸留所", area:"Speyside", lat:57.5484, lng:-3.2743, url:"" },
-  { name:"Aultmore Distillery", name_en:"Aultmore Distillery", name_jp:"オルトモア蒸留所", area:"Speyside", lat:57.6690, lng:-2.9637, url:"https://www.dewars.com" },
-  { name:"Balmenach Distillery", name_en:"Balmenach Distillery", name_jp:"バルメナック蒸留所", area:"Speyside", lat:57.3472, lng:-3.5564, url:"" },
-  { name:"Balvenie Distillery", name_en:"Balvenie Distillery", name_jp:"バルヴェニー蒸留所", area:"Speyside", lat:57.4540, lng:-3.1284, url:"https://www.thebalvenie.com" },
-  { name:"Benriach Distillery", name_en:"Benriach Distillery", name_jp:"ベンリアック蒸留所", area:"Speyside", lat:57.4506, lng:-3.2491, url:"https://benriachdistillery.com" },
-  { name:"Benrinnes Distillery", name_en:"Benrinnes Distillery", name_jp:"ベンリネス蒸留所", area:"Speyside", lat:57.4332, lng:-3.2494, url:"" },
-  { name:"Benromach Distillery", name_en:"Benromach Distillery", name_jp:"ベンロマック蒸留所", area:"Speyside", lat:57.6081, lng:-3.6135, url:"https://www.benromach.com" },
-  { name:"Cardhu Distillery", name_en:"Cardhu Distillery", name_jp:"カーデュ蒸留所", area:"Speyside", lat:57.4820, lng:-3.3754, url:"https://www.cardhudistillery.com" },
-  { name:"Cragganmore Distillery", name_en:"Cragganmore Distillery", name_jp:"クラガンモア蒸留所", area:"Speyside", lat:57.4029, lng:-3.3798, url:"https://www.malts.com" },
-  { name:"Craigellachie Distillery", name_en:"Craigellachie Distillery", name_jp:"クライゲラヒ蒸留所", area:"Speyside", lat:57.4901, lng:-3.2047, url:"https://www.dewars.com" },
-  { name:"Dailuaine Distillery", name_en:"Dailuaine Distillery", name_jp:"ダルユーイン蒸留所", area:"Speyside", lat:57.3716, lng:-3.3454, url:"" },
-  { name:"Glenallachie Distillery", name_en:"Glenallachie Distillery", name_jp:"グレンアラヒー蒸留所", area:"Speyside", lat:57.4764, lng:-3.2083, url:"https://www.theglenallachie.com" },
-  { name:"Glen Elgin Distillery", name_en:"Glen Elgin Distillery", name_jp:"グレンエルギン蒸留所", area:"Speyside", lat:57.6300, lng:-3.2913, url:"" },
-  { name:"Glenfarclas Distillery", name_en:"Glenfarclas Distillery", name_jp:"グレンファークラス蒸留所", area:"Speyside", lat:57.4277, lng:-3.3167, url:"https://www.glenfarclas.com" },
-  { name:"Glenfiddich Distillery", name_en:"Glenfiddich Distillery", name_jp:"グレンフィディック蒸留所", area:"Speyside", lat:57.4540, lng:-3.1280, url:"https://www.glenfiddich.com" },
-  { name:"Glengrant Distillery", name_en:"Glengrant Distillery", name_jp:"グレングラント蒸留所", area:"Speyside", lat:57.5250, lng:-3.2132, url:"https://www.glengrant.com" },
-  { name:"Glenlivet Distillery", name_en:"Glenlivet Distillery", name_jp:"グレンリベット蒸留所", area:"Speyside", lat:57.3420, lng:-3.2970, url:"https://www.theglenlivet.com" },
-  { name:"Glenlossie Distillery", name_en:"Glenlossie Distillery", name_jp:"グレンロッシー蒸留所", area:"Speyside", lat:57.6161, lng:-3.3017, url:"" },
-  { name:"Glen Moray Distillery", name_en:"Glen Moray Distillery", name_jp:"グレンマレイ蒸留所", area:"Speyside", lat:57.6501, lng:-3.3025, url:"https://www.glenmoray.com" },
-  { name:"Glenrothes Distillery", name_en:"Glenrothes Distillery", name_jp:"グレンロセス蒸留所", area:"Speyside", lat:57.5260, lng:-3.1490, url:"https://www.theglenrothes.com" },
-  { name:"Glen Spey Distillery", name_en:"Glen Spey Distillery", name_jp:"グレンスペイ蒸留所", area:"Speyside", lat:57.6115, lng:-3.2285, url:"" },
-  { name:"Inchgower Distillery", name_en:"Inchgower Distillery", name_jp:"インチガワー蒸留所", area:"Speyside", lat:57.6864, lng:-2.8975, url:"" },
-  { name:"Knockando Distillery", name_en:"Knockando Distillery", name_jp:"ノッカンドゥ蒸留所", area:"Speyside", lat:57.4434, lng:-3.3683, url:"" },
-  { name:"Linkwood Distillery", name_en:"Linkwood Distillery", name_jp:"リンクウッド蒸留所", area:"Speyside", lat:57.6356, lng:-3.2920, url:"" },
-  { name:"Longmorn Distillery", name_en:"Longmorn Distillery", name_jp:"ロングモーン蒸留所", area:"Speyside", lat:57.6201, lng:-3.2791, url:"" },
-  { name:"Macallan Distillery", name_en:"Macallan Distillery", name_jp:"マッカラン蒸留所", area:"Speyside", lat:57.4840, lng:-3.2090, url:"https://www.themacallan.com" },
-  { name:"Miltonduff Distillery", name_en:"Miltonduff Distillery", name_jp:"ミルトンダフ蒸留所", area:"Speyside", lat:57.6412, lng:-3.2672, url:"" },
-  { name:"Mortlach Distillery", name_en:"Mortlach Distillery", name_jp:"モートラック蒸留所", area:"Speyside", lat:57.4457, lng:-3.1232, url:"" }
+  {
+    name: "Aberlour Distillery",
+    name_en: "Aberlour Distillery",
+    name_jp: "アベラワー蒸留所",
+    area: "Speyside",
+    lat: 57.467222,
+    lng: -3.228889,
+    url: "https://www.aberlour.com"
+  },
+  {
+    name: "Allt-A-Bhainne Distillery",
+    name_en: "Allt-A-Bhainne Distillery",
+    name_jp: "オルトナバーン蒸留所",
+    area: "Speyside",
+    lat: 57.4245,
+    lng: -3.2739,
+    url: ""
+  },
+  {
+    name: "Auchroisk Distillery",
+    name_en: "Auchroisk Distillery",
+    name_jp: "オスロスク蒸留所",
+    area: "Speyside",
+    lat: 57.5484,
+    lng: -3.2743,
+    url: ""
+  },
+  {
+    name: "Aultmore Distillery",
+    name_en: "Aultmore Distillery",
+    name_jp: "オルトモア蒸留所",
+    area: "Speyside",
+    lat: 57.6690,
+    lng: -2.9637,
+    url: "https://www.dewars.com"
+  },
+  {
+    name: "Balmenach Distillery",
+    name_en: "Balmenach Distillery",
+    name_jp: "バルメナック蒸留所",
+    area: "Speyside",
+    lat: 57.3472,
+    lng: -3.5564,
+    url: ""
+  },
+  {
+    name: "Balvenie Distillery",
+    name_en: "Balvenie Distillery",
+    name_jp: "バルヴェニー蒸留所",
+    area: "Speyside",
+    lat: 57.459194,
+    lng: -3.128583,
+    url: "https://www.thebalvenie.com"
+  },
+  {
+    name: "Benriach Distillery",
+    name_en: "Benriach Distillery",
+    name_jp: "ベンリアック蒸留所",
+    area: "Speyside",
+    lat: 57.611900,
+    lng: -3.292900,
+    url: "https://benriachdistillery.com"
+  },
+  {
+    name: "Benrinnes Distillery",
+    name_en: "Benrinnes Distillery",
+    name_jp: "ベンリネス蒸留所",
+    area: "Speyside",
+    lat: 57.547258,
+    lng: -2.954457,
+    url: ""
+  },
+  {
+    name: "Benromach Distillery",
+    name_en: "Benromach Distillery",
+    name_jp: "ベンロマック蒸留所",
+    area: "Speyside",
+    lat: 57.613245,
+    lng: -3.620489,
+    url: "https://www.benromach.com"
+  },
+  {
+    name: "Cardhu Distillery",
+    name_en: "Cardhu Distillery",
+    name_jp: "カーデュ蒸留所",
+    area: "Speyside",
+    lat: 57.470611,
+    lng: -3.350067,
+    url: "https://www.cardhudistillery.com"
+  },
+  {
+    name: "Cragganmore Distillery",
+    name_en: "Cragganmore Distillery",
+    name_jp: "クラガンモア蒸留所",
+    area: "Speyside",
+    lat: 57.410278,
+    lng: -3.394889,
+    url: "https://www.malts.com"
+  },
+  {
+    name: "Craigellachie Distillery",
+    name_en: "Craigellachie Distillery",
+    name_jp: "クライゲラヒ蒸留所",
+    area: "Speyside",
+    lat: 57.4901,
+    lng: -3.2047,
+    url: "https://www.dewars.com"
+  },
+  {
+    name: "Dailuaine Distillery",
+    name_en: "Dailuaine Distillery",
+    name_jp: "ダルユーイン蒸留所",
+    area: "Speyside",
+    lat: 57.452527,
+    lng: -3.272691,
+    url: ""
+  },
+  {
+    name: "Glenallachie Distillery",
+    name_en: "Glenallachie Distillery",
+    name_jp: "グレンアラヒー蒸留所",
+    area: "Speyside",
+    lat: 57.4764,
+    lng: -3.2083,
+    url: "https://www.theglenallachie.com"
+  },
+  {
+    name: "Glen Elgin Distillery",
+    name_en: "Glen Elgin Distillery",
+    name_jp: "グレンエルギン蒸留所",
+    area: "Speyside",
+    lat: 57.6300,
+    lng: -3.2913,
+    url: ""
+  },
+  {
+    name: "Glenfarclas Distillery",
+    name_en: "Glenfarclas Distillery",
+    name_jp: "グレンファークラス蒸留所",
+    area: "Speyside",
+    lat: 57.427210,
+    lng: -3.318222,
+    url: "https://www.glenfarclas.com"
+  },
+  {
+    name: "Glenfiddich Distillery",
+    name_en: "Glenfiddich Distillery",
+    name_jp: "グレンフィディック蒸留所",
+    area: "Speyside",
+    lat: 57.451336,
+    lng: -3.123686,
+    url: "https://www.glenfiddich.com"
+  },
+  {
+    name: "Glengrant Distillery",
+    name_en: "Glengrant Distillery",
+    name_jp: "グレングラント蒸留所",
+    area: "Speyside",
+    lat: 57.530413,
+    lng: -3.210792,
+    url: "https://www.glengrant.com"
+  },
+  {
+    name: "Glenlivet Distillery",
+    name_en: "Glenlivet Distillery",
+    name_jp: "グレンリベット蒸留所",
+    area: "Speyside",
+    lat: 57.343369,
+    lng: -3.339127,
+    url: "https://www.theglenlivet.com"
+  },
+  {
+    name: "Glenlossie Distillery",
+    name_en: "Glenlossie Distillery",
+    name_jp: "グレンロッシー蒸留所",
+    area: "Speyside",
+    lat: 57.6161,
+    lng: -3.3017,
+    url: ""
+  },
+  {
+    name: "Glen Moray Distillery",
+    name_en: "Glen Moray Distillery",
+    name_jp: "グレンマレイ蒸留所",
+    area: "Speyside",
+    lat: 57.644444,
+    lng: -3.341111,
+    url: "https://www.glenmoray.com"
+  },
+  {
+    name: "Glenrothes Distillery",
+    name_en: "Glenrothes Distillery",
+    name_jp: "グレンロセス蒸留所",
+    area: "Speyside",
+    lat: 57.526425,
+    lng: -3.215282,
+    url: "https://www.theglenrothes.com"
+  },
+  {
+    name: "Glen Spey Distillery",
+    name_en: "Glen Spey Distillery",
+    name_jp: "グレンスペイ蒸留所",
+    area: "Speyside",
+    lat: 57.6115,
+    lng: -3.2285,
+    url: ""
+  },
+  {
+    name: "Inchgower Distillery",
+    name_en: "Inchgower Distillery",
+    name_jp: "インチガワー蒸留所",
+    area: "Speyside",
+    lat: 57.661697201008224,
+    lng: -2.9618536151230725,
+    url: ""
+  },
+  {
+    name: "Knockando Distillery",
+    name_en: "Knockando Distillery",
+    name_jp: "ノッカンドゥ蒸留所",
+    area: "Speyside",
+    lat: 57.4434,
+    lng: -3.3683,
+    url: ""
+  },
+  {
+    name: "Linkwood Distillery",
+    name_en: "Linkwood Distillery",
+    name_jp: "リンクウッド蒸留所",
+    area: "Speyside",
+    lat: 57.635771,
+    lng: -3.286931,
+    url: ""
+  },
+  {
+    name: "Longmorn Distillery",
+    name_en: "Longmorn Distillery",
+    name_jp: "ロングモーン蒸留所",
+    area: "Speyside",
+    lat: 57.608427,
+    lng: -3.282249,
+    url: "https://www.longmorn.com/en/"
+  },
+  {
+    name: "Tamdhu Distillery",
+    name_en: "Tamdhu Distillery",
+    name_jp: "タムドゥー蒸留所",
+    area: "Speyside",
+    lat: 57.459423,
+    lng: -3.353561,
+    url: "https://www.tamdhu.com/"
+  },
+  {
+    name: "Tomintoul Distillery",
+    name_en: "Tomintoul Distillery",
+    name_jp: "トミントール蒸留所",
+    area: "Speyside",
+    lat: 57.312260,
+    lng: -3.412776,
+    url: "https://www.tomintoulwhisky.com/"
+  },
+  {
+    name: "Macallan Distillery",
+    name_en: "Macallan Distillery",
+    name_jp: "マッカラン蒸留所",
+    area: "Speyside",
+    lat: 57.484643,
+    lng: -3.206971,
+    url: "https://www.themacallan.com"
+  },
+  {
+    name: "Miltonduff Distillery",
+    name_en: "Miltonduff Distillery",
+    name_jp: "ミルトンダフ蒸留所",
+    area: "Speyside",
+    lat: 57.6412,
+    lng: -3.2672,
+    url: ""
+  },
+  {
+    name: "Mortlach Distillery",
+    name_en: "Mortlach Distillery",
+    name_jp: "モートラック蒸留所",
+    area: "Speyside",
+    lat: 57.443185,
+    lng: -3.122394,
+    url: "https://www.malts.com/en/mortlach"
+  },
+{
+    name: "Strathisla Distillery",
+    name_en: "Strathisla Distillery",
+    name_jp: "ストラスアイラ蒸留所",
+    area: "Speyside",
+    lat: 57.545795,
+    lng: -2.953334,
+    url: "https://www.chivas.com/en-EN/visit-strathisla"
+  },
+{
+    name: "Dufftown Distillery",
+    name_en: "Dufftown Distillery",
+    name_jp: "ダフタウン蒸留所",
+    area: "Speyside",
+    lat: 57.438500,
+    lng: -3.124600,
+    url: "https://www.malts.com/en-gb/brands/the-singleton"
+  },
+  {
+    name: "Speyburn Distillery",
+    name_en: "Speyburn Distillery",
+    name_jp: "スペイバーン蒸留所",
+    area: "Speyside",
+    lat: 57.567000,
+    lng: -3.227400,
+    url: "https://www.speyburn.com"
+  },
+  {
+    name: "Tamnavulin Distillery",
+    name_en: "Tamnavulin Distillery",
+    name_jp: "タムナヴーリン蒸留所",
+    area: "Speyside",
+    lat: 57.388800,
+    lng: -3.328300,
+    url: "https://www.tamnavulinwhisky.com"
+  },
+  {
+    name: "Glen Keith Distillery",
+    name_en: "Glen Keith Distillery",
+    name_jp: "グレンキース蒸留所",
+    area: "Speyside",
+    lat: 57.548700,
+    lng: -2.954700,
+    url: ""
+  },
+  {
+    name: "Tormore Distillery",
+    name_en: "Tormore Distillery",
+    name_jp: "トーモア蒸留所",
+    area: "Speyside",
+    lat: 57.411600,
+    lng: -3.421600,
+    url: ""
+  }
 ];
+
 
 /* ------------------------------------------------------------
    2) Scotland — Highlands（更新データ 28件）
