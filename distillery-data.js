@@ -418,9 +418,9 @@ const islandsData = [
   { name:"Scapa Distillery", name_en: "Scapa Distillery", name_jp: "スキャパ蒸留所", area: "Islands", lat:58.9376, lng:-2.9586, url:"https://www.scapawhisky.com" },
 
   // -------------------------
-  // Isle of Raasay（ラーゼイ島）
+  // Isle of Raasay（ラッセイ島）
   // -------------------------
-  { name:"Isle of Raasay Distillery", name_en: "Isle of Raasay Distillery", name_jp: "ラーゼイ蒸留所", area: "Islands", lat:57.3503, lng:-6.0583, url:"https://raasaydistillery.com" },
+{ name: "ラッセイ蒸留所", name_jp: "ラッセイ蒸留所", name_en: "Raasay Distillery", area: "Islands", lat: 57.35203646229027, lng: -6.07415076978751, url: "https://raasaydistillery.com/" },
 
   // -------------------------
   // Isle of Harris（ハリス島）
