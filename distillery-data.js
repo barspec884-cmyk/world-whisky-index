@@ -573,6 +573,10 @@ const japanData = [
   { name: "嘉之助蒸溜所", name_jp: "嘉之助蒸溜所", name_en: "Kanosuke Distillery", area: "Kagoshima", lat: 31.603006091293214, lng: 130.33543333395434, url: "https://kanosuke.com/" },
   { name: "マルス津貫蒸溜所", name_jp: "マルス津貫蒸溜所", name_en: "Mars Tsunuki Distillery", area: "Kagoshima", lat: 31.358807674635596, lng: 130.2862268684703, url: "https://www.hombo.co.jp/distillery/tsunuki/" },
   { name: "宮城峡蒸溜所", name_jp: "宮城峡蒸溜所", name_en: "Miyagikyo Distillery", area: "Miyagi", lat: 38.346323, lng: 140.755526, url: "https://www.nikka.com/distilleries/miyagikyo/" },
+  { name: "高藏蒸留所", name_jp: "高藏蒸留所", name_en: "Takazo Distillery", area: "Ibaraki", lat: 36.357981836871474, lng: 140.475928691457, url: "https://takazo.meirishurui.com/" },
+  { name: "尾鈴山蒸留所", name_jp: "尾鈴山蒸留所", name_en: "OSUZUYAMA Distillery", area: "Miyazaki", lat: 32.22180937697971, lng: 131.4210821779105, url: "https://osuzuyama.co.jp/" },
+  { name: "Distillery Water Dragon", name_jp: "ディスティラリー ウォーター ドラゴン", name_en: "Distillery Water Dragon", area: "Shizuoka", lat: 35.1197325475782, lng: 138.91950278123707, url: "https://waterdragon.co.jp/" },
+  { name: "知多蒸溜所", name_jp: "知多蒸溜所", name_en: "Suntory Chita Distillery", area: "Aichi", lat: 35.00527932120584, lng: 136.851636528231, url: "https://www.suntory.co.jp/whisky/chita/" },
   { name: "紅櫻蒸溜所", name_jp: "紅櫻蒸溜所", name_en: "Benizakura Distillery", area: "Hokkaido", lat: 42.990104, lng: 141.364671, url: "https://www.hlwhisky.co.jp/" }
 ];
 /* ------------------------------------------------------------
