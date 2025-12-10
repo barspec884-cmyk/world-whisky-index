@@ -779,28 +779,26 @@ const canadaData = [
    10) Ireland（復旧データ 20件）
 ------------------------------------------------------------ */
 const irelandData = [
-  { name:"Ballykeefe Distillery", name_en:"Ballykeefe", name_jp:"バリーキーフ", area:"Ireland", lat:52.6186, lng:-7.3197, url:"" },
-  { name:"Boann Distillery", name_en:"Boann", name_jp:"ボアン", area:"Ireland", lat:53.7431, lng:-6.3773, url:"" },
-  { name:"Clonakilty Distillery", name_en:"Clonakilty", name_jp:"クロナキルティ", area:"Ireland", lat:51.6264, lng:-8.8953, url:"" },
-  { name:"Dingle Distillery (Cooley)", name_en:"Cooley", name_jp:"クーリー", area:"Ireland", lat:52.1465, lng:-10.2882, url:"" },
-  { name:"Quintessential Brands (Dingle)", name_en:"Dingle", name_jp:"ディングル", area:"Ireland", lat:53.3375, lng:-6.273, url:"" },
-  { name:"Glendalough Distillery", name_en:"Dublin Liberties", name_jp:"ダブリンリバティーズ", area:"Ireland", lat:53.0076, lng:-6.3752, url:"" },
-  { name:"Lambay Irish Whiskey Co.", name_en:"Glendree", name_jp:"グレンドリー", area:"Ireland", lat:53.4867, lng:-6.0125, url:"" },
-  { name:"Diageo (Kilbeggan)", name_en:"Kilbeggan", name_jp:"キルベガン", area:"Ireland", lat:53.3444, lng:-6.2783, url:"" },
-  { name:"Lough Gill Distillery", name_en:"Lough Gill", name_jp:"ロッホギル", area:"Ireland", lat:54.275, lng:-8.455, url:"" },
-  { name:"Brown-Forman (Midleton)", name_en:"Midleton", name_jp:"ミドルトン", area:"Ireland", lat:53.7088, lng:-6.5501, url:"" },
-  { name:"Teeling Whiskey Co.", name_en:"Pearse Lyons", name_jp:"ピアースライオンズ", area:"Ireland", lat:53.3364, lng:-6.2625, url:"" },
-  { name:"Tipperary Boutique Distillery", name_en:"Powerscourt", name_jp:"パワーズコート", area:"Ireland", lat:52.5008, lng:-7.7801, url:"" },
-  { name:"William Grant & Sons (Roe & Co)", name_en:"Roe & Co", name_jp:"ロー&コー", area:"Ireland", lat:53.2797, lng:-7.5029, url:"" },
-  { name:"Renegade Spirits (Royal Oak)", name_en:"Royal Oak", name_jp:"ロイヤルオーク", area:"Ireland", lat:52.2612, lng:-7.1085, url:"" },
-  { name:"West Cork Distillers (Shed)", name_en:"Shed", name_jp:"シェッド", area:"Ireland", lat:51.5284, lng:-9.2818, url:"" },
-  { name:"Boatyard Distillery (Slane)", name_en:"Slane", name_jp:"スレーン", area:"Ireland", lat:54.3414, lng:-7.6322, url:"" },
-  { name:"Copeland Distillery (Teeling)", name_en:"Teeling", name_jp:"ティーリング", area:"Ireland", lat:54.4069, lng:-5.5139, url:"" },
-  { name:"Hinch Distillery (Waterford)", name_en:"Waterford", name_jp:"ウォーターフォード", area:"Ireland", lat:54.5167, lng:-5.922, url:"" },
-  { name:"Killowen Distillery (West Cork)", name_en:"West Cork", name_jp:"ウエストコーク", area:"Ireland", lat:54.0759, lng:-6.136, url:"" },
-  { name:"Pernod Ricard (Great Northern)", name_en:"Great Northern", name_jp:"グレートノーザン", area:"Ireland", lat:51.9079, lng:-8.1706, url:"" }
-
+  { name:"オールド・ブッシュミルズ蒸留所", name_jp:"オールド・ブッシュミルズ蒸留所", name_en:"Old Bushmills Distillery", area:"Ireland", lat:55.201790, lng:-6.520730, url:"https://www.bushmills.eu/" },
+  { name:"ジェームソン・ミドルトン蒸留所", name_jp:"ジェームソン・ミドルトン蒸留所", name_en:"Jameson Midleton Distillery", area:"Ireland", lat:51.913213, lng:-8.169338, url:"https://www.jamesonwhiskey.com/en-za/visit-our-distilleries/midleton-distillery-cork/" },
+  { name:"ティーリング蒸留所", name_jp:"ティーリング蒸留所", name_en:"Teeling Distillery", area:"Ireland", lat:53.337860, lng:-6.276830, url:"https://teelingdistillery.com/" },
+  { name:"ディングル蒸留所", name_jp:"ディングル蒸留所", name_en:"Dingle Distillery", area:"Ireland", lat:52.142435, lng:-10.289555, url:"https://dingledistillery.ie/" },
+  { name:"スレイン蒸留所", name_jp:"スレイン蒸留所", name_en:"Slane Distillery", area:"Ireland", lat:53.577500, lng:-6.611940, url:"https://www.slanecastle.ie/" },
+  { name:"キルベガン蒸留会社", name_jp:"キルベガン蒸留会社", name_en:"Kilbeggan Distilling Co.", area:"Ireland", lat:53.369679, lng:-7.503086, url:"https://www.kilbegganwhiskey.com/" },
+  { name:"パワースコート蒸留所", name_jp:"パワースコート蒸留所", name_en:"Powerscourt Distillery", area:"Ireland", lat:53.186562, lng:-6.190346, url:"https://powerscourt.com/" },
+  { name:"ピアース・ライオンズ蒸留所", name_jp:"ピアース・ライオンズ蒸留所", name_en:"Pearse Lyons Distillery", area:"Ireland", lat:53.343682, lng:-6.289592, url:"https://www.pearselyonsdistillery.com/" },
+  { name:"クロナキルティ蒸留所", name_jp:"クロナキルティ蒸留所", name_en:"Clonakilty Distillery", area:"Ireland", lat:51.621652, lng:-8.885934, url:"https://clonakiltydistillery.ie/" },
+  { name:"タラモア蒸留所", name_jp:"タラモア蒸留所", name_en:"Tullamore Distillery", area:"Ireland", lat:53.253225, lng:-7.500739, url:"https://www.tullamoredew.com/en-gb/visit-us/" },
+  { name:"ウォーターフォード蒸留所", name_jp:"ウォーターフォード蒸留所", name_en:"Waterford Distillery", area:"Ireland", lat:52.332073, lng:-7.117563, url:"https://waterfordwhisky.com/" },
+  { name:"リバティーズ蒸留所", name_jp:"リバティーズ蒸留所", name_en:"The Dublin Liberties Distillery", area:"Ireland", lat:53.341900, lng:-6.281900, url:"https://thedld.com/" },
+  { name:"バリーキーフ蒸留所", name_jp:"バリーキーフ蒸留所", name_en:"Ballykeefe Distillery", area:"Ireland", lat:52.614686, lng:-7.315759, url:"https://ballykeefedistillery.ie/" },
+  { name:"ボアン蒸溜所", name_jp:"ボアン蒸溜所", name_en:"Boann Distillery", area:"Ireland", lat:53.725566, lng:-6.379626, url:"https://www.boannwhiskey.com/" },
+  { name:"グレンダロッホ蒸留所", name_jp:"グレンダロッホ蒸留所", name_en:"Glendalough Distillery", area:"Ireland", lat:53.004980, lng:-6.353680, url:"https://glendaloughdistillery.com/" },
+  { name:"ロッホ・ギル蒸留所", name_jp:"ロッホ・ギル蒸留所", name_en:"Lough Gill Distillery", area:"Ireland", lat:54.270400, lng:-8.457200, url:"https://loughgill.com/" },
+  { name:"ウエスト・コーク蒸留所", name_jp:"ウエスト・コーク蒸留所", name_en:"West Cork Distillers", area:"Ireland", lat:51.552320, lng:-9.257810, url:"https://westcorkdistillers.com/" },
+  { name:"ロー・アンド・コー蒸留所", name_jp:"ロー・アンド・コー蒸留所", name_en:"Roe & Co Distillery", area:"Ireland", lat:53.341320, lng:-6.285570, url:"https://www.roeandcowhiskey.com/" }
 ];
+
 /* ------------------------------------------------------------
    11) Others（更新データ 3件：インド, スウェーデン, 台湾）
 ------------------------------------------------------------ */
