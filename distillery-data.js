@@ -577,6 +577,8 @@ const japanData = [
   { name: "尾鈴山蒸留所", name_jp: "尾鈴山蒸留所", name_en: "OSUZUYAMA Distillery", area: "Miyazaki", lat: 32.22180937697971, lng: 131.4210821779105, url: "https://osuzuyama.co.jp/" },
   { name: "Distillery Water Dragon", name_jp: "ディスティラリー ウォーター ドラゴン", name_en: "Distillery Water Dragon", area: "Shizuoka", lat: 35.1197325475782, lng: 138.91950278123707, url: "https://waterdragon.co.jp/" },
   { name: "知多蒸溜所", name_jp: "知多蒸溜所", name_en: "Suntory Chita Distillery", area: "Aichi", lat: 35.00527932120584, lng: 136.851636528231, url: "https://www.suntory.co.jp/whisky/chita/" },
+  { name: "許田蒸留所", name_jp: "許田蒸留所", name_en: "Kyoda Distillery", area: "Okinawa", lat:  26.537465498780012, lng: 127.96217345888932, url: "https://www.helios-syuzo.co.jp/" },
+ { name: "州崎蒸溜所", name_jp: "州崎蒸溜所", name_en: "Suzaki Distillery", area: "Okinawa", lat:  26.335875425181772, lng: 127.85095682177828, url: "https://osuzuyama.co.jp/" },
   { name: "紅櫻蒸溜所", name_jp: "紅櫻蒸溜所", name_en: "Benizakura Distillery", area: "Hokkaido", lat: 42.990104, lng: 141.364671, url: "https://www.hlwhisky.co.jp/" }
 ];
 /* ------------------------------------------------------------
