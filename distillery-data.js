@@ -967,6 +967,15 @@ const othersData = [
     lng: -3.522060,
     url: "https://www.penderyn.wales/"
   },
+ {
+  name: "Kyrö Distillery",
+  name_jp: "キュロ蒸溜所",
+  name_en: "Kyrö Distillery",
+  area: "Finland",
+  lat: 62.984595005035885,
+  lng: 22.352914606626257,
+  url: "https://visit.kyrodistillery.com/en"
+ },
   {
     name:"Kavalan Distillery",
     name_en:"Kavalan Distillery",
