@@ -1,0 +1,387 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Whisky Bottlers — ボトラーズ一覧</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+
+<style>
+:root {
+  --bg:#0f0e0d;
+  --ink:#f6f1e9;
+  --accent:#d7b274;
+  --border:#2f2a25;
+}
+body {
+  margin:0;
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.7;
+}
+h1 {
+  text-align:center;
+  font-size:26px;
+  color:var(--accent);
+  margin-top:10px;
+  letter-spacing:.04em;
+}
+.subtitle {
+  text-align:center;
+  color:#c6b8a2;
+  font-size:15px;
+  margin-bottom:10px;
+}
+.back-btn {
+  display:inline-block;
+  margin:4px;
+  padding:8px 16px;
+  border:1px solid rgba(199,169,122,.4);
+  border-radius:8px;
+  background:#181614;
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+  transition:all .2s;
+}
+.back-btn:hover {background:#1f1b17;color:#fff4e0;}
+
+/* 固定ヘッダー */
+header {
+  position:sticky;
+  top:0;
+  background:rgba(15,14,13,0.96);
+  backdrop-filter:blur(6px);
+  padding:10px 10px 10px;
+  z-index:10;
+  border-bottom:1px solid rgba(215,178,116,0.25);
+}
+.searchbar { text-align:center; margin-top:10px; }
+.searchbar input {
+  width:90%;
+  max-width:480px;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid var(--accent);
+  background:#181614;
+  color:var(--ink);
+  font-size:16px;
+}
+
+/* 国別フィルタボタン */
+.filter-group {
+  text-align:center;
+  margin-top:10px;
+  overflow-x:auto;
+  white-space:nowrap;
+  padding-bottom:5px;
+}
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: #c6b8a2;
+  padding: 5px 12px;
+  margin: 0 3px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.filter-btn.active {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+/* A〜Zナビ */
+.az-nav {
+  position:sticky;
+  top:140px; /* ヘッダーの高さに合わせて調整 */
+  z-index:9;
+  background:rgba(15,14,13,0.95);
+  text-align:center;
+  padding:8px 4px;
+  overflow-x:auto;
+  white-space:nowrap;
+  border-bottom:1px solid rgba(215,178,116,0.25);
+}
+.az-nav a {
+  color:#d7b274;
+  margin:0 5px;
+  font-weight:600;
+  text-decoration:none;
+  display:inline-block;
+  font-size: 14px;
+}
+
+/* リスト表示の改善 */
+main#list {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); /* 少し広めに */
+  gap:12px;
+  padding:20px;
+}
+.item {
+  display: flex; /* 横並び */
+  align-items: center;
+  background:#1b1a19;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px;
+  transition:transform .2s ease;
+}
+.fi {
+  width: 28px; /* 国旗のサイズ */
+  flex-shrink: 0;
+  margin-right: 15px;
+  border-radius: 2px;
+}
+.item-text {
+  flex-grow: 1;
+}
+.ja {font-size:15px;color:#f6f1e9;font-weight:600;}
+.en {font-size:12px;color:#c7bfa8;margin-top:2px; text-transform: uppercase;}
+
+.section-title {
+  grid-column:1 / -1;
+  font-size:18px;
+  font-weight:700;
+  color:#d7b274;
+  margin-top:25px;
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
+}
+
+footer {
+  text-align:center;
+  margin:40px 0;
+  color:#b9b2a6;
+  font-size:0.8rem;
+}
+
+@media(max-width:600px){
+  .back-btn{display:block;width:95%;text-align:center;margin: 0 auto 10px;}
+  .az-nav { top: 155px; } /* スマホ用調整 */
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>Whisky Bottlers</h1>
+  <p class="subtitle">独立系ボトラーズ一覧</p>
+  <div style="text-align:center;">
+    <a href="index.html" class="back-btn">← World Whisky Index に戻る</a>
+  </div>
+  <div class="searchbar">
+    <input type="text" id="search" placeholder="検索...（日本語・英語どちらでも）">
+  </div>
+  
+  <div class="filter-group">
+    <button class="filter-btn active" data-filter="all">ALL</button>
+    <button class="filter-btn" data-filter="gb-sct">Scotland</button>
+    <button class="filter-btn" data-filter="jp">Japan</button>
+    <button class="filter-btn" data-filter="it">Italy</button>
+    <button class="filter-btn" data-filter="de">Germany</button>
+    <button class="filter-btn" data-filter="gb-eng">England</button>
+    <button class="filter-btn" data-filter="tw">Taiwan</button>
+  </div>
+</header>
+
+<div class="az-nav">
+  <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a>
+  <a href="#E">E</a><a href="#F">F</a><a href="#G">G</a><a href="#H">H</a>
+  <a href="#I">I</a><a href="#J">J</a><a href="#K">K</a><a href="#L">L</a>
+  <a href="#M">M</a><a href="#N">N</a><a href="#R">R</a><a href="#S">S</a>
+  <a href="#T">T</a><a href="#U">U</a><a href="#V">V</a><a href="#W">W</a>
+  <a href="#JP">JP</a>
+</div>
+
+<main id="list">
+  <div id="A" class="section-title">A</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ラトレー</div><div class="en">A.D. RATTRAY</div></div></div>
+  <div class="item" data-country="ch"><span class="fi fi-ch"></span><div class="item-text"><div class="ja">アクラ</div><div class="en">ACLA</div></div></div>
+  <div class="item" data-country="jp"><span class="fi fi-jp"></span><div class="item-text"><div class="ja">エイコーン</div><div class="en">ACORN</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">アデルフィ</div><div class="en">ADELPHI</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">アランビック クラシック</div><div class="en">ALAMBIC CLASSIQUE</div></div></div>
+  <div class="item" data-country="us"><span class="fi fi-us"></span><div class="item-text"><div class="ja">アレクサンダー マレー</div><div class="en">ALEXANDER MURRAY</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">アリスター ウォーカー</div><div class="en">ALISTAIR WALKER</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">アンガス ダンディ</div><div class="en">ANGUS DUNDEE</div></div></div>
+  <div class="item" data-country="tw"><span class="fi fi-tw"></span><div class="item-text"><div class="ja">アクア ヴィタエ</div><div class="en">AQUA VITAE</div></div></div>
+  <div class="item" data-country="nl"><span class="fi fi-nl"></span><div class="item-text"><div class="ja">アーカイヴス</div><div class="en">ARCHIVES</div></div></div>
+  <div class="item" data-country="tw"><span class="fi fi-tw"></span><div class="item-text"><div class="ja">アレン トレーディング</div><div class="en">AREN TRADING</div></div></div>
+  <div class="item" data-country="be"><span class="fi fi-be"></span><div class="item-text"><div class="ja">アスタモリス</div><div class="en">ASTA MORRIS</div></div></div>
+
+  <div id="B" class="section-title">B</div>
+  <div class="item" data-country="gb-eng"><span class="fi fi-gb-eng"></span><div class="item-text"><div class="ja">ベリーブラザーズ＆ラッド</div><div class="en">BERRY BROS. & RUDD</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ブラックアダー</div><div class="en">BLACKADDER</div></div></div>
+
+  <div id="C" class="section-title">C</div>
+  <div class="item" data-country="ch"><span class="fi fi-ch"></span><div class="item-text"><div class="ja">クリスチャン ダリー</div><div class="en">C. DULLY</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ケイデンヘッド</div><div class="en">CADENHEAD'S</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">クラクストンズ</div><div class="en">CLAXTON'S</div></div></div>
+  <div class="item" data-country="gb-eng"><span class="fi fi-gb-eng"></span><div class="item-text"><div class="ja">コンパス ボックス</div><div class="en">COMPASS BOX</div></div></div>
+
+  <div id="D" class="section-title">D</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">デカデントドリンクス</div><div class="en">DECADENT DRINKS</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ダグラス レイン</div><div class="en">DOUGLAS LAING</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ドラムフール</div><div class="en">DRAMFOOL</div></div></div>
+  <div class="item" data-country="jp"><span class="fi fi-jp"></span><div class="item-text"><div class="ja">ドラムラッド</div><div class="en">DRAMLAD & CO.</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ダン ベーガン</div><div class="en">DUN BHEAGAN</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ダン イーダン</div><div class="en">DUN EIDEANN</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ダンカン テイラー</div><div class="en">DUNCAN TAYLOR</div></div></div>
+
+  <div id="E" class="section-title">E</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">エディション スピリッツ</div><div class="en">EDITION SPIRITS</div></div></div>
+  <div class="item" data-country="gb-eng"><span class="fi fi-gb-eng"></span><div class="item-text"><div class="ja">エリクサー ディスティラーズ</div><div class="en">ELIXIR DISTILLERS</div></div></div>
+  <div class="item" data-country="jp"><span class="fi fi-jp"></span><div class="item-text"><div class="ja">イーパワー</div><div class="en">EPOWER</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">イースピリッツ</div><div class="en">ESPIRITS TRADING</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">エクスクルーシヴ モルツ</div><div class="en">EXCLUSIVE MALTS</div></div></div>
+
+  <div id="F" class="section-title">F</div>
+  <div class="item" data-country="gb-eng"><span class="fi fi-gb-eng"></span><div class="item-text"><div class="ja">ファーストカスク</div><div class="en">FIRST CASK</div></div></div>
+
+  <div id="G" class="section-title">G</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ジェネラル ウイスキー トレーダーズ</div><div class="en">GENERAL WHISKY TRADERS</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">グローバルウイスキー</div><div class="en">GLOBAL WHISKY</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ゴールデン カスク</div><div class="en">GOLDEN CASK</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ゴードン&マクファイル</div><div class="en">GORDON & MACPHAIL</div></div></div>
+
+  <div id="H" class="section-title">H</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ハートブラザーズ</div><div class="en">HART BROTHERS</div></div></div>
+  <div class="item" data-country="it"><span class="fi fi-it"></span><div class="item-text"><div class="ja">ヒドゥン スピリッツ</div><div class="en">HIDDEN SPIRITS</div></div></div>
+  <div class="item" data-country="it"><span class="fi fi-it"></span><div class="item-text"><div class="ja">ハイスピリッツ</div><div class="en">HIGH SPIRITS</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ハウス オブ ヘイゼルウッド</div><div class="en">HOUSE OF HAZELWOOD</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ハウス オブ マッカラム</div><div class="en">HOUSE OF McCALLUM</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ハンターレイン</div><div class="en">HUNTER LAING</div></div></div>
+
+  <div id="I" class="section-title">I</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">イアン マクロード</div><div class="en">IAN MACLEOD</div></div></div>
+  <div id="J" class="section-title">J</div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">ジャック ウィバーズ</div><div class="en">JACK WIBERS</div></div></div>
+  <div id="K" class="section-title">K</div>
+  <div class="item" data-country="jp"><span class="fi fi-jp"></span><div class="item-text"><div class="ja">乾杯会</div><div class="en">KANPAIKAI</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">キングスバリー</div><div class="en">KINGSBURY</div></div></div>
+  <div class="item" data-country="jp"><span class="fi fi-jp"></span><div class="item-text"><div class="ja">京都ファインワイン&スピリッツ</div><div class="en">KYOTO FINE WINE AND SPIRITS</div></div></div>
+  <div id="L" class="section-title">L</div>
+  <div class="item" data-country="fr"><span class="fi fi-fr"></span><div class="item-text"><div class="ja">ラ メゾン デュ ウイスキー</div><div class="en">LA MAISON DU WHISKY</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">レディ オブ ザ グレン</div><div class="en">LADY OF THE GLEN</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">リキッド サン</div><div class="en">LIQUID SUN</div></div></div>
+  <div id="M" class="section-title">M</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">マキロップ チョイス</div><div class="en">MACKILLOP'S CHOICE</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">モルトバーン</div><div class="en">MALTBARN</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">モルツ オブ スコットランド</div><div class="en">MALTS OF SCOTLAND</div></div></div>
+  <div class="item" data-country="gb-eng"><span class="fi fi-gb-eng"></span><div class="item-text"><div class="ja">マスター オブ モルト</div><div class="en">MASTER OF MALT</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">メドウサイド</div><div class="en">MEADOWSIDE</div></div></div>
+  <div class="item" data-country="it"><span class="fi fi-it"></span><div class="item-text"><div class="ja">ムーン インポート</div><div class="en">MOON IMPORT</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">モリソン スコッチ ウイスキー</div><div class="en">MORRISON SCOCH WHISKY</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">モスバーン</div><div class="en">MOSSBURN</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">マーレイ マクダヴィッド</div><div class="en">MURRAY McDAVID</div></div></div>
+  <div class="item" data-country="it"><span class="fi fi-it"></span><div class="item-text"><div class="ja">マイ ネーム イズ ウイスキー</div><div class="en">MY NAME IS WHISKY</div></div></div>
+  <div id="N" class="section-title">N</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ノース スター</div><div class="en">NORTH STAR</div></div></div>
+  <div id="R" class="section-title">R</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">レスト＆ビー サンクフル</div><div class="en">REST & BE THANKFUL</div></div></div>
+
+  <div id="S" class="section-title">S</div>
+  <div class="item" data-country="it"><span class="fi fi-it"></span><div class="item-text"><div class="ja">サマローリ</div><div class="en">SAMAROLI</div></div></div>
+  <div class="item" data-country="it"><span class="fi fi-it"></span><div class="item-text"><div class="ja">サマローリ マサム</div><div class="en">SAMAROLI - MASAM</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">ザンジバー</div><div class="en">SANSIBAR</div></div></div>
+  <div class="item" data-country="jp"><span class="fi fi-jp"></span><div class="item-text"><div class="ja">スコッチ モルト 販売</div><div class="en">SCOTCH MALT SALES</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">スコッチ ユニバース</div><div class="en">SCOTCH UNIVERSE</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">シグナトリー</div><div class="en">SIGNATORY</div></div></div>
+  <div class="item" data-country="it"><span class="fi fi-it"></span><div class="item-text"><div class="ja">シルバー シール</div><div class="en">SILVER SEAL</div></div></div>
+  <div class="item" data-country="us"><span class="fi fi-us"></span><div class="item-text"><div class="ja">シングル カスク ネーション</div><div class="en">SINGLE CASK NATION</div></div></div>
+  <div class="item" data-country="se"><span class="fi fi-se"></span><div class="item-text"><div class="ja">スヴェンスカ エルドヴァッテン</div><div class="en">SVENSKA ELDVATTEN</div></div></div>
+  <div class="item" data-country="fr"><span class="fi fi-fr"></span><div class="item-text"><div class="ja">スウェル ド スピリッツ</div><div class="en">SWELL DE SPIRITS</div></div></div>
+
+  <div id="T" class="section-title">T</div>
+  <div class="item" data-country="gb-eng"><span class="fi fi-gb-eng"></span><div class="item-text"><div class="ja">キャラクター オブ アイラ</div><div class="en">THE CHARACTER OF ISLAY</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ハイランダーイン ボトリング</div><div class="en">THE HIGHLANDER INN'S BOTTLING</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">モルト ウイスキー カンパニー</div><div class="en">THE MALT WHISKY CO.</div></div></div>
+  <div class="item" data-country="be"><span class="fi fi-be"></span><div class="item-text"><div class="ja">ネクター</div><div class="en">THE NECTAR</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">スコッチ モルト ウイスキー ソサエティ</div><div class="en">THE SCOTCH MALT WHISKY SOCIETY</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">スコッチ シングル モルト サークル</div><div class="en">THE SCOTCH SINGLE MALT CIRCLE</div></div></div>
+  <div class="item" data-country="sg"><span class="fi fi-sg"></span><div class="item-text"><div class="ja">シングル キャスク</div><div class="en">THE SINGLE CASK</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ヴィンテージ モルト ウイスキー</div><div class="en">THE VINTAGE MALT WHISKY</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">ウイスキー エージェンシー</div><div class="en">THE WHISKY AGENCY</div></div></div>
+  <div class="item" data-country="jp"><span class="fi fi-jp"></span><div class="item-text"><div class="ja">ウイスキー フープ</div><div class="en">THE WHISKY HOOP</div></div></div>
+  <div class="item" data-country="tw"><span class="fi fi-tw"></span><div class="item-text"><div class="ja">ウィスキー ファインド</div><div class="en">THE WHISKYFIND</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">トンプソン ブラザーズ</div><div class="en">THOMPSON BROS</div></div></div>
+  <div class="item" data-country="jp"><span class="fi fi-jp"></span><div class="item-text"><div class="ja">スリー リバーズ</div><div class="en">THREE RIVERS</div></div></div>
+
+  <div id="U" class="section-title">U</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ユナイテッド ディスティラーズ</div><div class="en">UD</div></div></div>
+  <div id="V" class="section-title">V</div>
+  <div class="item" data-country="gb-eng"><span class="fi fi-gb-eng"></span><div class="item-text"><div class="ja">ヴァリンチ＆マレット</div><div class="en">VALINCH & MALLET</div></div></div>
+  <div class="item" data-country="it"><span class="fi fi-it"></span><div class="item-text"><div class="ja">ヴェリエ</div><div class="en">VELIER</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">ヴィジュアル フレーバー</div><div class="en">VISUAL FLAVOUR</div></div></div>
+  <div id="W" class="section-title">W</div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ワット ウイスキー</div><div class="en">WATT WHISKY</div></div></div>
+  <div class="item" data-country="gb-sct"><span class="fi fi-gb-sct"></span><div class="item-text"><div class="ja">ウィームス</div><div class="en">WEMYSS</div></div></div>
+  <div class="item" data-country="jp"><span class="fi fi-jp"></span><div class="item-text"><div class="ja">ウイスク イー</div><div class="en">WHISK-E</div></div></div>
+  <div class="item" data-country="de"><span class="fi fi-de"></span><div class="item-text"><div class="ja">ウィスキー ファスル</div><div class="en">WHISKY FÄSSLE</div></div></div>
+  <div class="item" data-country="it"><span class="fi fi-it"></span><div class="item-text"><div class="ja">ウィルソン&モーガン</div><div class="en">WILSON & MORGAN</div></div></div>
+
+  <div id="JP" class="section-title">JP</div>
+  <div class="item" data-country="jp"><span class="fi fi-jp"></span><div class="item-text"><div class="ja">サケイクのカイ</div><div class="en">酒育の会</div></div></div>
+</main>
+
+<footer>© Bar SPEC — Whisky Bottlers Index</footer>
+
+<script>
+const searchInput = document.getElementById('search');
+const filterBtns = document.querySelectorAll('.filter-btn');
+const items = document.querySelectorAll('.item');
+const sections = document.querySelectorAll('.section-title');
+
+let currentFilter = 'all';
+
+function updateList() {
+  const searchTerm = searchInput.value.toLowerCase();
+
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    const country = item.getAttribute('data-country');
+    
+    const matchesSearch = text.includes(searchTerm);
+    const matchesFilter = (currentFilter === 'all' || country === currentFilter);
+
+    if (matchesSearch && matchesFilter) {
+      item.style.display = 'flex';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  // 項目が一つもないセクション（A, B, Cなど）を隠す
+  sections.forEach(sec => {
+    let next = sec.nextElementSibling;
+    let hasVisible = false;
+    while (next && !next.classList.contains('section-title')) {
+      if (next.style.display !== 'none') {
+        hasVisible = true;
+        break;
+      }
+      next = next.nextElementSibling;
+    }
+    sec.style.display = hasVisible ? 'block' : 'none';
+  });
+}
+
+// 🔍 検索イベント
+searchInput.addEventListener('input', updateList);
+
+// 🏴 フィルタボタンイベント
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.getAttribute('data-filter');
+    updateList();
+  });
+});
+</script>
+</body>
+</html>
